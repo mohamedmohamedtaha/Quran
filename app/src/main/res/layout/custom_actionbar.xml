@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    >
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/defultValueSix"
+        android:layout_marginTop="@dimen/defultValueSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/iconqoran"
+        android:contentDescription="@string/decriptionImage" />
+<SeekBar
+    android:id="@id/seekBar"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="@dimen/marginRightLeftSeekbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/imageView"
+    android:layout_toLeftOf="@+id/textNameSorActionBar"
+    android:thumb="@drawable/thumb"
+    android:progressDrawable="@drawable/progress_seekbar"
+    android:layoutDirection="ltr"
+
+    />
+    <TextView
+        android:id="@+id/textNameSorActionBar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/marginTopNameSora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColortextContent"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSizeActionbar"
+        android:layout_marginTop="@dimen/marginTopNameSora"
+         />
+</RelativeLayout>

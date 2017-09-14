@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.MohamedTaha.Imagine.Quran">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/iconqoran"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/iconqoran"
+        android:supportsRtl="true"
+        android:launchMode="singleInstance"
+        android:theme="@style/FullScreenWindow">
+        <activity android:name="com.MohamedTaha.Imagine.Quran.MainActivity"
+            android:theme="@style/backgroundTheme"
+            android:configChanges="orientation|screenSize">
+        </activity>
+        <activity
+            android:name="com.MohamedTaha.Imagine.Quran.MainFragmentTab"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
+
+        </activity>
+        <activity
+            android:name="com.MohamedTaha.Imagine.Quran.SplashActivity"
+            android:theme="@style/backgroundTheme"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.MohamedTaha.Imagine.Quran.CustomReadKoran"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity android:name="com.MohamedTaha.Imagine.Quran.ListSoundReader"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
+
+        </activity>
+        <receiver android:name=".CancelNotification"
+            />
+        <receiver android:name=".AlarmReceiver"/>
+        <receiver android:name=".AlarmBootRecevier"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED">
+
+                </action>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

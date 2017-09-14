@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thickness="@dimen/defultValueZero"
+    android:shape="rectangle">
+    <stroke android:width="@dimen/defultValueThree"
+        android:color="@color/coloroutLine"/>
+    <corners android:radius="@dimen/defultValueTwo" />
+    <gradient
+        android:startColor="@color/transperant"
+        android:endColor="@color/transperant"
+        android:type="linear"
+        android:angle="270"/>
+
+</shape>

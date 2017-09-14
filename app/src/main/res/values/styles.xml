@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <!--  Alternative Base application theme. -->
+
+    <style name="AppThemeCustom" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <!-- Delete ActionBar -->
+
+    <style name="FullScreenWindow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+    <!-- set background for a void OverDraw  -->
+    <style name="backgroundTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- set background for a void Background Floating Action Button  -->
+    <style name="MyFloatingButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/textColorBackgroundFloatingButton</item>
+    </style>
+
+    <!-- set FloatingActionButton-->
+    <style name="themeFloatButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeftRightBottom</item>
+        <item name="android:layout_marginRight">@dimen/marginLeftRightBottom</item>
+        <item name="android:layout_marginBottom">@dimen/marginLeftRightBottom</item>
+
+    </style>
+    <!-- set Sub FloatingActionButton -->
+    <style name="themeSubFloatButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- set textNameShehk and NameSora -->
+    <style name="themetextSoraAndShekh">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginTop">@dimen/marginTopNameSora</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!-- set tthemetextForTimeSound in Main Activity -->
+    <style name="themetextForTimeSound">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">@dimen/textSizeTimeSound</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/textColorTime</item>
+    <item name="android:layout_above">@+id/songCurrentDurationLabel</item>
+        <item name="android:layout_gravity">center</item>
+
+
+    </style>
+    <!-- set theme ImageView in Main Activity -->
+    <style name="themeImageView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+           </style>
+
+
+    <!-- set theme custom_name_reader -->
+<style name="themecustom_name_reader">
+<item name="android:layout_width">wrap_content</item>
+<item name="android:layout_height">@dimen/defultValueZero</item>
+ <item name="android:textSize">@dimen/textSizeTimeSound</item>
+ <item name="android:layout_marginTop">@dimen/defultValueFive</item>
+    <item name="android:layout_marginBottom">@dimen/defultValueFive</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:textColor">@color/colorButton</item>
+</style>
+
+
+    </resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

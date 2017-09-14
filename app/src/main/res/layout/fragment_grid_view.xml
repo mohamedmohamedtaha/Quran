@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/marginBottomTimeSound"
+    >
+    <TextView
+        android:layout_marginTop="@dimen/marginRightLeftSeekbar"
+        android:id="@+id/textViewShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/marginRightLeftSeekbar"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/nameSheck"
+        android:textColor="@color/colorNameShekhFragment"/>
+    <GridView
+        android:id="@+id/gridView"
+        android:paddingTop="@dimen/marginBottomTimeSound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="@dimen/marginBottomTimeSound"
+        android:columnWidth="@dimen/defultValueOneHalf"
+        android:horizontalSpacing="@dimen/marginBottomTimeSound"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:layout_below="@+id/textViewShow">
+    </GridView>
+
+</LinearLayout>

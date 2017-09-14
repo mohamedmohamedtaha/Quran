@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--size TextView MainActivity XML
+        -->
+    <dimen name="textSize">20sp</dimen>
+    <dimen name="textSizeTimeSound">15sp</dimen>
+    <dimen name="marginBottomTimeSound">10dp</dimen>
+    <dimen name="marginBottomTimeSoundXLarge">200dp</dimen>
+
+    <dimen name="marginTopNameSora">15dp</dimen>
+    <dimen name="textSizeActionbar">18sp</dimen>
+
+    <!--size TextView ActionBar XML -->
+    <dimen name="textSizeActionBar">20sp</dimen>
+
+    <!--size TextView ActionBar XML  and size TextView MainActivity XML-->
+    <dimen name="textSizeNameSheck">10sp</dimen>
+
+
+    <!--sizes Splash Activity XML   -->
+    <dimen name="layout_marginBottom">150dp</dimen>
+    <dimen name="testSizeTextShow">25sp</dimen>
+    <dimen name="testSizeTextShowXLarge">50sp</dimen>
+    <dimen name="testSizeTextShowLarge">35sp</dimen>
+
+
+    <!--sizes themeFloatButton  -->
+    <dimen name="marginLeftRightBottom">11dp</dimen>
+
+
+
+    <!--sizes ImageView Equiliser  -->
+    <dimen name="layout_width">70dp</dimen>
+    <dimen name="layout_height">30dp</dimen>
+
+
+
+    <!--sizes songCurrentDurationLabel  -->
+    <dimen name="marginBottom">80dp</dimen>
+    <dimen name="marginRightEnd">10dp</dimen>
+
+    <!--sizes seekbar in MainActivity  -->
+    <dimen name="marginRightLeftSeekbar">20dp</dimen>
+    <dimen name="marginRightLeftSeekbarXLarge">50dp</dimen>
+
+    <dimen name="paddingRightLeftSeekbar">6dp</dimen>
+    <dimen name="marginBottomSeekbar">23dp</dimen>
+    <dimen name="marginLeftSeekbar">5dp</dimen>
+    <dimen name="marginRightStandard">50dp</dimen>
+    <dimen name="defultValue">55dp</dimen>
+    <dimen name="defultValueEight">8dp</dimen>
+    <dimen name="defultValueZero">0dp</dimen>
+    <dimen name="defultValueSix">6dp</dimen>
+    <dimen name="defultValueFive">5dp</dimen>
+    <dimen name="defultValueFour">4dp</dimen>
+    <dimen name="defultValueTwo">2dp</dimen>
+    <dimen name="defultValueSeven">7dp</dimen>
+
+    <dimen name="defultValueThree">3dp</dimen>
+    <dimen name="defultValueOne">1dp</dimen>
+    <dimen name="defultValueTowHandred">200dp</dimen>
+    <dimen name="defultValueOneHalf">150dp</dimen>
+    <dimen name="defultValueSixTeen">16dp</dimen>
+    <dimen name="defultValueTen">10dp</dimen>
+
+    <dimen name="sizeColorProgressbar">76dip</dimen>
+
+    <dimen name="sizeBackgroundRadius">5px</dimen>
+
+
+    <dimen name="sizeSeekbarProgress">5dip</dimen>
+
+
+
+</resources>
