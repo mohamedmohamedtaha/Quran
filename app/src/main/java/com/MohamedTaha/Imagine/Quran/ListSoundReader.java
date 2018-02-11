@@ -108,13 +108,6 @@ public class ListSoundReader extends AppCompatActivity {
         ArrayLinkBder =getResources().getStringArray(R.array.linkesBder);
 
 
-
-
-
-
-
-
-
         recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         respones = getShekhAyat(shekh_id);
         recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), respones);

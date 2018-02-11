@@ -29,7 +29,6 @@ public class ImageAdapter extends BaseAdapter {
     public static final String SHEKH_ID ="shekh_id";
     public static final String SHEKH_NAME ="shekh_name";
     private String[] typeELtelawa;
-
     int[] imageId ;
     int []linkses;
 
