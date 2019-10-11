@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/defultValueFive"
         android:layout_marginBottom="@dimen/defultValueFive"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/defultValueTowHandred"
+        android:layout_height="@dimen/defaultValueTowHandred"
         android:adjustViewBounds="true"
         android:contentDescription="@string/decriptionImage"
         android:scaleType="fitXY"/>
@@ -22,14 +22,14 @@
         android:textStyle="bold"
         style="@style/themecustom_name_reader"
         android:layout_weight="1"
-        android:textColor="@color/colorButton"
+        android:textColor="@android:color/black"
 
         />
     <TextView
         android:id="@+id/textTypeTlawa"
         style="@style/themecustom_name_reader"
         android:layout_weight="1"
-        android:textColor="@color/colorButton"
+        android:textColor="@android:color/black"
         />
 
 </LinearLayout>

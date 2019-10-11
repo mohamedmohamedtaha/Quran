@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
@@ -21,7 +21,11 @@
     <!-- Delete ActionBar -->
 
     <style name="FullScreenWindow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
     </style>
 
 
@@ -70,7 +74,6 @@
     <item name="android:textSize">@dimen/textSizeTimeSound</item>
     <item name="android:textStyle">bold</item>
     <item name="android:textColor">@color/textColorTime</item>
-    <item name="android:layout_above">@+id/songCurrentDurationLabel</item>
         <item name="android:layout_gravity">center</item>
 
 

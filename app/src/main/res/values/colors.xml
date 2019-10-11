@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">#636250</color>
-    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimary">#FCFCFC</color>
     <color name="colorAccent">#458cb4</color>
     <color name="colorBackground">#BDBDBD</color>
     <color name="colorButton">#f9ea1f</color>
     <color name="colorNameShekhFragment">#f7db07</color>
     <color name="colorendColorCustomBackground">#4b575c</color>
+    <color name="orange">#458cb4</color>
 
 
     <color name="textColorPrimary">#475687</color>
@@ -22,7 +23,7 @@
 
 
 
-    <!--Color TextView MainActivity XML and Splash Activity XML  and Color TextView ActionBar XML-->
+    <!--Color TextView DetailsSoundActivity XML and Splash Activity XML  and Color TextView ActionBar XML-->
     <color name="textColorTime">#FFFFC411</color>
     <color name="menu_shadowColor">#66aff198</color>
     <color name="labels_textColor">#f2f1f1</color>
@@ -33,7 +34,8 @@
     <color name="menu_colorNormal">#458cb4</color>
 
 
-
+    <color name="colorTransparent">#03636250</color>
+    <color name="redTransparent">#07FDE401</color>
 
     <!--Color FloatingButton XML
        -->

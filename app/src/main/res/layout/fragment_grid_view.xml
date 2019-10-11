@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/marginBottomTimeSound"
-    >
-    <TextView
-        android:layout_marginTop="@dimen/marginRightLeftSeekbar"
-        android:id="@+id/textViewShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/marginRightLeftSeekbar"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/nameSheck"
-        android:textColor="@color/colorNameShekhFragment"/>
+    android:layout_margin="@dimen/marginBottomTimeSound">
     <GridView
-        android:id="@+id/gridView"
+        android:id="@+id/Fragment_Grid_View_GridView"
         android:paddingTop="@dimen/marginBottomTimeSound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +14,20 @@
         android:horizontalSpacing="@dimen/marginBottomTimeSound"
         android:stretchMode="columnWidth"
         android:gravity="center"
-        android:layout_below="@+id/textViewShow">
-    </GridView>
+        android:layout_marginBottom="@dimen/defaultValueSixtyFour"
 
-</LinearLayout>
+        >
+    </GridView>
+    <TextView
+        android:id="@+id/Fragment_Grid_View_TV_No_Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/marginRightLeftSeekbar"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:text="@string/no_data"
+        android:textColor="@color/colorNameShekhFragment"/>
+
+
+</RelativeLayout>

@@ -6,15 +6,27 @@
   >
 
   <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+      android:id="@+id/IV_Download"
+        android:layout_width="@dimen/defaultValueThertyTwo"
+        android:layout_height="@dimen/defaultValueThertyTwo"
         android:contentDescription="@string/decriptionImage1"
-        android:src="@drawable/anglepointingmoresmall"
+        android:src="@drawable/ic_action_download"
         android:layout_marginLeft="@dimen/defultValueSixTeen"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="@dimen/defultValueTen"
         />
+  <ImageView
+      android:id="@+id/IV_Play"
+      android:layout_width="@dimen/defaultValueThertyTwo"
+      android:layout_height="@dimen/defaultValueThertyTwo"
+      android:contentDescription="@string/decriptionImage1"
+      android:src="@drawable/ic_action_play"
+      android:layout_toEndOf="@+id/IV_Download"
+      android:layout_marginStart="@dimen/defultValueSixTeen"
+      android:layout_alignParentTop="true"
+      android:layout_marginTop="@dimen/defultValueTen"
+      />
     <TextView
         android:id="@+id/text_title"
         android:layout_width="wrap_content"
@@ -25,7 +37,6 @@
         android:layout_marginRight="@dimen/marginRightLeftSeekbar"
         android:gravity="center"
         android:text="@string/nameTextDefult"
-        android:textColor="@color/textColorTime"
         android:textSize="@dimen/textSize"
          />
     <ImageView
@@ -36,11 +47,6 @@
         android:layout_marginRight="@dimen/defultValueSixTeen"
         android:contentDescription="@string/decriptionImage"
         android:src="@drawable/iconqoran" />
-  <View
-      android:layout_width="match_parent"
-      android:layout_below="@+id/imageView"
-      android:layout_height="@dimen/defultValueOne"
-      android:background="@color/colorPrimaryDark" />
 
 </RelativeLayout>
 

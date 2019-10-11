@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout_Background"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:background="@drawable/custom_background"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/defultValueSixTeen">
+    <TextView
+        android:id="@+id/TV_Name_Sora"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        tools:text="@string/nameSora"
+        android:textStyle="bold"
+        android:textSize="@dimen/defultValueSixTeen"
+        android:textColor="@color/colorPrimary"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

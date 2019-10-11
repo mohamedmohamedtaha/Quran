@@ -1,5 +1,9 @@
 package com.MohamedTaha.Imagine.Quran.getData;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Build;
+
 /**
  * Created by MANASATT on 15/06/17.
  */
@@ -38,6 +42,30 @@ public class Utilities {
 
         return currentDuration * 1000 ;
 
+    }
+
+    //Check if Service is running or not
+    public static boolean isServiceRunning(String serviceName, Context context){
+        ActivityManager manager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo serviceInfo : manager.getRunningServices(Integer.MAX_VALUE)){
+            if (serviceName.equals(serviceInfo.service.getClassName())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean currentVersionSupportBigNotification(){
+        int sdkVersion = Build.VERSION.SDK_INT;
+        if (sdkVersion >=  Build.VERSION_CODES.JELLY_BEAN){
+            return true;
+        }
+        return false;
+    }
+    public static boolean currentVersionSupportLockScreenControls(){
+        int sdkVersion = Build.VERSION.SDK_INT;
+        if (sdkVersion >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+            return true;
+        }return false;
     }
 }
 

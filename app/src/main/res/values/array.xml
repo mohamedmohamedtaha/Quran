@@ -11,12 +11,12 @@
     <string name="text_finish">تَمَّ الاِنْتِهَاءُ</string>
     <string name="nameTextDefult">-</string>
     fab_label
-    <!--desription Image MainActivity-->
+    <!--desription Image DetailsSoundActivity-->
 
     <string name="decriptionImageMainActivity">Image Main and Image Button</string>
     <string name="decriptionImageCollapsingToolbarLayout">    Image CollapsingToolbarLayout</string>
 
-    <!--All Titile in MainActivity-->
+    <!--All Titile in DetailsSoundActivity-->
     <string name="FABShareButton">مُشَارَكَةُ التَّطْبِيقِ</string>
     <string name="FABDwonloadButton">تَحْمِيلُ السُّورَةِ</string>
     <string name="FABStatusButton">حَالَةُ التَّحْمِيلِِ</string>
@@ -44,120 +44,237 @@
 
     <!-- String_Array for Names the swar-->
     <string-array name="name_allSwar">
-        <item name="Sura1">سُورَةُ الفَاتِحَةِ</item>
-        <item name="Sura2"> سُورَةُ البَقَرَة</item>
-        <item name="Sura3">سُورَةُ آلِ عِمۡرَانَ</item>
-        <item name="Sura4">سُورَةُ النِّسَاءِ</item>
-        <item name="Sura5">سُورَةُ المَائ‍ِدَةِ</item>
-        <item name="Sura6">سُورَةُ الأَنعَامِ</item>
-        <item name="Sura7">سُورَةُ الأَعۡرَافِ</item>
-        <item name="Sura8">سُورَةُ الأَنفَالِ</item>
-        <item name="Sura9">سُورَةُ التَّوۡبَةِ</item>
-        <item name="Sura10">سُورَةُ يُونُسَ</item>
-        <item name="Sura11">سُورَةُ هُودٍ</item>
-        <item name="Sura12">سُورَةُ يُوسُفَ</item>
-        <item name="Sura13">سُورَةُ الرَّعۡدِ</item>
-        <item name="Sura14">سُورَةُ إِبۡرَاهِيمَ</item>
-        <item name="Sura15">سُورَةُ الحِجۡرِ</item>
-        <item name="Sura16">سُورَةُ النَّحۡلِ</item>
-        <item name="Sura17">سُورَةُ الإِسۡرَاءِ</item>
-        <item name="Sura18">سُورَةُ الكَهۡفِ</item>
-        <item name="Sura19">سُورَةُ مَرۡيَمَ</item>
-        <item name="Sura20">سُورَةُ طه</item>
-        <item name="Sura21">سُورَةُ الأَنبيَاءِ</item>
-        <item name="Sura22">سُورَةُ الحَجِّ</item>
-        <item name="Sura23">سُورَةُ المُؤۡمِنُونَ</item>
-        <item name="Sura24">سُورَةُ النُّورِ</item>
-        <item name="Sura25">سُورَةُ الفُرۡقَانِ</item>
-        <item name="Sura26">سُورَةُ الشُّعَرَاءِ</item>
-        <item name="Sura27">سُورَةُ النَّمۡلِ</item>
-        <item name="Sura28">سُورَةُ القَصَصِ</item>
-        <item name="Sura29">سُورَةُ العَنكَبُوتِ</item>
-        <item name="Sura30">سُورَةُ الرُّومِ</item>
-        <item name="Sura31">سُورَةُ لُقۡمَانَ</item>
-        <item name="Sura32">سُورَةُ السَّجۡدَةِ</item>
-        <item name="Sura33">سُورَةُ الأَحۡزَابِ</item>
-        <item name="Sura34">سُورَةُ سَبَإٍ</item>
-        <item name="Sura35">سُورَةُ فَاطِرٍ</item>
-        <item name="Sura36">سُورَةُ يسٓ</item>
-        <item name="Sura37">سُورَةُ الصَّافَّاتِ</item>
-        <item name="Sura38">سُورَةُ صٓ</item>
-        <item name="Sura39">سُورَةُ الزُّمَرِ</item>
-        <item name="Sura40">سُورَةُ غَافِرٍ</item>
-        <item name="Sura41">سُورَةُ فُصِّلَتۡ</item>
-        <item name="Sura42">سُورَةُ الشُّورَىٰ</item>
-        <item name="Sura43">سُورَةُ الزُّخۡرُفِ</item>
-        <item name="Sura44">سُورَةُ الدُّخَانِ</item>
-        <item name="Sura45">سُورَةُ الجَاثِيةِ</item>
-        <item name="Sura46">سُورَةُ الأَحۡقَافِ</item>
-        <item name="Sura47">سُورَةُ مُحَمَّدٍ</item>
-        <item name="Sura48">سُورَةُ الفَتۡحِ</item>
-        <item name="Sura49">سُورَةُ الحُجُرَاتِ</item>
-        <item name="Sura50">سُورَةُ قٓ</item>
-        <item name="Sura51">سُورَةُ الذَّارِيَاتِ</item>
-        <item name="Sura52">سُورَةُ الطُّورِ</item>
-        <item name="Sura53">سُورَةُ النَّجۡمِ</item>
-        <item name="Sura54">سُورَةُ القَمَرِ</item>
-        <item name="Sura55">سُورَةُ الرَّحۡمَٰن</item>
-        <item name="Sura56">سُورَةُ الوَاقِعَةِ</item>
-        <item name="Sura57">سُورَةُ الحَدِيدِ</item>
-        <item name="Sura58">سُورَةُ المُجَادلَةِ</item>
-        <item name="Sura59">سُورَةُ الحَشۡرِ</item>
-        <item name="Sura60">سُورَةُ المُمۡتَحنَةِ</item>
-        <item name="Sura61">سُورَةُ الصَّفِّ</item>
-        <item name="Sura62">سُورَةُ الجُمُعَةِ</item>
-        <item name="Sura63">سُورَةُ المُنَافِقُونَ</item>
-        <item name="Sura64">سُورَةُ التَّغَابُنِ</item>
-        <item name="Sura65">سُورَةُ الطَّلَاقِ</item>
-        <item name="Sura66">سُورَةُ التَّحۡرِيمِ</item>
-        <item name="Sura67">سُورَةُ المُلۡكِ</item>
-        <item name="Sura68">سُورَةُ القَلَمِ</item>
-        <item name="Sura69">سُورَةُ الحَاقَّةِ</item>
-        <item name="Sura70">سُورَةُ المَعَارِجِ</item>
-        <item name="Sura71">سُورَةُ نُوحٍ</item>
-        <item name="Sura72">سُورَةُ الجِنِّ</item>
-        <item name="Sura73">سُورَةُ المُزَّمِّلِ</item>
-        <item name="Sura74">سُورَةُ المُدَّثِّرِ</item>
-        <item name="Sura75">سُورَةُ القِيَامَةِ</item>
-        <item name="Sura76">سُورَةُ الإِنسَانِ</item>
-        <item name="Sura77">سُورَةُ المُرۡسَلَاتِ</item>
-        <item name="Sura78">سُورَةُ النَّبَإِ</item>
-        <item name="Sura79">سُورَةُ النَّازِعَاتِ</item>
-        <item name="Sura80">سُورَةُ عَبَسَ</item>
-        <item name="Sura81">سُورَةُ التَّكۡوِيرِ</item>
-        <item name="Sura82">سُورَةُ الانفِطَارِ</item>
-        <item name="Sura83">سُورَةُ المُطَفِّفِينَ</item>
-        <item name="Sura84">سُورَةُ الانشِقَاقِ</item>
-        <item name="Sura85">سُورَةُ البُرُوجِ</item>
-        <item name="Sura86">سُورَةُ الطَّارِقِ</item>
-        <item name="Sura87">سُورَةُ الأَعۡلَىٰ</item>
-        <item name="Sura88">سُورَةُ الغَاشِيَةِ</item>
-        <item name="Sura89">سُورَةُ الفَجۡرِ</item>
-        <item name="Sura90">سُورَةُ البَلَدِ</item>
-        <item name="Sura91">سُورَةُ الشَّمۡسِ</item>
-        <item name="Sura92">سُورَةُ اللَّيۡلِ</item>
-        <item name="Sura93">سُورَةُ الضُّحَى</item>
-        <item name="Sura94">سُورَةُ الشَّرۡحِ</item>
-        <item name="Sura95">سُورَةُ التِّينِ</item>
-        <item name="Sura96">سُورَةُ العَلَقِ</item>
-        <item name="Sura97">سُورَةُ القَدۡرِ</item>
-        <item name="Sura98">سُورَةُ البَيِّنَةِ</item>
-        <item name="Sura99">سُورَةُ الزَّلۡزَلَةِ</item>
-        <item name="Sura100">سُورَةُ العَادِيَاتِ</item>
-        <item name="Sura101">سُورَةُ القَارِعَةِ</item>
-        <item name="Sura102">سُورَةُ التَّكَاثُرِ</item>
-        <item name="Sura103">سُورَةُ العَصۡرِ</item>
-        <item name="Sura104">سُورَةُ الهُمَزَةِ</item>
-        <item name="Sura105">سُورَةُ الفِيلِ</item>
-        <item name="Sura106">سُورَةُ قُرَيۡشٍ</item>
-        <item name="Sura107">سُورَةُ المَاعُونِ</item>
-        <item name="Sura108">سُورَةُ الكَوثَرِ</item>
-        <item name="Sura109">سُورَةُ الكَافِرُونَ</item>
-        <item name="Sura110">سُورَةُ النَّصۡرِ</item>
-        <item name="Sura111">سُورَةُ المَسَدِ</item>
-        <item name="Sura112"> سُورَةُ الإِخۡلَاصِ</item>
-        <item name="Sura113">سُورَةُ الفَلَقِ</item>
-        <item name="Sura114">سُورَةُ النَّاسِ</item>
+        <item name="Sura1">سورة الفاتحة </item>
+        <item name="Sura2">سورة البقرة </item>
+        <item name="Sura3"> سورة 	آل عمران </item>
+        <item name="Sura4">سورة النساء</item>
+        <item name="Sura5">سورة المائدةِ</item>
+        <item name="Sura6">سورة الأنعامِ</item>
+        <item name="Sura7">سورة الأعرافِ</item>
+        <item name="Sura8">سورة الأنفال</item>
+        <item name="Sura9">سورة التوبة</item>
+        <item name="Sura10">سورة يونس</item>
+        <item name="Sura11">سورة هود</item>
+        <item name="Sura12">سورة يوسف</item>
+        <item name="Sura13">سورة الرعد</item>
+        <item name="Sura14">سورة إبراهيم</item>
+        <item name="Sura15">سورة الحجرِ</item>
+        <item name="Sura16">سورة النحل</item>
+        <item name="Sura17">سورة الإسراء</item>
+        <item name="Sura18">سورة الكهف</item>
+        <item name="Sura19">سورة مريم</item>
+        <item name="Sura20">سورة طه</item>
+        <item name="Sura21">سورة الأنبياء</item>
+        <item name="Sura22">سورة الحج</item>
+        <item name="Sura23">سورة المؤمنون</item>
+        <item name="Sura24">سورة النورِ</item>
+        <item name="Sura25">سورة الفرقانِ</item>
+        <item name="Sura26">سورة الشعراء</item>
+        <item name="Sura27">سورة النملِ</item>
+        <item name="Sura28">سورة القصص</item>
+        <item name="Sura29">سورة العنكبوت</item>
+        <item name="Sura30">سورة الروم</item>
+        <item name="Sura31">سورة لقمان</item>
+        <item name="Sura32">سورة السجدة</item>
+        <item name="Sura33">سورة الأحزاب</item>
+        <item name="Sura34">سورة سبأ</item>
+        <item name="Sura35">سورة فاطر</item>
+        <item name="Sura36">سورة يس</item>
+        <item name="Sura37">سورة الصافاتِ</item>
+        <item name="Sura38">صورة ص</item>
+        <item name="Sura39">سورة الزمرِ</item>
+        <item name="Sura40">سورة غافر</item>
+        <item name="Sura41">سورة فصلت</item>
+        <item name="Sura42">سورة الشورى</item>
+        <item name="Sura43">سورة الزخرف</item>
+        <item name="Sura44">سورة الدخان</item>
+        <item name="Sura45">سورة الجاثية</item>
+        <item name="Sura46">سورة الأحقاق</item>
+        <item name="Sura47">سورة محمد</item>
+        <item name="Sura48">سورة الفتح</item>
+        <item name="Sura49">سورة الحجرات</item>
+        <item name="Sura50">سورة ق</item>
+        <item name="Sura51">سورة الذاريات</item>
+        <item name="Sura52">سورة الطور</item>
+        <item name="Sura53">سورة النجمِ</item>
+        <item name="Sura54">سورة القمر</item>
+        <item name="Sura55">سورة الرحمن</item>
+        <item name="Sura56">سورة الواقعة</item>
+        <item name="Sura57">سورة الحديد</item>
+        <item name="Sura58">سورة المجادلة</item>
+        <item name="Sura59">سورة الحشرِ</item>
+        <item name="Sura60">سورة الممتحنة</item>
+        <item name="Sura61">سورة الصفِ</item>
+        <item name="Sura62">سورة الجمعة</item>
+        <item name="Sura63">سورة المنافقون</item>
+        <item name="Sura64">سورة التغابن</item>
+        <item name="Sura65">سورة الطلاق</item>
+        <item name="Sura66">سورة التحريمِ</item>
+        <item name="Sura67">سورة الملك</item>
+        <item name="Sura68">سورة القلم</item>
+        <item name="Sura69">سورة الحاقة</item>
+        <item name="Sura70">سورة المعارج</item>
+        <item name="Sura71">سورة نوح</item>
+        <item name="Sura72">سورة الجن</item>
+        <item name="Sura73">سورة المزملِ</item>
+        <item name="Sura74">سورة المدثر</item>
+        <item name="Sura75">سورة القيامة</item>
+        <item name="Sura76">سورة الإنسان</item>
+        <item name="Sura77">سورة المرسلات</item>
+        <item name="Sura78">سورة النبأ</item>
+        <item name="Sura79">سورة النازعات</item>
+        <item name="Sura80">سورة عبس</item>
+        <item name="Sura81">سورة التكوير</item>
+        <item name="Sura82">سورة الإنفطارِ</item>
+        <item name="Sura83">سورة المطففين</item>
+        <item name="Sura84">سورة الإنشقاق</item>
+        <item name="Sura85">سورة البروج</item>
+        <item name="Sura86">سورة الطارق</item>
+        <item name="Sura87">سورة الأعلى</item>
+        <item name="Sura88">سورة الغاشية</item>
+        <item name="Sura89">سورة الفجر</item>
+        <item name="Sura90">سورة البلد</item>
+        <item name="Sura91">سورة الشمس</item>
+        <item name="Sura92">سورة الليل</item>
+        <item name="Sura93">سورة الضحى</item>
+        <item name="Sura94">سورة الشرح</item>
+        <item name="Sura95">سورة التين</item>
+        <item name="Sura96">سورة العلق</item>
+        <item name="Sura97">سورة القدر</item>
+        <item name="Sura98">سورة البينة</item>
+        <item name="Sura99">سورة الزلزلة</item>
+        <item name="Sura100">سورة العاديات</item>
+        <item name="Sura101">سورة القارعة</item>
+        <item name="Sura102">سورة التكاثر</item>
+        <item name="Sura103">سورة العصر</item>
+        <item name="Sura104">سورة الهمزة</item>
+        <item name="Sura105">سورة الفيل</item>
+        <item name="Sura106">سورة قريش</item>
+        <item name="Sura107">سورة الماعونِ</item>
+        <item name="Sura108">سورة الكوثر</item>
+        <item name="Sura109">سورة الكافرون</item>
+        <item name="Sura110">سورة النصر</item>
+        <item name="Sura111">سورة المسدِ</item>
+        <item name="Sura112">سورة الإخلاص</item>
+        <item name="Sura113">سورة الفلق</item>
+        <item name="Sura114">سورة الناس</item>
+    </string-array>
+    <!-- String_Array for Names the swar-->
+    <string-array name="positions">
+        <item name="position1">0</item>
+        <item name="position2">1 </item>
+        <item name="position3"> 2</item>
+        <item name="position4">3</item>
+        <item name="position5">4</item>
+        <item name="position6">5</item>
+        <item name="position7">6</item>
+        <item name="position8">7</item>
+        <item name="position9">8</item>
+        <item name="position10">9</item>
+        <item name="position11">10</item>
+        <item name="position12">11</item>
+        <item name="position13">12</item>
+        <item name="position14">13</item>
+        <item name="position15">14</item>
+        <item name="position16">15</item>
+        <item name="position17">16</item>
+        <item name="position18">17</item>
+        <item name="position19">18</item>
+        <item name="position20">19</item>
+        <item name="position21">20</item>
+        <item name="position22">21</item>
+        <item name="position23">22</item>
+        <item name="position24">23</item>
+        <item name="position25">24</item>
+        <item name="position26">25</item>
+        <item name="position27">26</item>
+        <item name="position28">27</item>
+        <item name="position9">28</item>
+        <item name="position30">29</item>
+        <item name="position31">30</item>
+        <item name="position32">31</item>
+        <item name="position33">22</item>
+        <item name="position34">33</item>
+        <item name="position35">34</item>
+        <item name="position36">35</item>
+        <item name="position37">36</item>
+        <item name="position38">37</item>
+        <item name="position39">38</item>
+        <item name="position40">39</item>
+        <item name="position41">40</item>
+        <item name="position42">41</item>
+        <item name="position43">42</item>
+        <item name="position44">43</item>
+        <item name="position45">44</item>
+        <item name="position46">45</item>
+        <item name="position47">46</item>
+        <item name="position48">47</item>
+        <item name="position49">48</item>
+        <item name="position50">49</item>
+        <item name="position51">50</item>
+        <item name="position52">51</item>
+        <item name="position53">52</item>
+        <item name="position54">53</item>
+        <item name="position55">54</item>
+        <item name="position56">55</item>
+        <item name="position57">56</item>
+        <item name="position58">57</item>
+        <item name="position59">58</item>
+        <item name="position60">59</item>
+        <item name="position61">60</item>
+        <item name="position62">61</item>
+        <item name="position63">62</item>
+        <item name="position64">63</item>
+        <item name="position65">64</item>
+        <item name="position66">65</item>
+        <item name="position67">66</item>
+        <item name="position68">67</item>
+        <item name="position69">68</item>
+        <item name="position70">69</item>
+        <item name="position71">70</item>
+        <item name="position72">71</item>
+        <item name="position73">72</item>
+        <item name="position74">73</item>
+        <item name="position75">74</item>
+        <item name="position76">75</item>
+        <item name="position77">76</item>
+        <item name="position78">77</item>
+        <item name="position79">78</item>
+        <item name="position80">79</item>
+        <item name="position81">80</item>
+        <item name="position82">81</item>
+        <item name="position83">82</item>
+        <item name="position84">83</item>
+        <item name="position85">84</item>
+        <item name="position86">85</item>
+        <item name="position87">86</item>
+        <item name="position88">87</item>
+        <item name="position89">88</item>
+        <item name="position90">89</item>
+        <item name="position91">90</item>
+        <item name="position92">91</item>
+        <item name="position93">92</item>
+        <item name="position94">93</item>
+        <item name="position95">94</item>
+        <item name="position96">95</item>
+        <item name="position97">96</item>
+        <item name="position98">97</item>
+        <item name="position99">98</item>
+        <item name="position100">99</item>
+        <item name="position101">100</item>
+        <item name="position102">101</item>
+        <item name="position103">102</item>
+        <item name="position104">103</item>
+        <item name="position105">104</item>
+        <item name="position106">105</item>
+        <item name="position107">106</item>
+        <item name="position108">107</item>
+        <item name="position109">108</item>
+        <item name="position110">109</item>
+        <item name="position111">110</item>
+        <item name="position112">111</item>
+        <item name="position113">112</item>
+        <item name="position114">113</item>
     </string-array>
 
     <string-array name="linkesElmenshawyMgwad">
@@ -2748,6 +2865,7 @@
         <item name="aya73">أَلا يَظُنُّ أُوْلَئِكَ أَنَّهُم مَّبْعُوثُونَ </item>
         <item name="aya74">إِنَّ الأَبْرَارَ لَفِي نَعِيمٍ </item>
         <item name="aya75">يَوْمَ لا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْئًا وَالأَمْرُ يَوْمَئِذٍ لِلَّهِ </item>
+
     </string-array>
     <!--text Sub FloatingActionButtonEvaluatiom-->
     <string name="labelEvaluation">قَيَّمْنَا عَلَى المَتْجَرِ</string>
@@ -2755,13 +2873,30 @@
     <string name="labelShre">مُشَارَكَةُ التَّطْبِيقِ</string>
 
     <!--text Sub FloatingActionButtonEvaluatiom-->
-    <string name="labelSend">رَاسِلُنَا</string>
+    <string name="labelSend">رَاسَلَنَا عَبْرُ الإيميل</string>
 
 
 
     <string name="readNow">قِرَاءَةٌ</string>
     <string name="notNow">لَيْسَ الآنَ</string>
 
+
+    <string-array name="settings_by_Notification_label">
+        <item>@string/settings_by_Notification_every_square_hour</item>
+        <item>@string/settings_by_Notification_every_half_hour</item>
+        <item>@string/settings_by_department_label_every_hour</item>
+        <item>@string/settings_by_department_label_half_day</item>
+        <item>@string/settings_by_department_label_every_day</item>
+    </string-array>
+
+
+    <string-array name="settings_by_Notification_value">
+        <item>@string/settings_by_department_value_square_hour</item>
+        <item>@string/settings_by_department_value_half_hour</item>
+        <item>@string/settings_by_department_value_every_hour</item>
+        <item>@string/settings_by_department_value_half_day</item>
+        <item>@string/settings_by_department_value_every_day</item>
+    </string-array>
     </resources>
 
 

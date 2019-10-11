@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">server6.mp3quran.net</domain>
+        <domain includeSubdomains="true">server7.mp3quran.net</domain>
+        <domain includeSubdomains="true">server8.mp3quran.net</domain>
+        <domain includeSubdomains="true">server9.mp3quran.net</domain>
+        <domain includeSubdomains="true">server10.mp3quran.net</domain>
+        <domain includeSubdomains="true">server11.mp3quran.net</domain>
+        <domain includeSubdomains="true">server12.mp3quran.net</domain>
+        <domain includeSubdomains="true">server13.mp3quran.net</domain>
+        <domain includeSubdomains="true">clients3.google.com</domain>
+
+
+    </domain-config>
+</network-security-config>

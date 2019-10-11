@@ -3,20 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MohamedTaha.Imagine.Quran.SplashActivity">
+    tools:context="com.MohamedTaha.Imagine.Quran.ui.activities.SplashActivity">
 
-    <TextView
-        android:id="@+id/textShow"
+    <FrameLayout
+        android:id="@+id/Cycle_Splash_contener"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/textMain"
-        android:textColor="@color/textColorTime"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/layout_marginBottom"
-        android:textSize="@dimen/testSizeTextShow"
-        android:textStyle="bold"
-        />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

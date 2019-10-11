@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.MohamedTaha.Imagine.Quran"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 4
         versionName "1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -18,47 +17,52 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 
 dependencies {
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:support-v4'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    // For use NotificationCompat
+    implementation "com.android.support:support-compat:$supportLibraryVersion"
 
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.github.barteksc:android-pdf-viewer:2.4.0'
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.7', changing: true
-
-
-    testCompile 'junit:junit:4.12'
-
-    compile 'com.github.clans:fab:1.6.2'
-
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7', changing: true
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.github.clans:fab:1.6.2'
+    //ButterKnife Dependency
+    implementation "com.jakewharton:butterknife:$supportButterKnife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$supportButterKnife"
+    //For Glide
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+// for LifeCycle Awareness
+    def lifecycle_version = "1.1.1"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+// For SearchView
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+//For Preference
+    implementation 'androidx.preference:preference:1.1.0'
+  //for Animation
+    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
+//Circle Image View
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

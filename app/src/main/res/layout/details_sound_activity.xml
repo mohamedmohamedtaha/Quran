@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".ui.activities.DetailsSoundActivity">
+
+    <TextView
+        android:id="@+id/MainActivity_Name_Sora"
+        style="@style/themetextSoraAndShekh"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/marginRightLeftSeekbar"
+        android:textColor="@color/textColorTime"
+        android:textSize="@dimen/textSizeActionBar" />
+
+    <TextView
+        android:id="@+id/MainActivity_Name_Shekh"
+        style="@style/themetextSoraAndShekh"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/marginRightLeftSeekbar"
+        android:textColor="@color/textColorTime"
+        android:textSize="@dimen/textSizeTimeSound" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/DetailsSoundActivity_IV_Picture_Shekh"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/Linearbuttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/LinearText"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPrevious"
+            android:layout_width="@dimen/dimens_xxl"
+            android:layout_height="@dimen/dimens_xxl"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/ic_media_previous" />
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="@dimen/dimens_xxl"
+            android:layout_height="@dimen/dimens_xxl"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_action_play"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="@dimen/dimens_xxl"
+            android:layout_height="@dimen/dimens_xxl"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_action_pause" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="@dimen/dimens_xxl"
+            android:layout_height="@dimen/dimens_xxl"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/ic_media_next" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/MainActivity_SeekBar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/MainActivity_TV_BufferDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            tools:text="@string/no_data" />
+
+        <TextView
+            android:id="@+id/MainActivity_TV_Duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="@android:color/white"
+
+            tools:text="@string/no_data" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/MainActivity_SeekBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/marginRightLeftSeekbar"
+        android:layout_marginRight="@dimen/marginRightLeftSeekbar"
+        android:layout_marginBottom="@dimen/marginBottomSeekbar"
+        android:layoutDirection="ltr"
+        android:paddingLeft="@dimen/paddingRightLeftSeekbar"
+        android:paddingRight="@dimen/paddingRightLeftSeekbar"
+         />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+

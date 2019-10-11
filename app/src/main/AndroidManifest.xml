@@ -1,57 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.MohamedTaha.Imagine.Quran">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
+        android:name=".receiver.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/iconqoran"
         android:label="@string/app_name"
+        android:launchMode="singleInstance"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/iconqoran"
         android:supportsRtl="true"
-        android:launchMode="singleInstance"
         android:theme="@style/FullScreenWindow">
-        <activity android:name="com.MohamedTaha.Imagine.Quran.MainActivity"
-            android:theme="@style/backgroundTheme"
-            android:configChanges="orientation|screenSize">
-        </activity>
-        <activity
-            android:name="com.MohamedTaha.Imagine.Quran.MainFragmentTab"
+        <activity android:name=".ui.activities.SettingsActivity"
             android:theme="@style/AppTheme"
-            android:configChanges="orientation|screenSize">
+            android:label="@string/settings_Notification_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.NavigationDrawaberActivity" />
+        </activity>
+        <activity android:name=".Main2Activity">
 
         </activity>
         <activity
-            android:name="com.MohamedTaha.Imagine.Quran.SplashActivity"
-            android:theme="@style/backgroundTheme"
+            android:name=".ui.activities.NavigationDrawaberActivity"></activity>
+
+
+        <activity
+
+            android:name=".ui.activities.SwipePagesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenWindow" />
+        <activity
+            android:name=".ui.activities.DetailsSoundActivity"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity
+            android:name=".ui.activities.SplashActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.MohamedTaha.Imagine.Quran.CustomReadKoran"
-            android:theme="@style/AppTheme"
-            android:configChanges="orientation|screenSize">
+        <activity
+            android:name=".ui.activities.ListSoundReader"
+            android:label="@string/settings_Notification_label"
+            android:configChanges="orientation|screenSize" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.activities.NavigationDrawaberActivity" />
         </activity>
 
-        <activity android:name="com.MohamedTaha.Imagine.Quran.ListSoundReader"
-            android:theme="@style/AppTheme"
-            android:configChanges="orientation|screenSize">
-
-        </activity>
-        <receiver android:name=".CancelNotification"
-            />
-        <receiver android:name=".AlarmReceiver"/>
-        <receiver android:name=".AlarmBootRecevier"
+        <receiver android:name=".notification.CancelNotification" />
+        <receiver android:name=".notification.AlarmReceiver" />
+        <receiver
+            android:name=".notification.AlarmBootRecevier"
             android:enabled="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
-                </action>
+        <service android:name=".service.MediaPlayerService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".dialog.DialogNotEnternet"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <receiver
+            android:name=".receiver.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action
+                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".service.MediaPlayerService$DeleteNotification">
+            <intent-filter>
+                <action android:name="tt" />
             </intent-filter>
         </receiver>
     </application>
+
 </manifest>

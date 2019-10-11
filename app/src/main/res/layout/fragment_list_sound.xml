@@ -1,14 +1,192 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".ListSoundReader">
+    tools:context=".ui.activities.ListSoundReader">
 
-    <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycleViewSound"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/Fragment_List_Sound_TB"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorAccent"
+                app:searchBackground="@color/colorAccent"
+                app:searchSuggestionBackground= "@android:color/black"
+                app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+                app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
+                app:searchSuggestionIcon="@drawable/ic_suggestion"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
 
+            <TextView
+                android:id="@+id/Fragment_List_Sound_TV_Name_Sora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/marginRightLeftSeekbarXLarge"
+                android:layout_marginTop="@dimen/marginTopNameSora"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSizeActionbar"
+                android:textStyle="bold" />
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      >
 
-</LinearLayout>
+    </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewSound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/Fragment_List_Sound_TB"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_above="@+id/Fragment_List_Sound_LL_Control_Media"
+           />
+        <!-- Loading indicator is only shown before the first load
+
+         android:visibility="gone" -->
+        <ProgressBar
+            android:id="@+id/ListSoundReader_loading_indicator"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:indeterminateDrawable="@drawable/color_progressbar" />
+
+        <TextView
+            android:id="@+id/Fragment_ListSound_TV_No_Data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/defaultValueSixtyFour"
+            android:text="@string/no_data"
+            android:textColor="@color/colorNameShekhFragment"
+            android:textSize="@dimen/marginRightLeftSeekbar"
+            android:textStyle="bold"
+            android:visibility="gone" />
+        <LinearLayout
+            android:id="@+id/Fragment_List_Sound_LL_Control_Media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewAlbumArt"
+                android:layout_width="@dimen/dimens_hundrand"
+                android:layout_height="@dimen/dimens_seventy"
+             />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textNowPlaying"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="marquee"
+                    android:gravity="center_horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"
+                    tools:text="@string/no_data" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPrevious"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:drawable/ic_media_previous" />
+
+                    <Button
+                        android:id="@+id/btnPlay"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_action_play"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnPause"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_action_pause" />
+
+                    <Button
+                        android:id="@+id/btnStop"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_media_stop" />
+
+                    <Button
+                        android:id="@+id/btnNext"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:drawable/ic_media_next" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textBufferDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/textDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
