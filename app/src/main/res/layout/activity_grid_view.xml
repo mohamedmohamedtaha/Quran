@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <GridView
-        android:layout_margin="@dimen/defultValueEight"
-        android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_information">
+
+    <ListView
         android:id="@+id/GridViewActivity_GV_Show_Images"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:stretchMode="columnWidth">
+        android:layout_marginTop="@dimen/defaultValueThertyTwo"
+        android:layout_marginBottom="@dimen/defaultValueSixtyFour"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:gravity="center">
 
-    </GridView>
+    </ListView>
+
     <ProgressBar
         android:id="@+id/GridViewActivity_ProgressBar"
         android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
     <TextView
         android:id="@+id/GridViewActivity_TV_No_Data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/defaultValueTowHandredTen"
+        android:text="@string/no_data"
+        android:textColor="@android:color/black"
         android:textSize="@dimen/marginRightLeftSeekbar"
         android:textStyle="bold"
-        android:visibility="gone"
-        android:text="@string/no_data"
-        android:textColor="@color/colorNameShekhFragment"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

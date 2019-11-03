@@ -3,21 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_information"
     tools:context=".ui.fragments.SliderFragment">
-
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/SliderFragment_ViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_above="@+id/SliderFragment_Skip" />
 
     <LinearLayout
         android:id="@+id/SliderFragment_DotLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/SliderFragment_Skip"
-        android:layout_alignBottom="@dimen/dimens_xl"
         android:gravity="center"
         android:orientation="horizontal" />
 

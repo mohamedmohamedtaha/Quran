@@ -17,7 +17,6 @@ import com.MohamedTaha.Imagine.Quran.interactor.ListSoundReaderInteractor;
 import com.MohamedTaha.Imagine.Quran.model.ImageModel;
 import com.MohamedTaha.Imagine.Quran.presenter.ListSoundReaderPresenter;
 import com.MohamedTaha.Imagine.Quran.view.ListSoundReaderView;
-import com.MohamedTaha.Imagine.Quran.viewmodel.SoundViewHolder;
 
 import java.util.List;
 
@@ -49,12 +48,9 @@ public class FragmentSound extends Fragment implements ListSoundReaderView {
         View rootView = inflater.inflate(R.layout.fragment_grid_view, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         getActivity().setTitle(getString(R.string.listen_swar));
-
         presenter = new ListSoundReaderInteractor(this, getActivity());
         presenter.getAllData();
         presenter.setOnSearchViewListener(searchView);
-
-
         return rootView;
     }
 
@@ -107,5 +103,4 @@ public class FragmentSound extends Fragment implements ListSoundReaderView {
         FragmentGridViewGridView.setLayoutAnimation(controller);
         FragmentGridViewGridView.scheduleLayoutAnimation();
     }
-
 }

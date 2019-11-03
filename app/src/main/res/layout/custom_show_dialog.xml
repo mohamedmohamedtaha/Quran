@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/image_border"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/show_icon"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_width="@dimen/dimens_xxl"
+        android:layout_height="@dimen/dimens_xxl"
+        android:src="@mipmap/logo"
+        />
+    <TextView
+        android:id="@+id/show_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:textSize="@dimen/textSizeActionBar"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/show_icon"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/show_text"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/BT_No"
+            android:layout_width="@dimen/dimens_seventy"
+            android:text="@string/textNo"
+            android:textSize="@dimen/textSizeActionBar"
+            android:background="@color/colorAccent"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="@dimen/dimens_6xl"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/BT_Yes"
+            android:layout_width="@dimen/dimens_seventy"
+            android:textSize="@dimen/textSizeActionBar"
+            android:background="@color/colorAccent"
+            android:text="@string/textYes"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,9 +5,13 @@
         android:id="@+id/read_quran"
         android:icon="@drawable/read"
         android:title="@string/readswar" />
+    <item
+        android:id="@+id/read_parts"
+        android:icon="@drawable/read"
+        android:title="@string/read_parts" />
 
     <item
         android:id="@+id/sound_quran"
-        android:icon="@drawable/speakerlow"
+        android:icon="@drawable/speaker"
         android:title="@string/listen_swar" />
 </menu>

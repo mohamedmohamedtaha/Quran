@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
+    android:background="@drawable/background_information"
     android:layout_height="match_parent"
     tools:context=".ui.activities.NavigationDrawaberActivity">
 <androidx.appcompat.widget.Toolbar
@@ -37,11 +38,10 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        app:itemIconTint="@android:color/white"
-        android:background="@color/colorAccent"
-        app:itemTextColor="@android:color/black"
+        android:background="@color/blue"
+        app:elevation="16dp"
+        app:itemIconTint="@drawable/background_color_navigation_bottom"
+        app:itemTextColor="@drawable/background_color_navigation_bottom"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu" />
 

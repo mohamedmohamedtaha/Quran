@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_information"
     tools:context=".ui.activities.ListSoundReader">
 
             <androidx.appcompat.widget.Toolbar
@@ -74,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/orange"
+            android:background="@color/blue"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -87,7 +88,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/textNowPlaying"
                     android:layout_width="match_parent"
@@ -111,47 +111,39 @@
                         android:id="@+id/btnPrevious"
                         android:layout_width="@dimen/dimens_xxl"
                         android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@android:drawable/ic_media_previous" />
+                        android:layout_marginLeft="@dimen/dimens_mm"
+                        android:layout_marginRight="@dimen/dimens_mm"
+                        android:background="@drawable/ic_previous" />
 
                     <Button
                         android:id="@+id/btnPlay"
                         android:layout_width="@dimen/dimens_xxl"
                         android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/ic_action_play"
+                        android:layout_marginLeft="@dimen/dimens_mm"
+                        android:layout_marginRight="@dimen/dimens_mm"
+                        android:background="@drawable/ic_play"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/btnPause"
                         android:layout_width="@dimen/dimens_xxl"
                         android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/ic_action_pause" />
-
-                    <Button
-                        android:id="@+id/btnStop"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/ic_media_stop" />
-
+                        android:layout_marginLeft="@dimen/dimens_mm"
+                        android:layout_marginRight="@dimen/dimens_mm"
+                        android:background="@drawable/ic_pause" />
                     <Button
                         android:id="@+id/btnNext"
                         android:layout_width="@dimen/dimens_xxl"
                         android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@android:drawable/ic_media_next" />
+                        android:layout_marginLeft="@dimen/dimens_mm"
+                        android:layout_marginRight="@dimen/dimens_xxxxl"
+                        android:background="@drawable/ic_next" />
+                    <Button
+                        android:id="@+id/btnStop"
+                        android:layout_width="@dimen/dimens_xxl"
+                        android:layout_height="@dimen/dimens_xxl"
+                        android:layout_gravity="end"
+                        android:background="@drawable/ic_close" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -174,6 +166,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:textColor="@android:color/white" />
+
+
                 </LinearLayout>
 
                 <ProgressBar
@@ -188,5 +182,7 @@
                     />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </RelativeLayout>

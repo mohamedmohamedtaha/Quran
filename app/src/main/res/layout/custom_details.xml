@@ -1,62 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/Relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/Relative"
-    android:background="@drawable/custom_background_transperant">
-    <TextView
-        android:id="@+id/TV_NAME_A"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="@string/name_sora"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/defultValueSixTeen"
-        android:layout_marginEnd="@dimen/defultValueSixTeen"
+    android:background="@drawable/custom_background_transperant"
+    android:orientation="vertical">
 
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimaryDark"
-        />
 
     <TextView
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/TV_Name_B"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_sora"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="@dimen/defultValueSixTeen"
-        android:layout_marginStart="@dimen/defultValueSixTeen"
-
-        />
-
-    <TextView
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/TV_Number_Page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/number_sora"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/marginBottomSeekbar"
-        />
-    <TextView
-        android:background="@color/colorPrimaryDark"
         android:id="@+id/TV_Save_Position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save_position"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="@dimen/default_margin_end"
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/default_margin_end"
         android:layout_marginBottom="@dimen/marginBottomSeekbar"
-        />
+        android:background="@drawable/shape_toast"
+        android:text="@string/save_position"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 </RelativeLayout>

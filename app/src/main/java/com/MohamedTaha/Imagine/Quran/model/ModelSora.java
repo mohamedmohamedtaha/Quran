@@ -1,16 +1,29 @@
 package com.MohamedTaha.Imagine.Quran.model;
 
 public class ModelSora {
-
     private String name_sora;
     private int position;
+    private String nzol_elsora;
+    private String name_part;
 
-    public ModelSora() {
+    public String getName_part() {
+        return name_part;
     }
 
-    public ModelSora(String name_sora, int position) {
-        this.name_sora = name_sora;
-        this.position = position;
+    public void setName_part(String name_part) {
+        this.name_part = name_part;
+    }
+
+    public String getNzol_elsora() {
+        return nzol_elsora;
+    }
+
+    public void setNzol_elsora(String nsol_elsora) {
+        this.nzol_elsora = nsol_elsora;
+    }
+
+
+    public ModelSora() {
     }
 
     public String getName_sora() {

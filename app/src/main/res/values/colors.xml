@@ -2,66 +2,23 @@
 <resources>
     <color name="colorPrimaryDark">#636250</color>
     <color name="colorPrimary">#FCFCFC</color>
-    <color name="colorAccent">#458cb4</color>
+    <color name="colorAccent">#F05A28</color>
     <color name="colorBackground">#BDBDBD</color>
     <color name="colorButton">#f9ea1f</color>
     <color name="colorNameShekhFragment">#f7db07</color>
-    <color name="colorendColorCustomBackground">#4b575c</color>
-    <color name="orange">#458cb4</color>
-
-
-    <color name="textColorPrimary">#475687</color>
-
-    <!--Color FloatingActionMenu-->
-    <color name="menu_colorPressedAndShadow">#307196</color>
-    <color name="menu_colorRipple">#99d4d4d4</color>
-    <color name="menu_labels_textColor">#66f5ea09</color>
-
-
-    <!--Color custom_actionbar-->
-    <color name="background_actionbar">#458cb4</color>
-
-
+    <color name="blue">#10618D</color>
+    <color name="color_default_background_navigation">#434343</color>
 
     <!--Color TextView DetailsSoundActivity XML and Splash Activity XML  and Color TextView ActionBar XML-->
     <color name="textColorTime">#FFFFC411</color>
-    <color name="menu_shadowColor">#66aff198</color>
-    <color name="labels_textColor">#f2f1f1</color>
-    <color name="menu_labels_colorRipple">#66efecec</color>
-    <color name="menu_labels_colorPressed">#444</color>
-    <color name="menu_colorPressed">#307196</color>
-    <color name="menu_labels_colorNormal">#333</color>
-    <color name="menu_colorNormal">#458cb4</color>
-
 
     <color name="colorTransparent">#03636250</color>
     <color name="redTransparent">#07FDE401</color>
 
-    <!--Color FloatingButton XML
-       -->
-    <color name="textColorFloatingButton">#fafcfb</color>
-    <color name="textWihteColor">#ffffff</color>
-
-        <!--Color BackgroundFloatingButton XML
+    <!--Color BackgroundFloatingButton XML
           -->
     <color name="textColorBackgroundFloatingButton">#92948d</color>
-    <!--Color text for TestStart in XML the file custom_read_koran -->
-    <color name="textColortextStart">#74d415</color>
-    <color name="textColortextNameSor">#fbfcfa</color>
+
     <color name="textColortextContent">#f5f2f2</color>
-
-    <color name="transperant">#00ffffff</color>
-    <color name="black_overlay">#9970bfd1</color>
-    <!--Color outline for ImageView Picture Shehk -->
-
-    <color name="coloroutLine">#716f6f</color>
-
-
-    <color name="colorArrowLeft">#FFF</color>
-    <color name="colorBackgroundSeekbar">#50999999</color>
-    <color name="colorBackgroundSeekbarTwo">#70555555</color>
-
-
-    <color name="centerColorProgressFill">#65be0d</color>
 
 </resources>

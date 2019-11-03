@@ -44,8 +44,8 @@ public class SoundRepositiory {
     public SoundRepositiory(Application application) {
         this.application = application;
     }
-    public MutableLiveData<ArrayList<ImageModel>> getMutableLiveDataNameSora(int position) {
 
+    public MutableLiveData<ArrayList<ImageModel>> getMutableLiveDataNameSora(int position) {
         //Fetch the data in String.xml file
         ArrayLinkElhosaryMgwad = application.getResources().getStringArray(R.array.linkesElhosaryMgwad);
         ArrayLinkAbdelbasetMgwad = application.getResources().getStringArray(R.array.linkesAbdelbasetMgwad);
@@ -67,7 +67,6 @@ public class SoundRepositiory {
         ArrayLinkElqarashy = application.getResources().getStringArray(R.array.linkesElqarashy);
         ArrayLinkElqasem = application.getResources().getStringArray(R.array.linkesElqasem);
         ArrayLinkBder = application.getResources().getStringArray(R.array.linkesBder);
-
         getShekhAyat(position);
         mutableLiveDataNameSora.setValue(name_sora);
         return mutableLiveDataNameSora;
@@ -102,79 +101,6 @@ public class SoundRepositiory {
         imageModels.add(new ImageModel(application.getString(R.string.abdelrhman_elqasem), R.drawable.elqasem, application.getString(R.string.hafs_an_asem),18));
         imageModels.add(new ImageModel(application.getString(R.string.slah_elbadry), R.drawable.bder, application.getString(R.string.hafs_an_asem),19));
     }
-/*
-
-    private void getImage() {
-        image.add(R.drawable.elsodes);
-        image.add(R.drawable.elklbany);
-        image.add(R.drawable.elmenshawy);
-        image.add(R.drawable.elmenshawy);
-        image.add(R.drawable.abdeelbaset);
-        image.add(R.drawable.elhosary);
-        image.add(R.drawable.elhosary);
-        image.add(R.drawable.almaqely);
-        image.add(R.drawable.msharyelafasy);
-        image.add(R.drawable.sherem);
-        image.add(R.drawable.eltblawy);
-        image.add(R.drawable.eldosary);
-        image.add(R.drawable.elgeheny);
-        image.add(R.drawable.mohamedgbrer);
-        image.add(R.drawable.naserelqatamy);
-        image.add(R.drawable.elagamy);
-        image.add(R.drawable.elbana);
-        image.add(R.drawable.elqarashy);
-        image.add(R.drawable.elqasem);
-        image.add(R.drawable.bder);
-    }
-
-    private void getShekhName() {
-        sheks_names.add(application.getString(R.string.abdelrhman_elsodes));
-        sheks_names.add(application.getString(R.string.adel_elkalbany));
-        sheks_names.add(application.getString(R.string.mohamed_elmenshawyH));
-        sheks_names.add(application.getString(R.string.mohamed_elmenshawyM));
-        sheks_names.add(application.getString(R.string.abdelbaset));
-        sheks_names.add(application.getString(R.string.mahmoud_elhosaryH));
-        sheks_names.add(application.getString(R.string.mahmoud_elhosaryM));
-        sheks_names.add(application.getString(R.string.maher_elmeaqly));
-        sheks_names.add(application.getString(R.string.mshary_elafasy));
-        sheks_names.add(application.getString(R.string.soud_elsherem));
-        sheks_names.add(application.getString(R.string.mohamed_eltblawy));
-        sheks_names.add(application.getString(R.string.yaser_eldosary));
-        sheks_names.add(application.getString(R.string.abdellah_elgeheny));
-        sheks_names.add(application.getString(R.string.mohamed_gebrer));
-        sheks_names.add(application.getString(R.string.naser_elqatamy));
-        sheks_names.add(application.getString(R.string.ahmed_elagamy));
-        sheks_names.add(application.getString(R.string.mahmoud_elbana));
-        sheks_names.add(application.getString(R.string.yaser_elqarashy));
-        sheks_names.add(application.getString(R.string.abdelrhman_elqasem));
-        sheks_names.add(application.getString(R.string.slah_elbadry));
-    }
-
-    private void getTypeSors() {
-
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.ekmoshaf_elmogawad));
-        type_sora.add(application.getString(R.string.ekmoshaf_elmogawad));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.ekmoshaf_elmogawad));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-        type_sora.add(application.getString(R.string.hafs_an_asem));
-    }
-*/
     private List<ImageModel> getShekhAyat(int posision) {
         String[] soar = null;
         String[] positions = null;

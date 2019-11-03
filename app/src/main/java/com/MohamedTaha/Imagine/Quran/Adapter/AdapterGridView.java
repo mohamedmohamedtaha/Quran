@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -20,11 +19,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AdapterGridView extends ArrayAdapter<ModelSora> {
-    private int imageDimension;
+  //  private int imageDimension;
+    private boolean isParts;
 
-    public AdapterGridView(@NonNull Context context, List<ModelSora> listName_sora, int imageDimension) {
+    public AdapterGridView(@NonNull Context context, List<ModelSora> listName_sora, boolean isParts/*, int imageDimension*/) {
         super(context, 0, listName_sora);
-        this.imageDimension = imageDimension;
+        this.isParts = isParts;
+     //   this.imageDimension = imageDimension;
     }
 
     @Override
@@ -37,22 +38,30 @@ public class AdapterGridView extends ArrayAdapter<ModelSora> {
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
+        }
+        if (isParts){
+            viewHolder.TVNameSora.setText(modelSora.getName_part());
+            viewHolder.TVNzolelsora.setVisibility(View.GONE);
+                    }else {
+            viewHolder.TVNameSora.setText(modelSora.getName_sora());
+            viewHolder.TVNzolelsora.setVisibility(View.VISIBLE);
+            viewHolder.TVNzolelsora.setText(modelSora.getNzol_elsora());
 
         }
-        viewHolder.TVNameSora.setText(modelSora.getName_sora() + modelSora.getPosition());
 
-        final float scale = getContext().getResources().getDisplayMetrics().density;
-        int pixels = (int) (imageDimension * scale + 0.5f);
-        viewHolder.RelativeLayoutBackground.setLayoutParams(new RelativeLayout.LayoutParams(pixels, pixels));
+//        final float scale = getContext().getResources().getDisplayMetrics().density;
+//        int pixels = (int) (imageDimension * scale + 0.5f);
+//        viewHolder.RelativeLayoutBackground.setLayoutParams(new RelativeLayout.LayoutParams(pixels, pixels));
         return view;
     }
 
     static
     class ViewHolder {
-        @BindView(R.id.RelativeLayout_Background)
-        RelativeLayout RelativeLayoutBackground;
         @BindView(R.id.TV_Name_Sora)
         TextView TVNameSora;
+        @BindView(R.id.TV_Nzol_elsora)
+        TextView TVNzolelsora;
+
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

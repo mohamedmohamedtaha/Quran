@@ -10,23 +10,13 @@
         android:layout_width="@dimen/defaultValueThertyTwo"
         android:layout_height="@dimen/defaultValueThertyTwo"
         android:contentDescription="@string/decriptionImage1"
-        android:src="@drawable/ic_action_download"
+        android:src="@drawable/ic_download"
         android:layout_marginLeft="@dimen/defultValueSixTeen"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="@dimen/defultValueTen"
         />
-  <ImageView
-      android:id="@+id/IV_Play"
-      android:layout_width="@dimen/defaultValueThertyTwo"
-      android:layout_height="@dimen/defaultValueThertyTwo"
-      android:contentDescription="@string/decriptionImage1"
-      android:src="@drawable/ic_action_play"
-      android:layout_toEndOf="@+id/IV_Download"
-      android:layout_marginStart="@dimen/defultValueSixTeen"
-      android:layout_alignParentTop="true"
-      android:layout_marginTop="@dimen/defultValueTen"
-      />
+
     <TextView
         android:id="@+id/text_title"
         android:layout_width="wrap_content"
@@ -39,14 +29,14 @@
         android:text="@string/nameTextDefult"
         android:textSize="@dimen/textSize"
          />
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/defultValueSixTeen"
         android:contentDescription="@string/decriptionImage"
-        android:src="@drawable/iconqoran" />
+        android:src="@mipmap/logo" />
 
 </RelativeLayout>
 

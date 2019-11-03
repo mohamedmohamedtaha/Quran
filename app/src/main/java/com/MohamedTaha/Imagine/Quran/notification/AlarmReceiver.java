@@ -65,10 +65,10 @@ public class AlarmReceiver extends BroadcastReceiver  {
         cancelNotification.putExtra(NOTIFICATION_ID, this.notificationId);
         PendingIntent exitPending = PendingIntent.getBroadcast(context, this.notificationId, cancelNotification, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Bitmap bitmap_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.iconqoran);
+        Bitmap bitmap_icon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo);
         //Create a new Notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context.getApplicationContext(), CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.iconstanderd);
+        builder.setSmallIcon(R.mipmap.logo);
         builder.setLargeIcon(bitmap_icon);
         builder.setTicker(ticker);
         builder.setContentText(desribe);
@@ -84,8 +84,8 @@ public class AlarmReceiver extends BroadcastReceiver  {
         builder.setColor(ContextCompat.getColor(context.getApplicationContext(), R.color.colorPrimaryDark));
 
         //will make it a Heads Up  Display Style
-        builder.addAction(R.drawable.ic_notification_replay, context.getString(R.string.readNow), openIntent);
-        builder.addAction(R.drawable.ic_cancel, context.getString(R.string.notNow), exitPending);
+        builder.addAction(R.drawable.ic_close, context.getString(R.string.notNow), exitPending);
+        builder.addAction(R.drawable.ic_reply, context.getString(R.string.readNow), openIntent);
         builder.setContentIntent(openIntent);
         builder.setDefaults(Notification.DEFAULT_ALL);//Require VIBREATE permission
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(desribe));

@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -21,18 +20,14 @@ import com.MohamedTaha.Imagine.Quran.R;
 
 public class HelperClass {
     public static void customToast(Activity activity, String ToastTitle) {
-
         LayoutInflater inflater = activity.getLayoutInflater();
-
         View layout = inflater.inflate(R.layout.custom_toast,
                 (ViewGroup) activity.findViewById(R.id.toast_layout_root));
-
         TextView text = layout.findViewById(R.id.text);
         text.setText(ToastTitle);
-
         Toast toast = new Toast(activity);
-        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 100);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 150);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
     }
@@ -44,21 +39,18 @@ public class HelperClass {
         context.startActivity(startActivity);
     }
 
-    public static void replece(Fragment fragment, FragmentManager fragmentManager, int id, Toolbar toolbar, String title) {
+    public static void replece(Fragment fragment, FragmentManager fragmentManager, int id) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(id, fragment);
-        transaction.addToBackStack(null);
+        //transaction.commit();
         // for change from commit() because don't happen Error
         //   java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
         transaction.commitAllowingStateLoss();
 
-        if (toolbar != null) {
-            toolbar.setTitle(title);
-        }
     }
 
     //this method for Close App
-    public static void AlertDialogForCloseApp(final Context context){
+    public static void AlertDialogForCloseApp(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.tetileClose);
         builder.setMessage(R.string.messageClose);
@@ -73,7 +65,8 @@ public class HelperClass {
             public void onClick(DialogInterface dialog, int which) {
 
             }
-        });builder.show();
+        });
+        builder.show();
     }
 
     //This method for Exit App

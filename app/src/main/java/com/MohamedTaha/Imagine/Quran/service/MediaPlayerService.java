@@ -39,14 +39,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
+import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.Utilities;
 import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NetworkConnection;
 import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection;
-import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.getData.Utilities;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlaybackStatus;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlayerConstants;
 import com.MohamedTaha.Imagine.Quran.helper.util.StorageUtil;
 import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.receiver.ConnectivityReceiver;
+import com.MohamedTaha.Imagine.Quran.receiver.NoInternetReceiver;
 import com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity;
 import com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
@@ -69,8 +71,10 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public static final String BROADCAST_NOT_INTERNET = "com.example.createmediaplayer.no.internet";
 
     public static final String Broadcast_SILENT_DEVICE = "com.example.createmediaplayer.silent.device";
+    private ConnectivityReceiver connectivityReceiver = null;
+    private NoInternetReceiver noInternetReceiver = null;
+    boolean isConnected;
     NotificationCompat.Builder notificationBuilder;
-    public static String nameSora;
     private static Timer timer;
 
     private class MainTask extends TimerTask {
@@ -128,7 +132,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     //path to the audio file
     private String mediaFile;
 
-    //Used to pause/resume MediaPlayer
+    //Used to ic_pause/resume MediaPlayer
     private int resumePosition;
 
     private AudioManager audioManager;
@@ -160,6 +164,15 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public void onCreate() {
         super.onCreate();
         utilities = new Utilities();
+//        //For avoid throw exception with don't find internet
+//        if (Build.VERSION.SDK_INT >= 26) {
+//            startForeground(NOTIFICATION_ID_SERVICE, new Notification());
+//        }
+
+            // Create a network change broadcast receiver.
+        connectivityReceiver = new ConnectivityReceiver();
+        noInternetReceiver = new NoInternetReceiver();
+
         //Perform one-time setup procedures
         //Manage incoming phone calls during playback.
         //Pause MediaPlayer on incoming call, Resume on hangup.
@@ -221,7 +234,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public void playAyaFromEnternal(File media_path) {
         //Play Sora in internal Storage If was There
         //Check Is the aya is there or not for the App private Storage
-        //page4. play music
+        //page3. play music
         Uri uri = Uri.parse(String.valueOf(media_path));
         try {
             // mediaPlayer.reset();
@@ -261,8 +274,12 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         //unregister BroadcastReceivers
         unregisterReceiver(becomingNoisyReceiver);
         unregisterReceiver(playNewAudio);
-        unregisterReceiver(noConnection);
-        unregisterReceiver(noInternet);
+        if (connectivityReceiver != null) {
+            unregisterReceiver(connectivityReceiver);
+        }
+        if (noInternetReceiver != null) {
+            unregisterReceiver(noInternetReceiver);
+        }
 
         //Clear cached playlist
         new StorageUtil(getApplicationContext()).clearCachedAudioPlaylist();
@@ -284,7 +301,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             public void onCallStateChanged(int state, String phoneNumber) {
                 switch (state) {
                     //if at least one call exists or the phone is ringing
-                    //pause the MediaPlayer
+                    //ic_pause the MediaPlayer
                     case TelephonyManager.CALL_STATE_OFFHOOK:
                     case TelephonyManager.CALL_STATE_RINGING:
                         if (mediaPlayer != null && isPlaying) {
@@ -448,9 +465,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     private void playMedia() {
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
-            //    updateProgressBar();
             isPlaying = true;
-//            Glide.with(getApplicationContext()).load(R.drawable.ic_action_pause).into(IVPlay);
 
         }
     }
@@ -460,8 +475,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
             isPlaying = false;
-            timer.cancel();
-
+            if (timer != null) {
+                timer.cancel();
+            }
         }
     }
 
@@ -502,7 +518,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     private BroadcastReceiver becomingNoisyReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            //pause audio on ACTION_AUDIO_BECOMING_NOISY
+            //ic_pause audio on ACTION_AUDIO_BECOMING_NOISY
             if (AudioManager.ACTION_AUDIO_BECOMING_NOISY.equals(intent.getAction())) {
                 pauseMedia();
                 buildNotification(PlaybackStatus.PAUSED);
@@ -552,54 +568,16 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         registerReceiver(playNewAudio, filter);
     }
 
-    //Broadcast for notify Not Connection
-    private BroadcastReceiver noConnection = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //For check from Status Network
-            boolean isConnected = NetworkConnection.networkConnectivity(context);
-            if (isConnected) {
-
-            } else {
-                stopMedia();
-                removeNotification();
-                FragmentListSoundLLControlMedia.setVisibility(View.GONE);
-                Toast.makeText(context, context.getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
-               /* boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
-                if (isServiceRunning) {
-                    stopSelf();
-
-                }*/
-            }
-        }
-    };
-
     private void registerNoConnection() {
         //Register no internet receiver
         IntentFilter filter = new IntentFilter(MediaPlayerService.BROADCAST_NOT_CONNECTION);
-        registerReceiver(noConnection, filter);
+        registerReceiver(connectivityReceiver, filter);
     }
-
-    //Broadcast for notify Not Internet
-    private BroadcastReceiver noInternet = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //For check from Status Network
-            if (isInternet()) {
-            } else {
-                stopMedia();
-                removeNotification();
-                FragmentListSoundLLControlMedia.setVisibility(View.GONE);
-                Toast.makeText(context, context.getString(R.string.no_internet_network), Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
-
 
     private void registerNoInternet() {
         //Register no internet receiver
         IntentFilter filter = new IntentFilter(MediaPlayerService.BROADCAST_NOT_INTERNET);
-        registerReceiver(noInternet, filter);
+        registerReceiver(noInternetReceiver, filter);
     }
 
     public class DeleteNotification extends BroadcastReceiver {
@@ -702,13 +680,10 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
     }
 
-
     //check Internet
     private void isNetworkConnected() {
         NoInternetConnection noInternetConnection = new NoInternetConnection();
         noInternetConnection.execute("http://clients3.google.com/generate_204");
-        // NoInternetAsynTask noInternetAsynTask = new NoInternetAsynTask();
-        // noInternetAsynTask.execute("http://clients3.google.com/generate_204");
         boolean isConnected = NetworkConnection.networkConnectivity(getApplicationContext());
         File media_path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + FILENAME);
         final File exStore = new File(media_path, activeAudio.getName_sora() + ".mp3");
@@ -724,17 +699,22 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                         //send BroadcastReceiver to the Service -> Not Connection
                         Intent broadcastIntent = new Intent(BROADCAST_NOT_CONNECTION);
                         sendBroadcast(broadcastIntent);
+                        stopMedia();
+                        removeNotification();
+                        FragmentListSoundLLControlMedia.setVisibility(View.GONE);
                     } else {
                         if (!isInternet()) {
                             //send BroadcastReceiver to the Service -> Not Internet
                             Intent broadcastIntent = new Intent(BROADCAST_NOT_INTERNET);
                             sendBroadcast(broadcastIntent);
+                            stopMedia();
+                            removeNotification();
+                            FragmentListSoundLLControlMedia.setVisibility(View.GONE);
                         } else {
                             if (URLUtil.isValidUrl(activeAudio.getSora_link())) {
                                 try {
                                     mediaPlayer.setDataSource(activeAudio.getSora_link());
                                     mediaPlayer.prepareAsync();
-
                                     buildNotification(PlaybackStatus.PLAYING);
                                     FragmentListSoundLLControlMedia.setVisibility(View.VISIBLE);
                                 } catch (Exception e) {
@@ -743,7 +723,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
                             } else {
                                 Toast.makeText(getApplicationContext(), R.string.text_fiald, Toast.LENGTH_LONG).show();
-
                             }
                         }
                     }
@@ -754,11 +733,11 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     }
 
     private void updateMetaData() {
-        Bitmap albumArt = BitmapFactory.decodeResource(getResources(), R.mipmap.iconqoran);//replace with medias albumArt
+        Bitmap albumArt = BitmapFactory.decodeResource(getResources(), R.mipmap.logo);//replace with medias albumArt
         //update the current metadata
         mediaSession.setMetadata(new MediaMetadataCompat.Builder()
-                .putBitmap(MediaMetadataCompat.METADATA_KEY_DISPLAY_ICON, BitmapFactory.decodeResource(getResources(), R.mipmap.iconqoran))
-                .putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.mipmap.iconqoran))
+                .putBitmap(MediaMetadataCompat.METADATA_KEY_DISPLAY_ICON, BitmapFactory.decodeResource(getResources(), R.mipmap.logo))
+                .putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.mipmap.logo))
                 .putBitmap(MediaMetadataCompat.METADATA_KEY_ALBUM_ART, albumArt)
                 .putString(MediaMetadataCompat.METADATA_KEY_TITLE, activeAudio.getName_sora())
                 .putString(MediaMetadataCompat.METADATA_KEY_ARTIST, activeAudio.getName_shekh())
@@ -809,7 +788,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         //Build a new notification according to the current state of the MediaPlayer
         if (playbackStatus == PlaybackStatus.PLAYING) {
             notificationAction = android.R.drawable.ic_media_pause;
-            //Create the pause action
+            //Create the ic_pause action
             play_pauseAction = playbackAction(1);
         } else if (playbackStatus == PlaybackStatus.PAUSED) {
             notificationAction = android.R.drawable.ic_media_play;
@@ -873,9 +852,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                 //.setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 //Add media control buttons that invoke intents in your media service
                 .addAction(android.R.drawable.ic_media_previous, "previous", playbackAction(3))
-                .addAction(notificationAction, "pause", play_pauseAction)
+                .addAction(notificationAction, "ic_pause", play_pauseAction)
                 .addAction(android.R.drawable.ic_media_next, "changeTextToNext", playbackAction(2))
-                .addAction(R.drawable.ic_cancel, "close", playbackAction(4))
+                .addAction(R.drawable.ic_exit, "close", playbackAction(4))
 
                 //Set the Notification Media Style
                 .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
@@ -888,17 +867,11 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
         //Display the notification and place the service in the foreground
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // NotificationChannel channel = new NotificationChannel(CHANNEL_ID,"TAG",NotificationManager.IMPORTANCE_HIGH);
-            // manager.createNotificationChannel(channel);
-            //   Notification notification = new Notification.Builder(getApplicationContext(),CHANNEL_ID).build();
             startForeground(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
         } else {
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             manager.notify(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
-
-
         }
-
     }
 
     private void removeNotification() {
@@ -981,10 +954,5 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         notificationChannel.setSound(null, null);
         notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         manager.createNotificationChannel(notificationChannel);
-
-
     }
-
-
 }
-

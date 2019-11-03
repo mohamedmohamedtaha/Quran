@@ -1,13 +1,10 @@
 package com.MohamedTaha.Imagine.Quran.ui.activities;
 
 import android.app.NotificationManager;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,14 +13,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
+import com.MohamedTaha.Imagine.Quran.interactor.NavigationDrawarInteractor;
 import com.MohamedTaha.Imagine.Quran.notification.NotificationHelper;
+import com.MohamedTaha.Imagine.Quran.presenter.NavigationDrawarPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.FragmentSound;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment;
+import com.MohamedTaha.Imagine.Quran.ui.fragments.PartsFragment;
+import com.MohamedTaha.Imagine.Quran.view.NavigationDrawarView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -33,8 +33,7 @@ import butterknife.ButterKnife;
 
 import static com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor.FIRST_TIME;
 
-public class NavigationDrawaberActivity extends AppCompatActivity {
-
+public class NavigationDrawaberActivity extends AppCompatActivity implements NavigationDrawarView {
     @BindView(R.id.nav_view)
     BottomNavigationView navView;
     @BindView(R.id.toobar)
@@ -45,16 +44,15 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
     String shareApp;
     @BindString(R.string.notSupport)
     String notSupport;
+    @BindString(R.string.exit_app)
+    String exit_app;
 
     private int current_fragment;
     public static MaterialSearchView searchView;
     public static final String NOTIFICATION_OPEN = "notificationOpen";
-    public static final String GOOGLE_ACCOUNT_ID = "https://play.google.com/store/apps/details?id=";
-    public static final String NAME_EMAIL = "mohamed01007919166@gmail.com";
-    public static final String MARKET_ID = "market://details?id=";
     String appPackageName;
     int notificationId;
-    private Boolean exitApp = false;
+    private NavigationDrawarPresenter presenter;
 
 
     @Override
@@ -62,23 +60,24 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawaber);
         ButterKnife.bind(this);
+        presenter = new NavigationDrawarInteractor(this);
         appPackageName = getPackageName();
-        //current_fragment = R.id.read_quran;
+
         //For Settings Notifications
         NotificationHelper.sendNotificationEveryHalfDay(getApplicationContext());
         NotificationHelper.enableBootRecieiver(getApplicationContext());
+
         //for close Notification
         notificationId = getIntent().getIntExtra(NOTIFICATION_OPEN, 1);
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(notificationId);
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+       navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.read_quran);
         setSupportActionBar(toobar);
-        //getSupportActionBar().setTitle("Material Search");
+        //for change color text toolbar
         toobar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-        // toobar.setTitleTextColor(Color.parseColor(getString(R.color.coloroutLine)));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -91,48 +90,27 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
                 return false;
             }
             switch (id) {
-
                 case R.id.read_quran:
                     GridViewFragment gridViewFragment = new GridViewFragment();
-                    replaceFragment(gridViewFragment);
+                    HelperClass.replece(gridViewFragment, getSupportFragmentManager(), R.id.frameLayout);
                     break;
-                //    return true;
+                case R.id.read_parts:
+                    PartsFragment partsFragment = new PartsFragment();
+                    HelperClass.replece(partsFragment, getSupportFragmentManager(), R.id.frameLayout);
+                    break;
                 case R.id.sound_quran:
                     FragmentSound fragmentSound = new FragmentSound();
-                    replaceFragment(fragmentSound);
-                    // return true;
+                    HelperClass.replece(fragmentSound, getSupportFragmentManager(), R.id.frameLayout);
                     break;
             }
             current_fragment = id;
-            return false;
+            return true;
         }
     };
 
-    private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(
-                R.id.frameLayout, fragment).commit();
-    }
-
     @Override
     public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else if (navView.getSelectedItemId() == R.id.read_quran) {
-            if (exitApp) {
-                HelperClass.closeApp(getApplicationContext());
-                return;
-            }
-            exitApp = true;
-            Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exitApp = false;
-                }
-            }, 2000);
-        } else {
-            navView.setSelectedItemId(R.id.read_quran);
-        }
+        presenter.exitApp(searchView, navView);
     }
 
     @Override
@@ -148,31 +126,10 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_share:
-                try {
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("text/plain");
-                    intent.putExtra(Intent.EXTRA_SUBJECT, R.string.nameSora);
-                    String about = aboutString + GOOGLE_ACCOUNT_ID + appPackageName;
-                    intent.putExtra(Intent.EXTRA_TEXT, about);
-                    startActivity(Intent.createChooser(intent, shareApp));
-                } catch (Exception e) {
-                    e.toString();
-                }
+                presenter.shareApp(aboutString, appPackageName);
                 break;
             case R.id.action_send_us:
-                Intent intentEmail = new Intent(Intent.ACTION_SEND);
-                intentEmail.setData(Uri.parse("mailto:"));
-                intentEmail.setType("message/rfc822");
-                intentEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{NAME_EMAIL});
-                intentEmail.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-                intentEmail.putExtra(Intent.EXTRA_TEXT, "Message Body");
-                intentEmail.createChooser(intentEmail, "Send mail...");
-
-                if (intentEmail.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intentEmail);
-                } else {
-                    Toast.makeText(getApplicationContext(), notSupport, Toast.LENGTH_LONG).show();
-                }
+                presenter.sendUs();
                 break;
             case R.id.action_use_way:
                 SharedPerefrenceHelper.putFirstTime(getApplicationContext(), FIRST_TIME, false);
@@ -185,17 +142,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.action_rate:
-                try {
-                    //Open the Store and show the App
-                    Intent rateApp = new Intent(Intent.ACTION_VIEW);
-                    rateApp.setData(Uri.parse(MARKET_ID + appPackageName));
-                    startActivity(rateApp);
-                } catch (ActivityNotFoundException e) {
-                    //In state store there is not open by The browser
-                    Intent webRate = new Intent(Intent.ACTION_VIEW);
-                    webRate.setData(Uri.parse(GOOGLE_ACCOUNT_ID + appPackageName));
-                    startActivity(webRate);
-                }
+                presenter.actionRate(appPackageName);
                 break;
             default:
 
@@ -203,4 +150,43 @@ public class NavigationDrawaberActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showMessageExitApp() {
+        HelperClass.customToast(this, exit_app);
+    }
+
+    @Override
+    public void exitApp() {
+        HelperClass.closeApp(getApplicationContext());
+    }
+
+    @Override
+    public void getDefault() {
+        navView.setSelectedItemId(R.id.read_quran);
+    }
+
+    @Override
+    public void getShareApp(Intent intent) {
+        startActivity(Intent.createChooser(intent, shareApp));
+    }
+
+    @Override
+    public void getSendUs(Intent intentEmail) {
+        if (intentEmail.resolveActivity(getPackageManager()) != null) {
+            startActivity(intentEmail);
+        } else {
+            HelperClass.customToast(this, notSupport);
+        }
+    }
+
+    @Override
+    public void getRateApp(Intent rateApp) {
+        startActivity(rateApp);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
 }

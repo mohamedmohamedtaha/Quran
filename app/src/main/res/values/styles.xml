@@ -9,6 +9,19 @@
 
     </style>
 
+
+
+    <!-- Base application theme. -->
+    <style name="MaterialComponents" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
     <!--  Alternative Base application theme. -->
 
     <style name="AppThemeCustom" parent="Theme.AppCompat.Light.NoActionBar">
@@ -29,13 +42,13 @@
     </style>
 
 
-    <!-- set background for a void OverDraw  -->
+    <!-- set background_text for a void OverDraw  -->
     <style name="backgroundTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowBackground">@drawable/background_text</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <!-- set background for a void Background Floating Action Button  -->
+    <!-- set background_text for a void Background Floating Action Button  -->
     <style name="MyFloatingButton" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/textColorBackgroundFloatingButton</item>
     </style>

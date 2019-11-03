@@ -77,6 +77,7 @@ public class ImageAdapter extends ArrayAdapter<ImageModel> {
                 activity.overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
+
         return convertView;
     }
      static
@@ -87,7 +88,6 @@ public class ImageAdapter extends ArrayAdapter<ImageModel> {
         TextView textViewShow;
         @BindView(R.id.textTypeTlawa)
         TextView textTypeTlawa;
-
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

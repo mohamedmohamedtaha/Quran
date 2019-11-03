@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor;
 import com.MohamedTaha.Imagine.Quran.presenter.SplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
@@ -30,6 +30,7 @@ public class SplashFragment extends Fragment implements SplashView {
     @BindView(R.id.textShow)
     TextView textShow;
     Typeface nyTypeface;
+    private static final String FONT_TYPE = "fonts/Mirza-SemiBold.ttf";
     private SplashPresenter splashPresenter;
 
     public SplashFragment() {
@@ -50,7 +51,7 @@ public class SplashFragment extends Fragment implements SplashView {
     @Override
     public void onAttachFragment(Fragment childFragment) {
         super.onAttachFragment(childFragment);
-        nyTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Mirza-SemiBold.ttf");
+        nyTypeface = Typeface.createFromAsset(getActivity().getAssets(), FONT_TYPE);
     }
 
     @Override
@@ -69,13 +70,13 @@ public class SplashFragment extends Fragment implements SplashView {
     @Override
     public void goToMainActivity() {
         HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
-        getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @Override
     public void goToSlider() {
-         SliderFragment sliderFragment = new SliderFragment();
-        HelperClass.replece(sliderFragment, getFragmentManager(), R.id.Cycle_Splash_contener, null, null);
-         getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+        SliderFragment sliderFragment = new SliderFragment();
+        HelperClass.replece(sliderFragment, getFragmentManager(), R.id.Cycle_Splash_contener);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }

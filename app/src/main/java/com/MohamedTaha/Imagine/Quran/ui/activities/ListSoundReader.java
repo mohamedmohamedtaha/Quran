@@ -7,6 +7,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.media.AudioManager;
@@ -44,10 +45,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.RecycleViewReaderAdapter;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.getData.Utilities;
+import com.MohamedTaha.Imagine.Quran.helper.Utilities;
+import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NetworkConnection;
+import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlayerConstants;
 import com.MohamedTaha.Imagine.Quran.helper.util.StorageUtil;
 import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.receiver.ConnectivityReceiver;
+import com.MohamedTaha.Imagine.Quran.receiver.NoInternetReceiver;
 import com.MohamedTaha.Imagine.Quran.service.MediaPlayerService;
 import com.MohamedTaha.Imagine.Quran.viewmodel.SoundViewHolder;
 import com.bumptech.glide.Glide;
@@ -66,6 +71,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.MohamedTaha.Imagine.Quran.Adapter.ImageAdapter.SHEKH_ID;
 import static com.MohamedTaha.Imagine.Quran.Adapter.ImageAdapter.SHEKH_NAME;
+import static com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection.isInternet;
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.transportControls;
 
@@ -89,11 +95,9 @@ public class ListSoundReader extends AppCompatActivity {
     Button btnNext;
     @BindView(R.id.Fragment_List_Sound_TV_Name_Sora)
     TextView FragmentListSoundTVNameSora;
-
     RecycleViewReaderAdapter recycleViewAdaptor;
     public static ProgressBar ListSoundReaderLoadingIndicator;
     private ArrayList<ImageModel> respones;
-    //  private List<Model> respones;
     public static TextView textNowPlaying;
 
     public static Button btnPlay;
@@ -146,6 +150,7 @@ public class ListSoundReader extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
     }
 
     @Override
@@ -154,6 +159,7 @@ public class ListSoundReader extends AppCompatActivity {
         setContentView(R.layout.fragment_list_sound);
         ButterKnife.bind(this);
         utilities = new Utilities();
+
         boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
         FragmentListSoundLLControlMedia = (LinearLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
         ListSoundReaderLoadingIndicator = (ProgressBar) findViewById(R.id.ListSoundReader_loading_indicator);
@@ -171,7 +177,7 @@ public class ListSoundReader extends AppCompatActivity {
         textDuration = (TextView) findViewById(R.id.textDuration);
         textNowPlaying = (TextView) findViewById(R.id.textNowPlaying);
         seekBar = (ProgressBar) findViewById(R.id.progressBar);
-        seekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorButton), PorterDuff.Mode.SRC_IN);
+        seekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
 
         custom_toolbar();
         //For ReDraw the Menu
@@ -180,7 +186,6 @@ public class ListSoundReader extends AppCompatActivity {
         Intent bundle = getIntent();
         if (bundle != null) {
             poisition = new Gson().fromJson(bundle.getStringExtra(SHEKH_ID), Integer.class);
-
             imageModelTest = new Gson().fromJson(bundle.getStringExtra(SHEKH_NAME), String.class);
         }
         FILENAME = "/" + imageModelTest + "/";
@@ -201,7 +206,7 @@ public class ListSoundReader extends AppCompatActivity {
                 recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), respones, new RecycleViewReaderAdapter.ClickListener() {
                     @Override
                     public void onClick(View view, int position) {
-                        playAudio(position);
+                            playAudio(position);
                     }
 
                 }, new RecycleViewReaderAdapter.DownloadMusic() {
@@ -525,7 +530,7 @@ public class ListSoundReader extends AppCompatActivity {
         Glide.with(context)
 
                 .load(activeAudio.getUrl_image())
-                .apply(new RequestOptions().placeholder(R.drawable.iconqoran).centerCrop())
+                .apply(new RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(imageViewAlbumArt);
 
     }
@@ -559,7 +564,7 @@ public class ListSoundReader extends AppCompatActivity {
                     //buildNotification(PlaybackStatus.PLAYING);
 
 
-                    //page4. play music
+                    //page3. play music
                       /*  if (exStore != null && exStore.exists()) {
                             playAyaFromEnternal(exStore);
 

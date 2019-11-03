@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.MohamedTaha.Imagine.Quran"
@@ -22,11 +23,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -35,16 +36,12 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "com.android.support:support-v4:$supportLibraryVersion"
-    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     // For use NotificationCompat
     implementation "com.android.support:support-compat:$supportLibraryVersion"
 
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    implementation "com.android.support:design:$supportLibraryVersion"
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.7', changing: true
-    implementation 'com.squareup.picasso:picasso:2.71828'
     testImplementation 'junit:junit:4.12'
     implementation 'com.github.clans:fab:1.6.2'
     //ButterKnife Dependency
@@ -61,8 +58,24 @@ dependencies {
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
 //For Preference
     implementation 'androidx.preference:preference:1.1.0'
-  //for Animation
+    //for Animation
     implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
 //Circle Image View
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+
+// Add Dagger dependencies
+    api 'com.google.dagger:dagger:2.15'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
+    api "com.google.dagger:dagger-android:2.15"
+    api 'com.google.dagger:dagger-android-support:2.15' // if you use the support libraries
+
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+
+//For support RTL for ViewPager
+
+    implementation 'com.booking:rtlviewpager:1.0.1'
+
+
+
 }

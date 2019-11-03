@@ -16,6 +16,7 @@
 
     <!--size TextView ActionBar XML  and size TextView DetailsSoundActivity XML-->
     <dimen name="textSizeNameSheck">10sp</dimen>
+    <dimen name="textSizeTwelve">8sp</dimen>
 
 
     <!--sizes Splash Activity XML   -->
@@ -61,6 +62,8 @@
     <dimen name="defultValueThree">3dp</dimen>
     <dimen name="defultValueOne">1dp</dimen>
     <dimen name="defaultValueTowHandred">200dp</dimen>
+    <dimen name="defaultValueTowHandredTen">250dp</dimen>
+
     <dimen name="defultValueOneHalf">150dp</dimen>
     <dimen name="defultValueHandred">100dp</dimen>
 
@@ -74,8 +77,9 @@
 
     <dimen name="sizeBackgroundRadius">1dp</dimen>
 
+    <dimen name="three_dimen">3dp</dimen>
 
-    <dimen name="sizeSeekbarProgress">5dip</dimen>
+    <dimen name="sizeSeekbarProgress">5dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

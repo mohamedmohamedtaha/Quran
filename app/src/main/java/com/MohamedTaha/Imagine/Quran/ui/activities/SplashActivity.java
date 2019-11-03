@@ -1,43 +1,64 @@
 package com.MohamedTaha.Imagine.Quran.ui.activities;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
+import com.MohamedTaha.Imagine.Quran.interactor.ExitAppSplashInteractor;
+import com.MohamedTaha.Imagine.Quran.presenter.ExitAppSplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.SplashFragment;
+import com.MohamedTaha.Imagine.Quran.view.ExitAppSplashView;
 
+import butterknife.BindString;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends AppCompatActivity {
-    private Boolean exitApp = false;
+public class SplashActivity extends AppCompatActivity implements ExitAppSplashView {
+    ExitAppSplashPresenter presenter;
+    @BindString(R.string.exit_app)
+    String exit_app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+
+        //  MyApp.getInstance().getExitAppSplashComponent().inject(this);
+        presenter = new ExitAppSplashInteractor();
+        // MyApp.getInstance().getSplashComponent().inject(this);
+
+
         SplashFragment splashFragment = new SplashFragment();
-        HelperClass.replece(splashFragment, getSupportFragmentManager(), R.id.Cycle_Splash_contener, null, null);
+        HelperClass.replece(splashFragment, getSupportFragmentManager(), R.id.Cycle_Splash_contener);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.setView(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
+
+    @Override
     public void onBackPressed() {
-        if (exitApp) {
-            HelperClass.closeApp(getApplicationContext());
-            return;
-        }
-        exitApp = true;
-        Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                exitApp = false;
-            }
-        }, 2000);
+        presenter.exitApp();
+    }
+
+    @Override
+    public void showMessageExitApp() {
+        HelperClass.customToast(this, exit_app);
+    }
+
+    @Override
+    public void exitApp() {
+        HelperClass.closeApp(getApplicationContext());
     }
 }

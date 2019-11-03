@@ -43,6 +43,123 @@
     <string name="text_false">تَأَكُّدٌ مِنْ الأَنْتِرْنِت لِأَنَّ السُّورَةُ لَمْ يَتِمَّ تَحْمِيلُهَا عَلَى جِهَازِكَ</string>
 
     <!-- String_Array for Names the swar-->
+    <string-array name="name_allSwar_read">
+        <item name="Sura1">سورة الفاتحة </item>
+        <item name="Sura2">سورة البقرة </item>
+        <item name="Sura3"> سورة 	آل عمران </item>
+        <item name="Sura4">سورة النساء</item>
+        <item name="Sura5">سورة المائدةِ</item>
+        <item name="Sura6">سورة الأنعامِ</item>
+        <item name="Sura7">سورة الأعرافِ</item>
+        <item name="Sura8">سورة الأنفال</item>
+        <item name="Sura9">سورة التوبة</item>
+        <item name="Sura10">سورة يونس</item>
+        <item name="Sura11">سورة هود</item>
+        <item name="Sura12">سورة يوسف</item>
+        <item name="Sura13">سورة الرعد</item>
+        <item name="Sura14">سورة إبراهيم</item>
+        <item name="Sura15">سورة الحجرِ</item>
+        <item name="Sura16">سورة النحل</item>
+        <item name="Sura17">سورة الإسراء</item>
+        <item name="Sura18">سورة الكهف</item>
+        <item name="Sura19">سورة مريم</item>
+        <item name="Sura20">سورة طه</item>
+        <item name="Sura21">سورة الأنبياء</item>
+        <item name="Sura22">سورة الحج</item>
+        <item name="Sura23">سورة المؤمنون</item>
+        <item name="Sura24">سورة النورِ</item>
+        <item name="Sura25">سورة الفرقانِ</item>
+        <item name="Sura26">سورة الشعراء</item>
+        <item name="Sura27">سورة النملِ</item>
+        <item name="Sura28">سورة القصص</item>
+        <item name="Sura29">سورة العنكبوت</item>
+        <item name="Sura30">سورة الروم</item>
+        <item name="Sura31">سورة لقمان</item>
+        <item name="Sura32">سورة السجدة</item>
+        <item name="Sura33">سورة الأحزاب</item>
+        <item name="Sura34">سورة سبأ</item>
+        <item name="Sura35">سورة فاطر</item>
+        <item name="Sura36">سورة يس</item>
+        <item name="Sura37">سورة الصافاتِ</item>
+        <item name="Sura38">صورة ص</item>
+        <item name="Sura39">سورة الزمرِ</item>
+        <item name="Sura40">سورة غافر</item>
+        <item name="Sura41">سورة فصلت</item>
+        <item name="Sura42">سورة الشورى</item>
+        <item name="Sura43">سورة الزخرف</item>
+        <item name="Sura44">سورة الدخان</item>
+        <item name="Sura45">سورة الجاثية</item>
+        <item name="Sura46">سورة الأحقاق</item>
+        <item name="Sura47">سورة محمد</item>
+        <item name="Sura48">سورة الفتح</item>
+        <item name="Sura49">سورة الحجرات</item>
+        <item name="Sura50">سورة ق</item>
+        <item name="Sura51">سورة الذاريات</item>
+        <item name="Sura52">سورة الطور</item>
+        <item name="Sura53">سورة النجمِ</item>
+        <item name="Sura54">سورة القمر</item>
+        <item name="Sura55">سورة الرحمن</item>
+        <item name="Sura56">سورة الواقعة</item>
+        <item name="Sura57">سورة الحديد</item>
+        <item name="Sura58">سورة المجادلة</item>
+        <item name="Sura59">سورة الحشرِ</item>
+        <item name="Sura60">سورة الممتحنة</item>
+        <item name="Sura61">سورة الصفِ</item>
+        <item name="Sura62">سورة الجمعة</item>
+        <item name="Sura63">سورة المنافقون</item>
+        <item name="Sura64">سورة التغابن</item>
+        <item name="Sura65">سورة الطلاق</item>
+        <item name="Sura66">سورة التحريمِ</item>
+        <item name="Sura67">سورة الملك</item>
+        <item name="Sura68">سورة القلم</item>
+        <item name="Sura69">سورة الحاقة</item>
+        <item name="Sura70">سورة المعارج</item>
+        <item name="Sura71">سورة نوح</item>
+        <item name="Sura72">سورة الجن</item>
+        <item name="Sura73">سورة المزملِ</item>
+        <item name="Sura74">سورة المدثر</item>
+        <item name="Sura75">سورة القيامة</item>
+        <item name="Sura76">سورة الإنسان</item>
+        <item name="Sura77">سورة المرسلات</item>
+        <item name="Sura78">سورة النبأ</item>
+        <item name="Sura79">سورة النازعات</item>
+        <item name="Sura80">سورة عبس</item>
+        <item name="Sura81">سورة التكوير</item>
+        <item name="Sura82">سورة الإنفطارِ</item>
+        <item name="Sura83">سورة المطففين</item>
+        <item name="Sura84">سورة الإنشقاق</item>
+        <item name="Sura85">سورة البروج</item>
+        <item name="Sura86">سورة الطارق</item>
+        <item name="Sura87">سورة الأعلى</item>
+        <item name="Sura88">سورة الغاشية</item>
+        <item name="Sura89">سورة الفجر</item>
+        <item name="Sura90">سورة البلد</item>
+        <item name="Sura91">سورة الشمس</item>
+        <item name="Sura92">سورة الليل</item>
+        <item name="Sura93">سورة الضحى</item>
+        <item name="Sura94">سورة الشرح</item>
+        <item name="Sura95">سورة التين</item>
+        <item name="Sura96">سورة العلق</item>
+        <item name="Sura97">سورة القدر</item>
+        <item name="Sura98">سورة البينة</item>
+        <item name="Sura99">سورة الزلزلة</item>
+        <item name="Sura100">سورة العاديات</item>
+        <item name="Sura101">سورة القارعة</item>
+        <item name="Sura102">سورة التكاثر</item>
+        <item name="Sura103">سورة العصر</item>
+        <item name="Sura104">سورة الهمزة</item>
+        <item name="Sura105">سورة الفيل</item>
+        <item name="Sura106">سورة قريش</item>
+        <item name="Sura107">سورة الماعونِ</item>
+        <item name="Sura108">سورة الكوثر</item>
+        <item name="Sura109">سورة الكافرون</item>
+        <item name="Sura110">سورة النصر</item>
+        <item name="Sura111">سورة المسدِ</item>
+        <item name="Sura112">سورة الإخلاص</item>
+        <item name="Sura113">سورة الفلق</item>
+        <item name="Sura114">سورة الناس</item>
+        <item name="Sura115">الخاتمة</item>
+    </string-array>
     <string-array name="name_allSwar">
         <item name="Sura1">سورة الفاتحة </item>
         <item name="Sura2">سورة البقرة </item>
@@ -158,7 +275,9 @@
         <item name="Sura112">سورة الإخلاص</item>
         <item name="Sura113">سورة الفلق</item>
         <item name="Sura114">سورة الناس</item>
+
     </string-array>
+
     <!-- String_Array for Names the swar-->
     <string-array name="positions">
         <item name="position1">0</item>
@@ -394,7 +513,6 @@
         <item name="Link114">http://server11.mp3quran.net/minsh_mjwd/114.mp3</item>
     </string-array>
 
-
     <string-array name="linkesyasser">
         <item name="Link1">http://server11.mp3quran.net/yasser/001.mp3</item>
         <item name="Link2">http://server11.mp3quran.net/yasser/002.mp3</item>
@@ -511,8 +629,6 @@
         <item name="Link113">http://server11.mp3quran.net/yasser/113.mp3</item>
         <item name="Link114">http://server11.mp3quran.net/yasser/114.mp3</item>
     </string-array>
-
-
 
     <string-array name="linkesElhosaryMgwad">
         <item name="Link1">http://server9.mp3quran.net/husr_mjwd/001.mp3</item>
@@ -747,7 +863,6 @@
         <item name="Link113">http://server8.mp3quran.net/jbrl/113.mp3</item>
         <item name="Link114">http://server8.mp3quran.net/jbrl/114.mp3</item>
     </string-array>
-
 
 
     <string-array name="linkesMsharyElafasy">
@@ -1222,7 +1337,6 @@
     </string-array>
 
 
-
     <string-array name="linkesSoaadElsherem">
         <item name="Link1">http://server7.mp3quran.net/shur/001.mp3</item>
         <item name="Link2">http://server7.mp3quran.net/shur/002.mp3</item>
@@ -1340,8 +1454,6 @@
         <item name="Link114">http://server7.mp3quran.net/shur/114.mp3</item>
     </string-array>
 
-
-
     <string-array name="linkesAbdelbasetMgwad">
         <item name="Link1">http://server13.mp3quran.net/basit_mjwd/001.mp3</item>
         <item name="Link2">http://server13.mp3quran.net/basit_mjwd/002.mp3</item>
@@ -1458,7 +1570,6 @@
         <item name="Link113">http://server13.mp3quran.net/basit_mjwd/113.mp3</item>
         <item name="Link114">http://server13.mp3quran.net/basit_mjwd/114.mp3</item>
     </string-array>
-
 
     <string-array name="linkesAbdlaElgeheny">
         <item name="Link1">http://server13.mp3quran.net/jhn/001.mp3</item>
@@ -1694,8 +1805,6 @@
         <item name="Link114">http://server13.mp3quran.net/husr/114.mp3</item>
     </string-array>
 
-
-
     <string-array name="linkesMaherElmaqly">
         <item name="Link1">http://server12.mp3quran.net/maher/001.mp3</item>
         <item name="Link2">http://server12.mp3quran.net/maher/002.mp3</item>
@@ -1812,7 +1921,6 @@
         <item name="Link113">http://server12.mp3quran.net/maher/113.mp3</item>
         <item name="Link114">http://server12.mp3quran.net/maher/114.mp3</item>
     </string-array>
-
 
     <string-array name="linkesElmenshawyHafs">
         <item name="Link1">http://server10.mp3quran.net/minsh/001.mp3</item>
@@ -2165,7 +2273,6 @@
         <item name="Link114">http://server9.mp3quran.net/qurashi/114.mp3</item>
     </string-array>
 
-
     <string-array name="linkesElbana">
         <item name="Link1">http://server8.mp3quran.net/bna/001.mp3</item>
         <item name="Link2">http://server8.mp3quran.net/bna/002.mp3</item>
@@ -2282,7 +2389,6 @@
         <item name="Link113">http://server8.mp3quran.net/bna/113.mp3</item>
         <item name="Link114">http://server8.mp3quran.net/bna/114.mp3</item>
     </string-array>
-
 
     <string-array name="linkesElagamy">
         <item name="Link1">http://server10.mp3quran.net/ajm/128/001.mp3</item>
@@ -2635,55 +2741,65 @@
         <item name="Link114">http://server6.mp3quran.net/s_bud/114.mp3</item>
     </string-array>
 
-
     <!-- Names the Parts  -->
     <string-array name="allParts">
-        <item name="Part1">الجُزْءُ الأَوَّلُ</item>
-        <item name="Part2">الجُزْءُ الثَّانِي</item>
-        <item name="Part3">الجُزْءِ الثَّالِثِ</item>
-        <item name="Part4">الجُزْءِ الرَّابِعِ</item>
-        <item name="Part5">الجُزْءِ الخَامِسِ</item>
-        <item name="Part6">الجُزْءِ السَّادِسِ</item>
-        <item name="Part7">الجُزْءِ السَّابِعِ </item>
-        <item name="Part8">الجُزْءِ الثَّامِنِ</item>
-        <item name="Part9">الجُزْءِ التَّاسِعِ</item>
-        <item name="Part10">الجُزْءِ العَاشِرِ</item>
-        <item name="Part11">الجُزْءِ الحَادِيَ عَشْرَ</item>
-        <item name="Part12">الجُزْءُ الثَّانِيَ عَشْرَ</item>
-        <item name="Part13">الجُزْءُ الثَّالِثَ عَشْرَ </item>
-        <item name="Part14">الجُزْءُ الرَّابِعَ عَشْرَ</item>
-        <item name="Part15">الجُزْءُ الخَامِسَ عَشْرَ</item>
-        <item name="Part16">الجُزْءُ السَّادِسَ عَشْرَ</item>
-        <item name="Part17">الجُزْءُ السَّابِعَ عَشْرَ</item>
-        <item name="Part18">الجُزْءُ الثَّامِنَ عَشْرَ </item>
-        <item name="Part19">الجُزْءُ التَّاسِعَ عَشْرَ</item>
-        <item name="Part20">الجُزْءُ العِشْرُونَ </item>
-        <item name="Part21">الجُزْءِ الحَادِيِ وَالعِشْرُونَ</item>
-        <item name="Part22">الجُزْءُ الثَّانِي وَالعِشْرُونَ</item>
-        <item name="Part23">الجُزْءُ الثَّالِثُ وَالعِشْرُونَ</item>
-        <item name="Part24">الجُزْءُ الرَّابِعُ وَالعِشْرُونَ</item>
-        <item name="Part25">الجُزْءُ الخَامِسُ وَالعِشْرُونَ</item>
-        <item name="Part26">الجُزْءُ السَّادِسُ وَالعِشْرُونَ</item>
-        <item name="Part27">الجُزْءُ السَّابِعُ وَالعِشْرُونَ </item>
-        <item name="Part28">الجُزْءُ الثَّامِنُ وَالعِشْرُونَ</item>
-        <item name="Part29">الجُزْءُ التَّاسِعُ وَالعِشْرُونَ </item>
-        <item name="Part30">الجُزْءُ الثَّلَاثُونَ</item>
+        <item name="Part1">الجزء الأول</item>
+        <item name="Part2">الجزء الثاني</item>
+        <item name="Part3">الجزء الثالثِ</item>
+        <item name="Part4">الجزء الرابع</item>
+        <item name="Part5"> الجزء الخامس</item>
+        <item name="Part6">الجزء السادس </item>
+        <item name="Part7">الجزء السابع  </item>
+        <item name="Part8">الجزء الثامن </item>
+        <item name="Part9">الجزء التاسع </item>
+        <item name="Part10">الجزء العاشر </item>
+        <item name="Part11">  الجزء الحادي عشر</item>
+        <item name="Part12">  الجزء الثاني عشر</item>
+        <item name="Part13"> الجزء الثالث عشر  </item>
+        <item name="Part14"> الجزء الرابع عشر </item>
+        <item name="Part15"> الجزء الخامس عشر </item>
+        <item name="Part16"> الجزء السادس عشر </item>
+        <item name="Part17"> الجزء السابع عشر </item>
+        <item name="Part18"> الجزء الثامن عشر  </item>
+        <item name="Part19"> الجزء التاسع عشر </item>
+        <item name="Part20">الجزء العشرون  </item>
+        <item name="Part21">  الجزء الحادي والعشرون</item>
+        <item name="Part22">الجزء الثاني والعشرون</item>
+        <item name="Part23">  الجزء الثالث والشعرون</item>
+        <item name="Part24"> الجزء الرابع والعشرون </item>
+        <item name="Part25"> الجزء الخامس والعشرون </item>
+        <item name="Part26"> الجزء السادس والعشرون </item>
+        <item name="Part27"> الجزء السابع والعشرون  </item>
+        <item name="Part28"> الجزء الثامن والعشرون </item>
+        <item name="Part29">الجزء التاسع والعشرون   </item>
+        <item name="Part30">الجزء الثلاثون </item>
+        <item name="Part31">الخاتمة </item>
+
+    </string-array>
+    <string-array name="number_images">
+        <item name="page1">R.drawable.page1</item>
+        <item name="page2">R.drawable.page2</item>
+        <item name="page3">R.drawable.page3</item>
+        <item name="page4">R.drawable.page4</item>
+        <item name="page5">R.drawable.page2</item>
+
+
     </string-array>
     <string-array name="nzolElswar">
-        <item name="elfatha">مَكِّيَّةٌ</item>
-        <item name="elbaara">مَدَنِيَّةٌ</item>
-        <item name="alomran">مَدَنِيَّةٌ</item>
-        <item name="elnsaa">مَدَنِيَّةٌ</item>
-        <item name="elmaeda">مَدَنِيَّةٌ</item>
-        <item name="elanam">مَكِّيَّةٌ</item>
-        <item name="elaaraf">مَكِّيَّةٌ</item>
-        <item name="elanfal">مَدَنِيَّةٌ</item>
-        <item name="eltwba">مَدَنِيَّةٌ</item>
-        <item name="yones">مَكِّيَّةٌ</item>
+        <item name="elfatha1">مَكِّيَّةٌ</item>
+        <item name="elbaara2">مَدَنِيَّةٌ</item>
+        <item name="alomran3">مَدَنِيَّةٌ</item>
+        <item name="elnsaa4">مَدَنِيَّةٌ</item>
+        <item name="elmaeda5">مَدَنِيَّةٌ</item>
+        <item name="elanam6">مَكِّيَّةٌ</item>
+        <item name="elaaraf7">مَكِّيَّةٌ</item>
+        <item name="elanfal8">مَدَنِيَّةٌ</item>
+        <item name="eltwba9">مَدَنِيَّةٌ</item>
+        <item name="yones10">مَكِّيَّةٌ</item>
         <item name="hod">مَكِّيَّةٌ</item>
         <item name="yosef">مَكِّيَّةٌ</item>
         <item name="elrad">مَدَنِيَّةٌ</item>
-        <item name="ebrahem">مَكِّيَّةٌ</item>
+        <item name="ebrahem">مَدَنِيَّةٌ</item>
         <item name="elhagar">مَكِّيَّةٌ</item>
         <item name="elnahl">مَكِّيَّةٌ</item>
         <item name="elesraa">مَكِّيَّةٌ</item>
@@ -2691,7 +2807,7 @@
         <item name="mryam">مَكِّيَّةٌ</item>
         <item name="taha">مَكِّيَّةٌ</item>
         <item name="elanbyaa">مَكِّيَّةٌ</item>
-        <item name="elheg">مَدَنِيَّةٌ</item>
+        <item name="elheg">مَكِّيَّةٌ</item>
         <item name="elmomenon">مَكِّيَّةٌ</item>
         <item name="elnor">مَدَنِيَّةٌ</item>
         <item name="elforkan">مَكِّيَّةٌ</item>
@@ -2702,7 +2818,6 @@
         <item name="elrom">مَكِّيَّةٌ</item>
         <item name="loqman">مَكِّيَّةٌ</item>
         <item name="elsagda">مَكِّيَّةٌ</item>
-        <item name="elqesas">مَكِّيَّةٌ</item>
         <item name="elahzab">مَدَنِيَّةٌ</item>
         <item name="sbaa">مَكِّيَّةٌ</item>
         <item name="fater">مَكِّيَّةٌ</item>
@@ -2768,7 +2883,7 @@
         <item name="elten">مَكِّيَّةٌ</item>
         <item name="elalaa">مَكِّيَّةٌ</item>
         <item name="elqadr">مَكِّيَّةٌ</item>
-        <item name="elbyena">مَدَنِيَّةٌ</item>
+        <item name="elbyena">مَكِّيَّةٌ</item>
         <item name="elzlzla">مَدَنِيَّةٌ</item>
         <item name="eladyat">مَكِّيَّةٌ</item>
         <item name="elqareaa">مَكِّيَّةٌ</item>
@@ -2780,11 +2895,12 @@
         <item name="elmaon">مَكِّيَّةٌ</item>
         <item name="elkwsar">مَكِّيَّةٌ</item>
         <item name="elkafron">مَكِّيَّةٌ</item>
-        <item name="elnasr">مَدَنِيَّةٌ</item>
+        <item name="elnasr">مَكِّيَّةٌ</item>
         <item name="elmsad">مَكِّيَّةٌ</item>
         <item name="elekhlas">مَكِّيَّةٌ</item>
         <item name="elflaq">مَكِّيَّةٌ</item>
         <item name="elnas">مَكِّيَّةٌ</item>
+        <item name="elkhatma"></item>
 
     </string-array>
 
@@ -2876,7 +2992,6 @@
     <string name="labelSend">رَاسَلَنَا عَبْرُ الإيميل</string>
 
 
-
     <string name="readNow">قِرَاءَةٌ</string>
     <string name="notNow">لَيْسَ الآنَ</string>
 
@@ -2897,7 +3012,17 @@
         <item>@string/settings_by_department_value_half_day</item>
         <item>@string/settings_by_department_value_every_day</item>
     </string-array>
-    </resources>
+
+
+    <string-array name="elayat">
+        <item name="numberSora1Elfatha">
+           R.drawable.page1
+      </item>
+        <item name="numberSora2Elbaara">
+            R.drawable.page2
+        </item>
+    </string-array>
+</resources>
 
 
 

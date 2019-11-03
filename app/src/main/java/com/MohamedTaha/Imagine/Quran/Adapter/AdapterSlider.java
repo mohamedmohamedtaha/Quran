@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 public class AdapterSlider extends PagerAdapter {
     private int[] layouts;
@@ -36,13 +37,11 @@ public class AdapterSlider extends PagerAdapter {
         //  int pos = bundle.getInt(SAVE_IMAGES);
         ImageView imageView = new ImageView(context);
 
-        Picasso.get()
+        Glide.with(context)
                 .load(layouts[position])
-                .fit()
-                // .centerCrop()
-                //-  .centerInside()
                 .into(imageView);
         container.addView(imageView);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
        /*
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(layouts[position], container, false);

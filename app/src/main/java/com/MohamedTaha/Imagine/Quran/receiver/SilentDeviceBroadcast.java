@@ -27,7 +27,7 @@ public class SilentDeviceBroadcast {
                         //buildNotification(PlaybackStatus.PLAYING);
 
 
-                        //page4. play music
+                        //page3. play music
                       /*  if (exStore != null && exStore.exists()) {
                             playAyaFromEnternal(exStore);
 

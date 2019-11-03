@@ -27,9 +27,10 @@
     <string name="name_sora">اسم السورة </string>
 
     <!-- part name for the vocabulary  [CHAR LIMIT=20] -->
-    <string name="readswar">القِرَاءَةُ </string>
+    <string name="readswar">الْقِرَاءةُ بِالسُّورٍ </string>
     <!-- part name for the vocabulary  [CHAR LIMIT=20] -->
     <string name="listen_swar">  التِّلَاوَةُ</string>
+    <string name="read_parts">الْقِرَاءةُ بِالْأَجْزَاءِ </string>
 
 
     <string name="nameSheck">المَشَايِخُ</string>
@@ -222,7 +223,7 @@
     <string name="number_sora">رقم الصورة</string>
     <string name="no_internet">لا يوجد إنترنت</string>
     <string name="no_internet_network">ربما لا توجد شبكة إنترنت تأكد من الأنترنت</string>
-
+    <string name="do_want_Save">هل تريد الرجوع إلى الصفحة المحفوظة</string>
     <string name="allow">السماح</string>
     <string name="grand_permission">يجب إعطاء الأذن للتطبيق</string>
     <string name="cancel">لا</string>

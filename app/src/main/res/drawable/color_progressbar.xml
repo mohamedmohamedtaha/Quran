@@ -8,7 +8,7 @@
         <size android:height="@dimen/sizeColorProgressbar"
             android:width="@dimen/sizeColorProgressbar"/>
         <gradient android:type="sweep" android:useLevel="false"
-            android:startColor="@color/colorButton"
+            android:startColor="@color/colorAccent"
             android:endColor="@color/colorPrimary"
             android:angle="0"/>
     </shape>

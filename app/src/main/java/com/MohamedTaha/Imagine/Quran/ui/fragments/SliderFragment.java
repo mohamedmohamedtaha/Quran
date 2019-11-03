@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterSlider;
-import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.interactor.SliderInteractor;
 import com.MohamedTaha.Imagine.Quran.presenter.SliderPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
@@ -48,9 +48,9 @@ public class SliderFragment extends Fragment implements SliderView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_slider, container, false);
         ButterKnife.bind(this, view);
-        layouts = new int[]{R.drawable.page2, R.drawable.page3, R.drawable.page4};
+        layouts = new int[]{R.drawable.page2, R.drawable.page3, R.drawable.page3};
         adapterSlider = new AdapterSlider(getActivity(), layouts);
-        presenter = new SliderInteractor(this,getActivity());
+        presenter = new SliderInteractor(this, getActivity());
         SliderFragmentViewPager.setAdapter(adapterSlider);
         SliderFragmentViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -84,7 +84,7 @@ public class SliderFragment extends Fragment implements SliderView {
     @Override
     public void skip() {
         HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
-        getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @Override

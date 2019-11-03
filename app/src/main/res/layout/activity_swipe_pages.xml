@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_information"
     tools:context=".ui.activities.SwipePagesActivity">
-    <androidx.viewpager.widget.ViewPager
+
+    <com.booking.rtlviewpager.RtlViewPager
         android:id="@+id/SwipePagesActivity_VP"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_height="match_parent"></com.booking.rtlviewpager.RtlViewPager>
     <ProgressBar
         android:id="@+id/SwipePagesActivity_PB"
         android:layout_centerInParent="true"

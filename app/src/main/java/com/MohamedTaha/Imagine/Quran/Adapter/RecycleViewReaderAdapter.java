@@ -85,14 +85,12 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
         TextView text_title;
         @BindView(R.id.IV_Download)
         ImageView IVDownload;
-        public static ImageView IVPlay;
         private View view;
 
         public RecycleViewHolder(View itemView) {
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
-            IVPlay = (ImageView) view.findViewById(R.id.IV_Play);
 
             IVDownload.setOnClickListener(new View.OnClickListener() {
                 @Override
