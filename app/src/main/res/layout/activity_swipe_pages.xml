@@ -9,11 +9,14 @@
     <com.booking.rtlviewpager.RtlViewPager
         android:id="@+id/SwipePagesActivity_VP"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.booking.rtlviewpager.RtlViewPager>
+        android:layout_height="match_parent">
+
+    </com.booking.rtlviewpager.RtlViewPager>
+
     <ProgressBar
         android:id="@+id/SwipePagesActivity_PB"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

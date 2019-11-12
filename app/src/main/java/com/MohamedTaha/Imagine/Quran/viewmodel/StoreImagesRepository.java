@@ -34,7 +34,6 @@ public class StoreImagesRepository {
     }
 
     public MutableLiveData<List<Integer>> getMutableLiveDataImage() {
-        //name_swar = application.getResources().getStringArray(R.array.elayat);
         // mutableLiveDataImageString.setValue(new ArrayList<Integer>(Arrays.asList(name_swar)));
         addImages();
         mutableLiveDataImage.setValue(images);
@@ -55,7 +54,7 @@ public class StoreImagesRepository {
     }
 
     public void addImages() {
-        images.add(R.drawable.page1);
+     /*  images.add(R.drawable.page1);
         images.add(R.drawable.page2);
         images.add(R.drawable.page3);
         images.add(R.drawable.page4);
@@ -672,9 +671,6 @@ public class StoreImagesRepository {
         images.add(R.drawable.page615);
         images.add(R.drawable.page616);
         images.add(R.drawable.page617);
-
-
-
-
+        */
     }
 }

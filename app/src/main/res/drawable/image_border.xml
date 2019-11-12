@@ -2,6 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <stroke
-        android:width="@dimen/sizeSeekbarProgress"
+        android:width="@dimen/dimens_ss"
         android:color="@color/blue" />
+    <corners android:radius="@dimen/dimens_l"/>
 </shape>

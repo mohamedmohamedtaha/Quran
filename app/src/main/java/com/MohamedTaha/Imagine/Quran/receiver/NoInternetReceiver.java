@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 
 import static com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection.isInternet;
 
@@ -18,6 +19,8 @@ public class NoInternetReceiver extends BroadcastReceiver {
            // stopMedia();
            // removeNotification();
            // FragmentListSoundLLControlMedia.setVisibility(View.GONE);
+           // HelperClass.customToast((), context.getString(R.string.no_internet_network));
+
             Toast.makeText(context, context.getString(R.string.no_internet_network), Toast.LENGTH_SHORT).show();
 
              /* boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());

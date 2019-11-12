@@ -91,7 +91,6 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
-
             IVDownload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

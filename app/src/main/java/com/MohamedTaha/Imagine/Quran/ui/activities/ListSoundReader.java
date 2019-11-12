@@ -27,6 +27,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.motion.widget.MotionLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
@@ -45,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.RecycleViewReaderAdapter;
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.Utilities;
 import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NetworkConnection;
 import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection;
@@ -71,7 +75,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.MohamedTaha.Imagine.Quran.Adapter.ImageAdapter.SHEKH_ID;
 import static com.MohamedTaha.Imagine.Quran.Adapter.ImageAdapter.SHEKH_NAME;
-import static com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection.isInternet;
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.transportControls;
 
@@ -106,7 +109,7 @@ public class ListSoundReader extends AppCompatActivity {
     public static TextView textBufferDuration;
     public static TextView textDuration;
     ProgressBar seekBar;
-    public static LinearLayout FragmentListSoundLLControlMedia;
+    public static RelativeLayout FragmentListSoundLLControlMedia;
 
     private Menu globalMenu;
     Utilities utilities;
@@ -132,7 +135,7 @@ public class ListSoundReader extends AppCompatActivity {
     //Create arrayList from Audio class
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
     Intent playeIntent;
-
+    boolean isServiceRunning ;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -160,8 +163,14 @@ public class ListSoundReader extends AppCompatActivity {
         ButterKnife.bind(this);
         utilities = new Utilities();
 
-        boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
-        FragmentListSoundLLControlMedia = (LinearLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
+         isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+
+//         View view = getLayoutInflater().inflate(R.layout.custom_test,null);
+//        FragmentListSoundLLControlMedia = (MotionLayout)this.getLayoutInflater()
+//                .inflate(R.layout.custom_test,null);
+
+        FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
+
         ListSoundReaderLoadingIndicator = (ProgressBar) findViewById(R.id.ListSoundReader_loading_indicator);
         imageViewAlbumArt = (CircleImageView) findViewById(R.id.imageViewAlbumArt);
         btnPlay = (Button) findViewById(R.id.btnPlay);
@@ -326,6 +335,7 @@ public class ListSoundReader extends AppCompatActivity {
     private void downloadSora() {
         music_uri = Uri.parse(urlLink);
         Music_DownloadId = DownloadData(music_uri, name_sora);
+
     }
 
     public void titleActionBar() {
@@ -351,13 +361,14 @@ public class ListSoundReader extends AppCompatActivity {
     }
 
     private void playAudio(int audioIndex) {
-        //Check is service is active
-        boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+      //  //Check is service is active
+      //  boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+        StorageUtil storageUtil = new StorageUtil(getApplicationContext());
+        storageUtil.storeAudio(respones);
+        storageUtil.storeAudioIndex(audioIndex);
         if (!isServiceRunning) {
             //Store Serializable audioList to SharedPreferences
-            StorageUtil storageUtil = new StorageUtil(getApplicationContext());
-            storageUtil.storeAudio(respones);
-            storageUtil.storeAudioIndex(audioIndex);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 ContextCompat.startForegroundService(getApplicationContext(), playeIntent);
             } else {
@@ -367,10 +378,6 @@ public class ListSoundReader extends AppCompatActivity {
             }
             //  bindService(playeIntent, serviceConnection, Context.BIND_AUTO_CREATE);
         } else {
-            //Store the new audioIndex to SharedPreferences
-            StorageUtil storageUtil = new StorageUtil(getApplicationContext());
-            storageUtil.storeAudio(respones);
-            storageUtil.storeAudioIndex(audioIndex);
             //Service is active
             //send BroadcastReceiver to the Service -> PLAY_NEW_AUDIO
             Intent broadcastIntent = new Intent(Broadcast_PLAY_NEW_AUDIO);
@@ -395,7 +402,8 @@ public class ListSoundReader extends AppCompatActivity {
         //check download folder Global
         mediaStorageDir = new File(media_path, name_sora + ".mp3");
         if (mediaStorageDir != null && mediaStorageDir.exists()) {
-            Toast.makeText(getApplicationContext(), "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا", Toast.LENGTH_LONG).show();
+            HelperClass.customToast(this,"السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا");
+            //Toast.makeText(getApplicationContext(), "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا", Toast.LENGTH_LONG).show();
         } else {
             request.setDestinationInExternalFilesDir(ListSoundReader.this, Environment.DIRECTORY_DOWNLOADS + FILENAME
                     , name_sora + ".mp3");
@@ -552,57 +560,8 @@ public class ListSoundReader extends AppCompatActivity {
         if (isServiceRunning) {
             updateUI(getApplicationContext());
         }
-        if (checkSilentDevice()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-            builder.setTitle("تَنْبِيهٌ");
-            builder.setMessage("الجِهَازُ رُبَّمَا يَكُونُ فِي وَضْعٍ الهَزَّازَ أَوْ الكَتْمُ هَلْ تُرِيدُ تَشْغِيلَ الصَّوْتِ؟");
-            builder.setCancelable(false);
-            builder.setPositiveButton("مُوَافِقٌ", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    //playMedia();
-                    //buildNotification(PlaybackStatus.PLAYING);
 
-
-                    //page3. play music
-                      /*  if (exStore != null && exStore.exists()) {
-                            playAyaFromEnternal(exStore);
-
-                        } else {
-                            //________________________________________________
-                            //Play Sora in the Enternet If was Not There in Internal Storage
-                            //  play();
-                        }*/
-                }
-            });
-            builder.setNegativeButton("لَا", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-
-                }
-            });
-            builder.show();
-        }
-        ;
     }
-
-
-    private boolean checkSilentDevice() {
-        boolean status = false;
-        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        switch (am.getRingerMode()) {
-            case AudioManager.RINGER_MODE_SILENT:
-            case AudioManager.RINGER_MODE_VIBRATE:
-                status = true;
-                break;
-            case AudioManager.RINGER_MODE_NORMAL:
-                status = false;
-                break;
-        }
-        return status;
-    }
-
     @OnClick({R.id.imageViewAlbumArt, R.id.btnPrevious, R.id.btnPlay, R.id.btnPause, R.id.btnStop, R.id.btnNext, R.id.Fragment_List_Sound_LL_Control_Media})
     public void onViewClicked(View view) {
         Intent openDetails = new Intent(ListSoundReader.this, DetailsSoundActivity.class);

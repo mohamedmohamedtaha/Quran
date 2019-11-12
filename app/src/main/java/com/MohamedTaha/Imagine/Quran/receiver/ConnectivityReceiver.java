@@ -13,8 +13,6 @@ import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NetworkConnection;
 import com.MohamedTaha.Imagine.Quran.service.MediaPlayerService;
 
-import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.FragmentListSoundLLControlMedia;
-
 public class ConnectivityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

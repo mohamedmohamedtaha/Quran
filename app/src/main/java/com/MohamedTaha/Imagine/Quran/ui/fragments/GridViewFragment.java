@@ -13,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,6 +24,7 @@ import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.MohamedTaha.Imagine.Quran.presenter.GridViewFragmentPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.SwipePagesActivity;
 import com.MohamedTaha.Imagine.Quran.view.GridViewFragmentView;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,13 +111,15 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
 
     }
 
+
     @Override
-    public void showAllImages(List<Integer> integers) {
+    public void showAllImages(List<ModelSora>  integers) {
         GridViewActivityGVShowImages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 presenter.getPosition(name_swar.get(position).getPosition(), bundle);
-                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
+                bundle.putString(SAVE_IMAGES,new Gson().toJson(integers));
+             //   bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

@@ -7,6 +7,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.MohamedTaha.Imagine.Quran.presenter.GridViewFragmentPresenter;
 import com.MohamedTaha.Imagine.Quran.view.GridViewFragmentView;
@@ -370,16 +371,28 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
 
     @Override
     public void getAllImages() {
-        imagesViewHolder.getAllImages().observe((LifecycleOwner) activity, new Observer<List<Integer>>() {
-            @Override
-            public void onChanged(List<Integer> integers) {
-                if (fragmentView != null) {
-                    fragmentView.showAllImages(integers);
-                }
-            }
-        });
+        List<ModelSora> modelSoraList = new ArrayList<>();
 
-    }
+           String [] a = activity.getResources().getStringArray(R.array.name_swar_strings);
+            for (int i = 0; i < a.length; i++) {
+                ModelSora name_Sroa_local = new ModelSora();
+                name_Sroa_local.setName_sora(a[i]);
+                name_Sroa_local.setPosition(i);
+                modelSoraList.add(name_Sroa_local);
+        }
+        fragmentView.showAllImages(modelSoraList);
+
+
+//        imagesViewHolder.getAllImages().observe((LifecycleOwner) activity, new Observer<List<Integer>>() {
+//            @Override
+//            public void onChanged(List<Integer> integers) {
+//                if (fragmentView != null) {
+//                    fragmentView.showAllImages(integers);
+//                }
+//            }
+//        });
+//
+   }
 
 //    @Override
 //    public void getDisplayMetrics(ListView GridViewActivityGVShowImages, int imageDiemn) {

@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
+import com.MohamedTaha.Imagine.Quran.Adapter.AdapterForNavigation;
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
@@ -46,6 +47,8 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     String notSupport;
     @BindString(R.string.exit_app)
     String exit_app;
+    @BindView(R.id.NavigationDrawaberActivity_VPager)
+    ViewPager NavigationDrawaberActivityVPager;
 
     private int current_fragment;
     public static MaterialSearchView searchView;
@@ -53,6 +56,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     String appPackageName;
     int notificationId;
     private NavigationDrawarPresenter presenter;
+    MenuItem prevMenuItem;
 
 
     @Override
@@ -73,12 +77,41 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         notificationManager.cancel(notificationId);
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
-       navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.read_quran);
         setSupportActionBar(toobar);
         //for change color text toolbar
         toobar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-    }
+
+//        NavigationDrawaberActivityVPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//                if (prevMenuItem != null){
+//                    prevMenuItem.setChecked(false);
+//                }else {
+//                    navView.getMenu().getItem(0).setChecked(false);
+//                }
+//                navView.getMenu().getItem(position).setChecked(true);
+//                prevMenuItem = navView.getMenu().getItem(position);
+//                if (position != current_fragment) {
+//                    current_fragment = position;
+//                }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+//        setupViewPager(NavigationDrawaberActivityVPager);
+//
+   }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -91,14 +124,18 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
             }
             switch (id) {
                 case R.id.read_quran:
+                    //NavigationDrawaberActivityVPager.setCurrentItem(0);
                     GridViewFragment gridViewFragment = new GridViewFragment();
                     HelperClass.replece(gridViewFragment, getSupportFragmentManager(), R.id.frameLayout);
                     break;
                 case R.id.read_parts:
+                  //  NavigationDrawaberActivityVPager.setCurrentItem(1);
                     PartsFragment partsFragment = new PartsFragment();
                     HelperClass.replece(partsFragment, getSupportFragmentManager(), R.id.frameLayout);
                     break;
                 case R.id.sound_quran:
+                //    NavigationDrawaberActivityVPager.setCurrentItem(2);
+
                     FragmentSound fragmentSound = new FragmentSound();
                     HelperClass.replece(fragmentSound, getSupportFragmentManager(), R.id.frameLayout);
                     break;
@@ -107,6 +144,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
             return true;
         }
     };
+
 
     @Override
     public void onBackPressed() {
@@ -189,4 +227,14 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         super.onDestroy();
         presenter.onDestroy();
     }
+//    private void setupViewPager(ViewPager viewPager){
+//        AdapterForNavigation adapterForNavigation = new AdapterForNavigation(getSupportFragmentManager());
+//        GridViewFragment gridViewFragment = new GridViewFragment();
+//          PartsFragment partsFragment = new PartsFragment();
+//           FragmentSound fragmentSound = new FragmentSound();
+//           adapterForNavigation.addFragment(gridViewFragment);
+//        adapterForNavigation.addFragment(partsFragment);
+//        adapterForNavigation.addFragment(fragmentSound);
+//        viewPager.setAdapter(adapterForNavigation);
+//    }
 }

@@ -14,9 +14,14 @@ import com.MohamedTaha.Imagine.Quran.Adapter.AdapterForSwipe;
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.helper.ShowDialog;
+import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.booking.rtlviewpager.RtlViewPager;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +31,7 @@ import static com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment.SAVE_I
 
 public class SwipePagesActivity extends AppCompatActivity {
 
-    ArrayList<Integer> images = new ArrayList<>();
+    ArrayList<ModelSora> images = new ArrayList<>();
     public static final String IS_TRUE = "is_true";
     //  @BindView(R.id.SwipePagesActivity_VP)
     // ViewPager SwipePagesActivityVP;
@@ -93,14 +98,20 @@ public class SwipePagesActivity extends AppCompatActivity {
 
     private void getArgemnets() {
         if (bundle != null) {
-            images = bundle.getIntegerArrayList(SAVE_IMAGES);
+            Type listType = new TypeToken<List<ModelSora>>() {
+            }.getType();
+            String st = bundle.getString(SAVE_IMAGES);
+            images = new Gson().fromJson(st, listType);
+            //images = bundle.getIntegerArrayList(SAVE_IMAGES);
             position = bundle.getInt(SAVE_POSITION);
         }
     }
 
     private void createImage() {
         for (int i = 0; i < images.size(); i++) {
-            bundle.putInt(SAVE_IMAGES, images.get(i));
+            bundle.putString(SAVE_IMAGES, images.get(i).getName_sora());
+
+            // bundle.putInt(SAVE_IMAGES, images.get(i));
             bundle.putInt(SAVE_POSITION, position);
         }
         if (position == 2) {

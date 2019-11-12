@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/standard">
+    <TextView
+        android:layout_margin="@dimen/dimens_seventy"
+        android:id="@+id/tv_Show_Text"
+        android:padding="@dimen/dimens_mm"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/dimens_xl"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

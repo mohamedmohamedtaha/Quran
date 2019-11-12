@@ -7,6 +7,8 @@
     <color name="colorButton">#f9ea1f</color>
     <color name="colorNameShekhFragment">#f7db07</color>
     <color name="blue">#10618D</color>
+    <color name="blue_light">#69C3F5</color>
+
     <color name="color_default_background_navigation">#434343</color>
 
     <!--Color TextView DetailsSoundActivity XML and Splash Activity XML  and Color TextView ActionBar XML-->

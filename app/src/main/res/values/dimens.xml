@@ -84,8 +84,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="dimens_sss">1dp</dimen>
-    <dimen name="dimens_ss">2dp</dimen>
+    <dimen name="dimens_ssss">1dp</dimen>
+    <dimen name="dimens_sss">2dp</dimen>
+    <dimen name="dimens_ss">3dp</dimen>
     <dimen name="dimens_s">4dp</dimen>
     <dimen name="dimens_m">8dp</dimen>
     <dimen name="dimens_mm">12dp</dimen>
@@ -102,10 +103,11 @@
     <dimen name="txt_size_ss">10sp</dimen>
     <dimen name="txt_size_s">12sp</dimen>
     <dimen name="txt_size_m">16sp</dimen>
-    <dimen name="txt_size_l">20sp</dimen>
-    <dimen name="txt_size_xl">24sp</dimen>
-    <dimen name="txt_size_xxl">28sp</dimen>
-    <dimen name="txt_size_xxxl">32sp</dimen>
+    <dimen name="txt_size_l">18sp</dimen>
+    <dimen name="txt_size_xl">20sp</dimen>
+    <dimen name="txt_size_xxl">24sp</dimen>
+    <dimen name="txt_size_xxxl">28sp</dimen>
+    <dimen name="txt_size_xxxxl">32sp</dimen>
 
     <dimen name="dimens_height_logo">200dp</dimen>
     <dimen name="dimens_half_hundrand">150dp</dimen>

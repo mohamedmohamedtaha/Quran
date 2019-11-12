@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/defultValueOne"
-  >
+    android:layout_height="wrap_content">
 
-  <ImageView
-      android:id="@+id/IV_Download"
-        android:layout_width="@dimen/defaultValueThertyTwo"
-        android:layout_height="@dimen/defaultValueThertyTwo"
-        android:contentDescription="@string/decriptionImage1"
-        android:src="@drawable/ic_download"
-        android:layout_marginLeft="@dimen/defultValueSixTeen"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/defultValueTen"
-        />
-
-    <TextView
-        android:id="@+id/text_title"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/defultValueTen"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_marginRight="@dimen/marginRightLeftSeekbar"
-        android:gravity="center"
-        android:text="@string/nameTextDefult"
-        android:textSize="@dimen/textSize"
-         />
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/defultValueSixTeen"
-        android:contentDescription="@string/decriptionImage"
-        android:src="@mipmap/logo" />
+        android:layout_margin="@dimen/dimens_ss"
+        android:outlineSpotShadowColor="@color/blue"
+        card:cardCornerRadius="@dimen/dimens_m"
+        card:cardElevation="@dimen/dimens_m">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimens_m">
+
+            <ImageView
+                android:id="@+id/IV_Download"
+                android:layout_width="@dimen/defaultValueThertyTwo"
+                android:layout_height="@dimen/defaultValueThertyTwo"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/defultValueSixTeen"
+                android:contentDescription="@string/decriptionImage1"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/marginRightLeftSeekbar"
+                android:layout_toLeftOf="@+id/imageView"
+                android:text="@string/nameTextDefult"
+                android:textSize="@dimen/txt_size_l"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dimens_xxxl"
+                android:layout_height="@dimen/dimens_xxxl"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/defultValueSixTeen"
+                android:contentDescription="@string/decriptionImage"
+                android:scaleType="fitXY"
+                android:src="@mipmap/logo" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>
 

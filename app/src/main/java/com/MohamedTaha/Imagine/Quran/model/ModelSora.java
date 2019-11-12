@@ -1,5 +1,8 @@
 package com.MohamedTaha.Imagine.Quran.model;
 
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
 public class ModelSora {
     private String name_sora;
     private int position;

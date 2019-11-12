@@ -48,7 +48,7 @@ public class SliderFragment extends Fragment implements SliderView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_slider, container, false);
         ButterKnife.bind(this, view);
-        layouts = new int[]{R.drawable.page2, R.drawable.page3, R.drawable.page3};
+        layouts = new int[]{R.drawable.abdeelbaset, R.drawable.abdeelbaset, R.drawable.abdeelbaset};
         adapterSlider = new AdapterSlider(getActivity(), layouts);
         presenter = new SliderInteractor(this, getActivity());
         SliderFragmentViewPager.setAdapter(adapterSlider);

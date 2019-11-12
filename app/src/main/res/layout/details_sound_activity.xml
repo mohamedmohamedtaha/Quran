@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
     tools:context=".ui.activities.DetailsSoundActivity">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
     <TextView
         android:id="@+id/MainActivity_Name_Sora"
         style="@style/themetextSoraAndShekh"
@@ -113,18 +117,5 @@
         android:paddingLeft="@dimen/paddingRightLeftSeekbar"
         android:paddingRight="@dimen/paddingRightLeftSeekbar"
          />
-
 </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</androidx.constraintlayout.motion.widget.MotionLayout>

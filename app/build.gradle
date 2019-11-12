@@ -73,9 +73,10 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
 
 //For support RTL for ViewPager
-
     implementation 'com.booking:rtlviewpager:1.0.1'
 
-
+//For Motion Layout
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta1'
 
 }

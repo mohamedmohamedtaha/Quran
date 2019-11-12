@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Transition
+         motion:constraintSetStart="@layout/custom_test"
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="1000"
+        motion:motionInterpolator="linear"
+        >
+
+        <OnSwipe
+            motion:touchAnchorId="@id/Fragment_List_Sound_LL_Control_Media"
+            motion:touchAnchorSide="top"
+            motion:dragDirection="dragUp"/>
+
+    </Transition>
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorAccent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+
+<Constraint
+
+    android:id="@+id/textNowPlaying"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimens_l"
+    android:textColor="@android:color/white"
+    android:textSize="15dp"
+    motion:layout_constraintTop_toTopOf="parent"
+    motion:layout_constraintRight_toRightOf="parent"
+    />
+
+
+    </ConstraintSet>
+    <KeyFrameSet>
+
+    <KeyPosition
+        motion:motionTarget="@id/textNowPlaying"
+        motion:framePosition="90"
+        motion:percentWidth="0"
+        motion:percentX="0"
+        motion:curveFit="linear"
+        />
+    </KeyFrameSet>
+</MotionScene>

@@ -28,7 +28,7 @@
         android:textStyle="bold"
         android:visibility="gone"
         android:text="@string/no_data"
-        android:textColor="@color/colorNameShekhFragment"/>
+        android:textColor="@android:color/black"/>
 
 
 </RelativeLayout>

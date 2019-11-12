@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:background="@drawable/background_information"
     android:layout_height="match_parent"
+    android:background="@drawable/background_information"
     tools:context=".ui.activities.NavigationDrawaberActivity">
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/toobar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorAccent"
-    app:searchBackground="@color/colorAccent"
-    app:searchSuggestionBackground= "@android:color/black"
-    app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
-    app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
-    app:searchSuggestionIcon="@drawable/ic_suggestion"
-    android:textColor="#FFFFFF"
-    android:textColorHint="#FFFFFF">
 
-</androidx.appcompat.widget.Toolbar>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
+        app:searchBackground="@color/colorAccent"
+        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+        app:searchSuggestionBackground="@android:color/black"
+        app:searchSuggestionIcon="@drawable/ic_suggestion">
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.miguelcatalan.materialsearchview.MaterialSearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </com.miguelcatalan.materialsearchview.MaterialSearchView>
+<androidx.viewpager.widget.ViewPager
+    android:id="@+id/NavigationDrawaberActivity_VPager"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_below="@+id/toobar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+</androidx.viewpager.widget.ViewPager>
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_below="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toobar" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/blue"
         app:elevation="16dp"
         app:itemIconTint="@drawable/background_color_navigation_bottom"
         app:itemTextColor="@drawable/background_color_navigation_bottom"
-        android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

@@ -27,6 +27,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
+import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
+
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.transportControls;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.IsPlay;
 
