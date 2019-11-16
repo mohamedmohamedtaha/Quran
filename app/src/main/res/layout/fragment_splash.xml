@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".ui.fragments.SplashFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".ui.fragments.SplashFragment">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="@dimen/dimens_half_hundrand"
-            android:layout_marginTop="@dimen/dimens_half_hundrand"
-            android:layout_centerHorizontal="true"
-            android:layout_height="@dimen/dimens_half_hundrand"
-            android:src="@mipmap/logo" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/dimens_half_hundrand"
+        android:layout_height="@dimen/dimens_half_hundrand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimens_half_hundrand"
+        android:src="@mipmap/logo" />
 
-        <TextView
-            android:id="@+id/textShow"
-            android:layout_below="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_height"
-            android:gravity="center"
-            android:text="@string/textMain"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/testSizeTextShow"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/textShow"
+        style="@style/style_default_layout_wrap_match"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="@dimen/dimens_xxl"
+        android:gravity="center"
+        android:text="@string/textMain"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/txt_size_xxxl"
+        android:textStyle="bold" />
+</RelativeLayout>

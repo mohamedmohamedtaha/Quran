@@ -12,7 +12,9 @@ public interface GridViewFragmentView {
     void isEmpty();
     void thereData();
     void showAllINameSour(List<ModelSora> strings);
-    void showAllImages(List<ModelSora>  integers);
+    //void showAllImages(List<ModelSora>  integers);
+    void showAllImages(List<Integer>  integers);
+
     void showAnimation();
 
 }

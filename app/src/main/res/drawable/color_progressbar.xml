@@ -5,8 +5,8 @@
     <shape android:shape="ring" android:innerRadiusRatio="3"
         android:thicknessRatio="8" android:useLevel="false">
 
-        <size android:height="@dimen/sizeColorProgressbar"
-            android:width="@dimen/sizeColorProgressbar"/>
+        <size android:height="@dimen/dimens_7xl"
+            android:width="@dimen/dimens_7xl"/>
         <gradient android:type="sweep" android:useLevel="false"
             android:startColor="@color/colorAccent"
             android:endColor="@color/colorPrimary"

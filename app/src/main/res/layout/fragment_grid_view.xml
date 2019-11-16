@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_information"
-    android:layout_margin="@dimen/marginBottomTimeSound">
+    style="@style/style_default_layout_match_parent_with_background"
+    android:layout_margin="@dimen/dimens_mm">
+
     <GridView
         android:id="@+id/Fragment_Grid_View_GridView"
-        android:paddingTop="@dimen/marginBottomTimeSound"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="@dimen/marginBottomTimeSound"
-        android:columnWidth="@dimen/defultValueOneHalf"
-        android:horizontalSpacing="@dimen/marginBottomTimeSound"
-        android:stretchMode="columnWidth"
+        style="@style/style_default_layout_wrap_match"
+        android:layout_marginBottom="@dimen/dimens_7xl"
+        android:columnWidth="@dimen/dimens_half_hundrand"
         android:gravity="center"
-        android:layout_marginBottom="@dimen/defaultValueSixtyFour"
+        android:horizontalSpacing="@dimen/dimens_mm"
+        android:numColumns="auto_fit"
+        android:paddingTop="@dimen/dimens_mm"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/dimens_mm"></GridView>
 
-        >
-    </GridView>
     <TextView
         android:id="@+id/Fragment_Grid_View_TV_No_Data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="@dimen/marginRightLeftSeekbar"
-        android:textStyle="bold"
-        android:visibility="gone"
-        android:text="@string/no_data"
-        android:textColor="@android:color/black"/>
-
-
+        style="@style/style_text_view_no_data" />
 </RelativeLayout>

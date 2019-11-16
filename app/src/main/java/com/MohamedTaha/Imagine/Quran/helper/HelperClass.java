@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.MohamedTaha.Imagine.Quran.R;
 
+import java.util.Locale;
+
 public class HelperClass {
     public static void customToast(Activity activity, String ToastTitle) {
         LayoutInflater inflater = activity.getLayoutInflater();
@@ -31,7 +36,13 @@ public class HelperClass {
         toast.setView(layout);
         toast.show();
     }
-
+    //to change Language
+    public static void change_language(String localeCode,Context context) {
+        Resources resources = context.getResources();
+        //Change Locale settings in the App.
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(new Locale(localeCode.toLowerCase()));
+    }
     // This method for handle Activity
     public static void startActivity(Context context, Class<?> toActivity) {
         Intent startActivity = new Intent(context, toActivity);

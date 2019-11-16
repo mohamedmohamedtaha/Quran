@@ -113,13 +113,13 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
 
 
     @Override
-    public void showAllImages(List<ModelSora>  integers) {
+    public void showAllImages(List<Integer> /*List<ModelSora>*/ integers) {
         GridViewActivityGVShowImages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 presenter.getPosition(name_swar.get(position).getPosition(), bundle);
-                bundle.putString(SAVE_IMAGES,new Gson().toJson(integers));
-             //   bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
+             //   bundle.putString(SAVE_IMAGES,new Gson().toJson(integers));
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

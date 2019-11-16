@@ -1,130 +1,135 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-    </style>
-
-
-
-    <!-- Base application theme. -->
-    <style name="MaterialComponents" parent="Theme.MaterialComponents.Light">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-    <!--  Alternative Base application theme. -->
-
-    <style name="AppThemeCustom" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
     </style>
     <!-- Delete ActionBar -->
-
     <style name="FullScreenWindow" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
-
-    <!-- set background_text for a void OverDraw  -->
-    <style name="backgroundTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/background_text</item>
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <!-- set background_text for a void Background Floating Action Button  -->
-    <style name="MyFloatingButton" parent="Theme.AppCompat.Light">
-        <item name="colorAccent">@color/textColorBackgroundFloatingButton</item>
-    </style>
-
-    <!-- set FloatingActionButton-->
-    <style name="themeFloatButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_marginLeft">@dimen/marginLeftRightBottom</item>
-        <item name="android:layout_marginRight">@dimen/marginLeftRightBottom</item>
-        <item name="android:layout_marginBottom">@dimen/marginLeftRightBottom</item>
-
-    </style>
-    <!-- set Sub FloatingActionButton -->
-    <style name="themeSubFloatButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
     <!-- set textNameShehk and NameSora -->
     <style name="themetextSoraAndShekh">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_alignParentTop">true</item>
-        <item name="android:layout_marginTop">@dimen/marginTopNameSora</item>
+        <item name="android:layout_marginTop">@dimen/dimens_l</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center</item>
     </style>
-
-    <!-- set tthemetextForTimeSound in Main Activity -->
-    <style name="themetextForTimeSound">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:textSize">@dimen/textSizeTimeSound</item>
-    <item name="android:textStyle">bold</item>
-    <item name="android:textColor">@color/textColorTime</item>
+    <!-- set theme custom_name_reader -->
+    <style name="themecustom_name_reader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dimens_sssss</item>
+        <item name="android:textSize">@dimen/txt_size_m</item>
+        <item name="android:layout_marginTop">@dimen/dimens_s</item>
+        <item name="android:layout_marginBottom">@dimen/dimens_s</item>
         <item name="android:layout_gravity">center</item>
-
-
+        <item name="android:textColor">@color/colorButton</item>
     </style>
-    <!-- set theme ImageView in Main Activity -->
-    <style name="themeImageView">
+
+    <style name="style_default_layout_match_parent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="style_default_layout_match_parent_with_background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/background_information</item>
+    </style>
+
+    <style name="style_default_layout_wrap_content">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@null</item>
-           </style>
+    </style>
 
+    <style name="style_default_layout_wrap_match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
-    <!-- set theme custom_name_reader -->
-<style name="themecustom_name_reader">
-<item name="android:layout_width">wrap_content</item>
-<item name="android:layout_height">@dimen/defultValueZero</item>
- <item name="android:textSize">@dimen/textSizeTimeSound</item>
- <item name="android:layout_marginTop">@dimen/defultValueFive</item>
-    <item name="android:layout_marginBottom">@dimen/defultValueFive</item>
-    <item name="android:layout_gravity">center</item>
-    <item name="android:textColor">@color/colorButton</item>
-</style>
+    <style name="style_list_view" parent="@style/style_default_layout_wrap_content">
+        <item name="android:layout_marginTop">@dimen/dimens_xxl</item>
+        <item name="android:layout_marginBottom">@dimen/dimens_7xl</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">@dimen/dimens_sssss</item>
+        <item name="android:gravity">center</item>
+    </style>
 
+    <style name="style_text_view_no_data" parent="@style/style_default_layout_wrap_content">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/defaultValueTowHandredTen</item>
+        <item name="android:text">@string/no_data</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/dimens_xl</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:visibility">gone</item>
+    </style>
 
-    </resources>
+    <style name="style_toolbar" parent="@style/style_default_layout_wrap_match">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back_inverted</item>
+        <item name="searchBackground">@color/colorAccent</item>
+        <item name="searchCloseIcon">@drawable/ic_action_navigation_close_inverted</item>
+        <item name="searchSuggestionBackground">@android:color/black</item>
+        <item name="searchSuggestionIcon">@drawable/ic_suggestion</item>
+    </style>
 
+    <style name="style_navigation_bottom" parent="@style/style_default_layout_wrap_match">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/blue</item>
+        <item name="elevation">@dimen/dimens_l</item>
+        <item name="itemIconTint">@drawable/background_color_navigation_bottom</item>
+        <item name="itemTextColor">@drawable/background_color_navigation_bottom</item>
+        <item name="menu">@menu/bottom_nav_menu</item>
+    </style>
 
+    <style name="style_progressbar" parent="@style/style_default_layout_wrap_content">
+        <item name="android:layout_centerInParent">true</item>
+    </style>
 
+    <style name="style_text_view" parent="@style/style_default_layout_wrap_content">
+        <item name="android:padding">@dimen/dimens_l</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginEnd">@dimen/dimens_xl</item>
+        <item name="android:layout_marginBottom">@dimen/dimens_xl</item>
+        <item name="android:background">@drawable/shape_toast</item>
+        <item name="android:text">@string/save_position</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="style_material_card_view" parent="@style/style_default_layout_wrap_content">
+        <item name="android:layout_margin">@dimen/dimens_m</item>
+        <item name="cardBackgroundColor">@android:color/white</item>
+        <item name="android:outlineSpotShadowColor">@color/colorAccent</item>
+        <item name="cardCornerRadius">@dimen/dimens_l</item>
+        <item name="cardElevation">@dimen/dimens_m</item>
+    </style>
 
+    <style name="style_button_custom_show_dialog">
+        <item name="android:layout_width">@dimen/dimens_seventy</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/txt_size_xl</item>
+    </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <style name="style_button_details_sound_activity">
+        <item name="android:layout_width">@dimen/dimens_xxl</item>
+        <item name="android:layout_height">@dimen/dimens_xxl</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/dimens_mm</item>
+        <item name="android:layout_marginRight">@dimen/dimens_mm</item>
+    </style>
+</resources>

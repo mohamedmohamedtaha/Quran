@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -18,6 +19,8 @@ import com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor;
 import com.MohamedTaha.Imagine.Quran.presenter.SplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
 import com.MohamedTaha.Imagine.Quran.view.SplashView;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

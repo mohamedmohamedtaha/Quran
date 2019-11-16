@@ -1,54 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_information"
+    style="@style/style_default_layout_match_parent_with_background"
     tools:context=".ui.activities.ListSoundReader">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/Fragment_List_Sound_TB"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorAccent"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
-        app:searchBackground="@color/colorAccent"
-        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
-        app:searchSuggestionBackground="@android:color/black"
-        app:searchSuggestionIcon="@drawable/ic_suggestion" />
+        style="@style/style_toolbar" />
 
     <TextView
         android:id="@+id/Fragment_List_Sound_TV_Name_Sora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/style_default_layout_wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/marginRightLeftSeekbarXLarge"
-        android:layout_marginTop="@dimen/marginTopNameSora"
+        android:layout_marginStart="@dimen/dimens_6xl"
+        android:layout_marginTop="@dimen/dimens_l"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/textSizeActionbar"
+        android:textSize="@dimen/txt_size_l"
         android:textStyle="bold" />
 
     <com.miguelcatalan.materialsearchview.MaterialSearchView
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </com.miguelcatalan.materialsearchview.MaterialSearchView>
+        style="@style/style_default_layout_wrap_match" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewSound"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/style_default_layout_match_parent"
         android:layout_above="@id/Fragment_List_Sound_LL_Control_Media"
         android:layout_below="@+id/Fragment_List_Sound_TB"
         android:clickable="true"
         android:focusable="true" />
-    <!-- Loading indicator is only shown before the first load
 
-     android:visibility="gone" -->
     <ProgressBar
         android:id="@+id/ListSoundReader_loading_indicator"
         style="?android:attr/progressBarStyleLarge"
@@ -60,27 +42,16 @@
 
     <TextView
         android:id="@+id/Fragment_ListSound_TV_No_Data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/defaultValueSixtyFour"
-        android:text="@string/no_data"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/marginRightLeftSeekbar"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        style="@style/style_text_view_no_data" />
 
     <RelativeLayout
         android:id="@+id/Fragment_List_Sound_LL_Control_Media"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_default_layout_wrap_match"
         android:layout_alignParentBottom="true"
-        android:visibility="gone">
+        android:background="@color/blue_light">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/blue"
+            style="@style/style_default_layout_wrap_match"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -89,92 +60,70 @@
                 android:layout_height="@dimen/dimens_seventy" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/style_default_layout_wrap_match"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textNowPlaying"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/style_default_layout_wrap_match"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
                     android:gravity="center_horizontal"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="15dp"
                     tools:text="@string/no_data" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/style_default_layout_wrap_match"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnPrevious"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_marginLeft="@dimen/dimens_mm"
-                        android:layout_marginRight="@dimen/dimens_mm"
+                        style="@style/style_button_details_sound_activity"
                         android:background="@drawable/ic_previous" />
 
                     <Button
                         android:id="@+id/btnPlay"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_marginLeft="@dimen/dimens_mm"
-                        android:layout_marginRight="@dimen/dimens_mm"
+                        style="@style/style_button_details_sound_activity"
                         android:background="@drawable/ic_play"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/btnPause"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_marginLeft="@dimen/dimens_mm"
-                        android:layout_marginRight="@dimen/dimens_mm"
+                        style="@style/style_button_details_sound_activity"
                         android:background="@drawable/ic_pause" />
 
                     <Button
                         android:id="@+id/btnNext"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_marginLeft="@dimen/dimens_mm"
-                        android:layout_marginRight="@dimen/dimens_xxxxl"
+                        style="@style/style_button_details_sound_activity"
                         android:background="@drawable/ic_next" />
 
                     <Button
                         android:id="@+id/btnStop"
-                        android:layout_width="@dimen/dimens_xxl"
-                        android:layout_height="@dimen/dimens_xxl"
-                        android:layout_gravity="end"
+                        style="@style/style_button_details_sound_activity"
                         android:background="@drawable/ic_close" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/style_default_layout_wrap_match"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textBufferDuration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/style_default_layout_wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:id="@+id/textDuration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/style_default_layout_wrap_content"
                         android:layout_gravity="right"
-                        android:textColor="@android:color/white" />
-
-
+                        android:textColor="@android:color/black" />
                 </LinearLayout>
 
                 <ProgressBar
@@ -184,13 +133,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="1dp"
-
-                    />
-
+                    android:layout_marginBottom="1dp" />
             </LinearLayout>
-
         </LinearLayout>
     </RelativeLayout>
-
 </RelativeLayout>

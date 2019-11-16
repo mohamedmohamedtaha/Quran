@@ -21,7 +21,9 @@ import butterknife.ButterKnife;
 public class AdapterGridView extends ArrayAdapter<ModelSora> {
     //  private int imageDimension;
     private boolean isParts;
-    private static final String FONT_TYPE = "fonts/Aayat-Quraan.ttf";
+   // private static final String FONT_TYPE = "fonts/Aayat-Quraan.ttf";
+    private static final String FONT_TYPE = "fonts/MADDINA.ttf";
+
     Typeface nyTypeface;
 
     public AdapterGridView(@NonNull Context context, List<ModelSora> listName_sora, boolean isParts/*, int imageDimension*/) {

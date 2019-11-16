@@ -54,7 +54,7 @@ public class StoreImagesRepository {
     }
 
     public void addImages() {
-     /*  images.add(R.drawable.page1);
+       images.add(R.drawable.page1);
         images.add(R.drawable.page2);
         images.add(R.drawable.page3);
         images.add(R.drawable.page4);
@@ -671,6 +671,6 @@ public class StoreImagesRepository {
         images.add(R.drawable.page615);
         images.add(R.drawable.page616);
         images.add(R.drawable.page617);
-        */
+
     }
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    style="@style/style_default_layout_wrap_match"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
@@ -14,19 +13,18 @@
         card:cardElevation="@dimen/dimens_m">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_default_layout_wrap_match"
             android:background="@drawable/image_border"
             android:orientation="vertical"
-            android:padding="@dimen/defultValueFive">
+            android:padding="@dimen/dimens_s">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultValueTowHandred"
+                android:layout_height="@dimen/dimens_height_logo"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/defultValueFive"
-                android:layout_marginBottom="@dimen/defultValueFive"
+                android:layout_marginTop="@dimen/dimens_s"
+                android:layout_marginBottom="@dimen/dimens_s"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/decriptionImage"
                 android:scaleType="fitXY" />
@@ -36,9 +34,7 @@
                 style="@style/themecustom_name_reader"
                 android:layout_weight="1"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"
-
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textTypeTlawa"
@@ -47,5 +43,4 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
 </LinearLayout>

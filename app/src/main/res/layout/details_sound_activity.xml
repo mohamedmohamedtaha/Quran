@@ -1,121 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blue"
+    style="@style/style_default_layout_match_parent_with_background"
     tools:context=".ui.activities.DetailsSoundActivity">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-    <TextView
-        android:id="@+id/MainActivity_Name_Sora"
-        style="@style/themetextSoraAndShekh"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/marginRightLeftSeekbar"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSizeActionBar" />
 
-    <TextView
-        android:id="@+id/MainActivity_Name_Shekh"
-        style="@style/themetextSoraAndShekh"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="@dimen/marginRightLeftSeekbar"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSizeTimeSound" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/DetailsSoundActivity_IV_Picture_Shekh"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true" />
-
-    <LinearLayout
-        android:id="@+id/Linearbuttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/LinearText"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnPrevious"
-            android:layout_width="@dimen/dimens_xxl"
-            android:layout_height="@dimen/dimens_xxl"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_previous" />
-        <Button
-            android:id="@+id/btnPlay"
-            android:layout_width="@dimen/dimens_xxl"
-            android:layout_height="@dimen/dimens_xxl"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_play"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/btnPause"
-            android:layout_width="@dimen/dimens_xxl"
-            android:layout_height="@dimen/dimens_xxl"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_pause" />
-
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="@dimen/dimens_xxl"
-            android:layout_height="@dimen/dimens_xxl"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_next" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/MainActivity_SeekBar"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal">
+    <RelativeLayout style="@style/style_default_layout_match_parent">
 
         <TextView
-            android:id="@+id/MainActivity_TV_BufferDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            tools:text="@string/no_data" />
+            android:id="@+id/MainActivity_Name_Sora"
+            style="@style/themetextSoraAndShekh"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimens_xl"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/txt_size_xl" />
 
         <TextView
-            android:id="@+id/MainActivity_TV_Duration"
-            android:layout_width="wrap_content"
+            android:id="@+id/MainActivity_Name_Shekh"
+            style="@style/themetextSoraAndShekh"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/dimens_xl"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/txt_size_m" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/DetailsSoundActivity_IV_Picture_Shekh"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true" />
+
+        <LinearLayout
+            android:id="@+id/Linearbuttons"
+            style="@style/style_default_layout_wrap_match"
+            android:layout_above="@+id/LinearText"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPrevious"
+                style="@style/style_button_details_sound_activity"
+                android:background="@drawable/ic_previous" />
+
+            <Button
+                android:id="@+id/btnPlay"
+                style="@style/style_button_details_sound_activity"
+                android:background="@drawable/ic_play"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnPause"
+                style="@style/style_button_details_sound_activity"
+                android:background="@drawable/ic_pause" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/style_button_details_sound_activity"
+                android:background="@drawable/ic_next" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearText"
+            style="@style/style_default_layout_wrap_match"
+            android:layout_above="@+id/MainActivity_SeekBar"
+            android:layout_marginLeft="@dimen/dimens_mm"
+            android:layout_marginRight="@dimen/dimens_mm"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/MainActivity_TV_BufferDuration"
+                style="@style/style_default_layout_wrap_content"
+                android:layout_weight="1"
+                android:textColor="@android:color/black"
+                tools:text="@string/no_data" />
+
+            <TextView
+                android:id="@+id/MainActivity_TV_Duration"
+                style="@style/style_default_layout_wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@android:color/black"
+                tools:text="@string/no_data" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/MainActivity_SeekBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="@android:color/white"
-
-            tools:text="@string/no_data" />
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/MainActivity_SeekBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/marginRightLeftSeekbar"
-        android:layout_marginRight="@dimen/marginRightLeftSeekbar"
-        android:layout_marginBottom="@dimen/marginBottomSeekbar"
-        android:layoutDirection="ltr"
-        android:paddingLeft="@dimen/paddingRightLeftSeekbar"
-        android:paddingRight="@dimen/paddingRightLeftSeekbar"
-         />
-</RelativeLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimens_xl"
+            android:layout_marginRight="@dimen/dimens_xl"
+            android:layout_marginBottom="@dimen/dimens_xl"
+            android:layoutDirection="ltr"
+            android:paddingLeft="@dimen/dimens_m"
+            android:paddingRight="@dimen/dimens_m" />
+    </RelativeLayout>
 </androidx.constraintlayout.motion.widget.MotionLayout>

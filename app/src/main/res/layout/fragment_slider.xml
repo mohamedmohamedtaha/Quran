@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_information"
+    style="@style/style_default_layout_match_parent_with_background"
     tools:context=".ui.fragments.SliderFragment">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/SliderFragment_ViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/style_default_layout_match_parent"
         android:layout_above="@+id/SliderFragment_Skip" />
 
     <LinearLayout
         android:id="@+id/SliderFragment_DotLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_default_layout_wrap_match"
         android:layout_above="@+id/SliderFragment_Skip"
         android:gravity="center"
         android:orientation="horizontal" />
 
     <Button
         android:id="@+id/SliderFragment_Skip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/style_default_layout_wrap_match"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimens_m"
+        android:layout_marginBottom="@dimen/dimens_m"
         android:background="@drawable/shape_toast"
         android:fontFamily="@font/cairo_bold"
         android:text="@string/skip"
         android:textColor="@android:color/white"
-        android:layout_marginTop="@dimen/dimens_m"
-        android:layout_marginBottom="@dimen/dimens_m"
         android:textSize="@dimen/txt_size_m" />
 </RelativeLayout>

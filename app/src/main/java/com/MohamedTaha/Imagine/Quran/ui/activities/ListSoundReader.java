@@ -162,15 +162,8 @@ public class ListSoundReader extends AppCompatActivity {
         setContentView(R.layout.fragment_list_sound);
         ButterKnife.bind(this);
         utilities = new Utilities();
-
          isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
-
-//         View view = getLayoutInflater().inflate(R.layout.custom_test,null);
-//        FragmentListSoundLLControlMedia = (MotionLayout)this.getLayoutInflater()
-//                .inflate(R.layout.custom_test,null);
-
-        FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
-
+       FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
         ListSoundReaderLoadingIndicator = (ProgressBar) findViewById(R.id.ListSoundReader_loading_indicator);
         imageViewAlbumArt = (CircleImageView) findViewById(R.id.imageViewAlbumArt);
         btnPlay = (Button) findViewById(R.id.btnPlay);
@@ -337,22 +330,7 @@ public class ListSoundReader extends AppCompatActivity {
         Music_DownloadId = DownloadData(music_uri, name_sora);
 
     }
-
-    public void titleActionBar() {
-        ActionBar mActionbar = getSupportActionBar();
-
-        mActionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        mActionbar.setDisplayShowCustomEnabled(true);
-        mActionbar.setCustomView(R.layout.custom_actionbar);
-
-        //For a void not show The ActionBar match_parent
-        Toolbar toolbar = (Toolbar) mActionbar.getCustomView().getParent();
-        toolbar.setContentInsetsAbsolute(0, 0);
-        toolbar.getContentInsetEnd();
-        toolbar.setPadding(0, 0, 0, 0);
-    }
-
-    public void custom_toolbar() {
+        public void custom_toolbar() {
         setSupportActionBar(FragmentListSoundTB);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

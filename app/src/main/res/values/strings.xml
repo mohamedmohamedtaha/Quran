@@ -1,28 +1,34 @@
 <resources>
+    <!-- اسم التطبيق -->
+    <string name="app_name">القُرْأنُ الكَرِيمُ</string>
+    <string name="text_fiald">عذراً الرابط غير صالح.\n أرسل للمسؤول</string>
+    <string name="nameTextDefult">-</string>
+    <string name="setDescriptionRequet">جاري التحميل</string>
+    <!--desription Image List -->
+    <string name="decriptionImage">Image Koran</string>
+    <string name="textMain">خَيْرُكُمْ مَنْ تَعْلَمُ القُرْانَ وَعِلْمَهُ</string>
+    <!--Check Internet -->
+    <string name="text_alert">تنبيه</string>
+    <string name="text_false">تأكد من الانترنت لأن الصوة لم يتم تحميلها على الجهازك</string>
+    <!--text Sub FloatingActionButtonEvaluatiom-->
+    <string name="labelEvaluation">قيمنا على المتجر</string>
+    <!--text Sub FloatingActionButtonEvaluatiom-->
+    <string name="labelSend">راسلنا عبر الإيميل</string>
+    <string name="readNow">قِرَاءَةٌ</string>
+    <string name="notNow">لَيْسَ الآنَ</string>
     //Close App
-    <string name="tetileClose">إِغْلَاقُ التَّطْبِيقِ</string>
-    <string name="messageClose">هَلْ تُرِيدُ إِغْلَاقَ التَّطْبِيقِ؟</string>
-    <string name="textYes">نَعَمْ</string>
-    <string name="textNo">لَا</string>
-
-    //actionBar XML
+    <string name="tetileClose">إغلاق التطبيق</string>
+    <string name="messageClose">هل تريد إغلاق التطبيق؟</string>
+    <string name="textYes">نعم</string>
+    <string name="textNo">لا</string>
     <string name="nameSora">القُرْانُ الكَرِيمُ</string>
-    <string name="name_sora">اسم السورة </string>
-
-    <!-- part name for the vocabulary  [CHAR LIMIT=20] -->
     <string name="readswar">الْقِرَاءةُ بِالسُّورٍ </string>
-    <!-- part name for the vocabulary  [CHAR LIMIT=20] -->
     <string name="listen_swar">  التِّلَاوَةُ</string>
     <string name="read_parts">الْقِرَاءةُ بِالْأَجْزَاءِ </string>
-
-
-    <string name="nameSheck">المَشَايِخُ</string>
-    <string name="about">\n قِرَاءَةُ القُرْآنِ الكَرِيمِ\n  وَالاِسْتِمَاعُ وَالتَّحْمِيلُ بِأَكْثَرَ مِنْ شَيْخٍ بِسُهُولَةٍ وَتَشْغِيلِهِ بِدُونِ أَنْتِرْنِت.</string>
-    <string name="shareApp">مُشَارَكَةُ التَّطْبِيق</string>
-    <string name="notSupport">لِلْأَسَفِ التَّلَيُّفُونَ لَا يُوجَدُ بِهِ اي تَطْبِيقٌ لِإِرْسَالِ الرَّسَائِلِ</string>
+    <string name="about">\n قراءة القرأن الكريمِ\n والإستماع والتحميل بأكثر من شيخ بسهولة وتشغيله بدون انترنت بعد التحميل.</string>
+    <string name="shareApp">مشاركة التطبيق</string>
+    <string name="notSupport">للأسف التليفون لا يوجد به اي تطبيق لإرسال الرسائل</string>
     <string name="hafs_an_asem">حَفْصٌ عَنْ عَاصِمٍ</string>
-    <string name="elmoalam">الْمُصْحَفُ الْمُعَلِّمُ</string>
-
     <string name="ekmoshaf_elmogawad">الْمُصْحَفُ الْمُجَوِّدُ</string>
     <string name="abdelrhman_elsodes">عبدالرحمن السديس</string>
     <string name="adel_elkalbany">عادل الكلباني</string>
@@ -31,7 +37,6 @@
     <string name="abdelbaset">عبدالباسط عبدالصمد</string>
     <string name="mahmoud_elhosaryH">محمود خليل الحصري.</string>
     <string name="mahmoud_elhosaryM">محمود خليل الحصري</string>
-
     <string name="maher_elmeaqly">ماهر المعيقلي</string>
     <string name="mshary_elafasy">مشاري العفاسي</string>
     <string name="soud_elsherem">سعود الشريم</string>
@@ -46,164 +51,9 @@
     <string name="abdelrhman_elqasem">عبدالمحسن القاسم</string>
     <string name="slah_elbadry">صلاح البدري</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save_position">حفظ القراءة</string>
     <string name="save">تم الحفظ</string>
-    <string name="title_activity_navigation_drawaber">NavigationDrawaberActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
     <string name="no_data">لا توجد بيانات</string>
-    <!--  parts of Quran -->
-    <string name="part_one"> الجزء الأول</string>
-    <string name="part_two">الجزء الثاني</string>
-    <string name="part_three">الجزء الثالث</string>
-    <string name="part_four">الجزء الرابع</string>
-    <string name="part_five">الجزء الخامس</string>
-    <string name="part_six">الجزء السادس</string>
-    <string name="part_seven">الجزء السابع</string>
-    <string name="part_eight">الجزء الثامن</string>
-    <string name="part_nine">الجزء التاسع</string>
-    <string name="part_ten">الجزء العاشر</string>
-    <string name="part_eleven">الجزء الحادي عشر</string>
-    <string name="part_twelve">الجزء الثاني عشر</string>
-    <string name="part_thirteen">الجزء الثالث عشر</string>
-    <string name="part_fourteen">الجزء الرابع عشر</string>
-    <string name="part_fifteen">الجزء الخامس عشر</string>
-    <string name="part_sixteen">الجزء السادس عشر</string>
-    <string name="part_seventeen">الجزء السابع عشر</string>
-    <string name="part_eighteen">الجزء الثامن عشر </string>
-    <string name="part_nineteen">الجزء التاسع عشر</string>
-    <string name="part_twenty">الجزء العشرون</string>
-    <string name="part_twenty_one">الجزء الحادي والعشرون</string>
-    <string name="part_twenty_two">الجزء الثاني والعشرون</string>
-    <string name="part_twenty_three">الجزء الثالث والعشرون</string>
-    <string name="part_twenty_four">الجزء الرابع والعشرون</string>
-    <string name="part_twenty_five">الجزء الخامس والعشرون</string>
-    <string name="part_twenty_six">الجزء السادس والعشرون</string>
-    <string name="part_twenty_seven">الجزء السابع والعشرون</string>
-    <string name="part_twenty_eight">الجزء الثامن والعشرون</string>
-    <string name="part_twenty_nine">الجزء التاسع والعشرون</string>
-    <string name="part_thirty">الجزء الثلاثون</string>
-
-    <!--    _________________________________________________________________________________________________________________   -->
-
-    <!--  Names of Swar -->
-    <string name="elfatha">سورة الفاتحة</string>
-    <string name="elbaqara">سورة البقرة</string>
-    <string name="al_emran">سورة آل عمران</string>
-    <string name="elnsaa">سورة النساء</string>
-    <string name="elmaeda">سورة المائدة</string>
-    <string name="Sura6">سورة الأنعامِ</string>
-    <string name="Sura7">سورة الأعرافِ</string>
-    <string name="Sura8">سورة الأنفال</string>
-    <string name="Sura9">سورة التوبة</string>
-    <string name="Sura10">سورة يونس</string>
-    <string name="Sura11">سورة هود</string>
-    <string name="Sura12">سورة يوسف</string>
-    <string name="Sura13">سورة الرعد</string>
-    <string name="Sura14">سورة إبراهيم</string>
-    <string name="Sura15">سورة الحجرِ</string>
-    <string name="Sura16">سورة النحل</string>
-    <string name="Sura17">سورة الإسراء</string>
-    <string name="Sura18">سورة الكهف</string>
-    <string name="Sura19">سورة مريم</string>
-    <string name="Sura20">سورة طه</string>
-    <string name="Sura21">سورة الأنبياء</string>
-    <string name="Sura22">سورة الحج</string>
-    <string name="Sura23">سورة المؤمنون</string>
-    <string name="Sura24">سورة النورِ</string>
-    <string name="Sura25">سورة الفرقانِ</string>
-    <string name="Sura26">سورة الشعراء</string>
-    <string name="Sura27">سورة النملِ</string>
-    <string name="Sura28">سورة القصص</string>
-    <string name="Sura29">سورة العنكبوت</string>
-    <string name="Sura30">سورة الروم</string>
-    <string name="Sura31">سورة لقمان</string>
-    <string name="Sura32">سورة السجدة</string>
-    <string name="Sura33">سورة الأحزاب</string>
-    <string name="Sura34">سورة سبأ</string>
-    <string name="Sura35">سورة فاطر</string>
-    <string name="Sura36">سورة يس</string>
-    <string name="Sura37">سورة الصافاتِ</string>
-    <string name="Sura38">صورة ص</string>
-    <string name="Sura39">سورة الزمرِ</string>
-    <string name="Sura40">سورة غافر</string>
-    <string name="Sura41">سورة فصلت</string>
-    <string name="Sura42">سورة الشورى</string>
-    <string name="Sura43">سورة الزخرف</string>
-    <string name="Sura44">سورة الدخان</string>
-    <string name="Sura45">سورة الجاثية</string>
-    <string name="Sura46">سورة الأحقاق</string>
-    <string name="Sura47">سورة محمد</string>
-    <string name="Sura48">سورة الفتح</string>
-    <string name="Sura49">سورة الحجرات</string>
-    <string name="Sura50">سورة ق</string>
-    <string name="Sura51">سورة الذاريات</string>
-    <string name="Sura52">سورة الطور</string>
-    <string name="Sura53">سورة النجمِ</string>
-    <string name="Sura54">سورة القمر</string>
-    <string name="Sura55">سورة الرحمن</string>
-    <string name="Sura56">سورة الواقعة</string>
-    <string name="Sura57">سورة الحديد</string>
-    <string name="Sura58">سورة المجادلة</string>
-    <string name="Sura59">سورة الحشرِ</string>
-    <string name="Sura60">سورة الممتحنة</string>
-    <string name="Sura61">سورة الصفِ</string>
-    <string name="Sura62">سورة الجمعة</string>
-    <string name="Sura63">سورة المنافقون</string>
-    <string name="Sura64">سورة التغابن</string>
-    <string name="Sura65">سورة الطلاق</string>
-    <string name="Sura66">سورة التحريمِ</string>
-    <string name="Sura67">سورة الملك</string>
-    <string name="Sura68">سورة القلم</string>
-    <string name="Sura69">سورة الحاقة</string>
-    <string name="Sura70">سورة المعارج</string>
-    <string name="Sura71">سورة نوح</string>
-    <string name="Sura72">سورة الجن</string>
-    <string name="Sura73">سورة المزملِ</string>
-    <string name="Sura74">سورة المدثر</string>
-    <string name="Sura75">سورة القيامة</string>
-    <string name="Sura76">سورة الإنسان</string>
-    <string name="Sura77">سورة المرسلات</string>
-    <string name="Sura78">سورة النبأ</string>
-    <string name="Sura79">سورة النازعات</string>
-    <string name="Sura80">سورة عبس</string>
-    <string name="Sura81">سورة التكوير</string>
-    <string name="Sura82">سورة الإنفطارِ</string>
-    <string name="Sura83">سورة المطففين</string>
-    <string name="Sura84">سورة الإنشقاق</string>
-    <string name="Sura85">سورة البروج</string>
-    <string name="Sura86">سورة الطارق</string>
-    <string name="Sura87">سورة الأعلى</string>
-    <string name="Sura88">سورة الغاشية</string>
-    <string name="Sura89">سورة الفجر</string>
-    <string name="Sura90">سورة البلد</string>
-    <string name="Sura91">سورة الشمس</string>
-    <string name="Sura92">سورة الليل</string>
-    <string name="Sura93">سورة الضحى</string>
-    <string name="Sura94">سورة الشرح</string>
-    <string name="Sura95">سورة التين</string>
-    <string name="Sura96">سورة العلق</string>
-    <string name="Sura97">سورة القدر</string>
-    <string name="Sura98">سورة البينة</string>
-    <string name="Sura99">سورة الزلزلة</string>
-    <string name="Sura100">سورة العاديات</string>
-    <string name="Sura101">سورة القارعة</string>
-    <string name="Sura102">سورة التكاثر</string>
-    <string name="Sura103">سورة العصر</string>
-    <string name="Sura104">سورة الهمزة</string>
-    <string name="Sura105">سورة الفيل</string>
-    <string name="Sura106">سورة قريش</string>
-    <string name="Sura107">سورة الماعونِ</string>
-    <string name="Sura108">سورة الكوثر</string>
-    <string name="Sura109">سورة الكافرون</string>
-    <string name="Sura110">سورة النصر</string>
-    <string name="Sura111">سورة المسدِ</string>
-    <string name="Sura112">سورة الإخلاص</string>
-    <string name="Sura113">سورة الفلق</string>
-    <string name="Sura114">سورة الناس</string>
-    <string name="number_sora">رقم الصورة</string>
     <string name="no_internet">لا يوجد إنترنت</string>
     <string name="no_internet_network">ربما لا توجد شبكة إنترنت تأكد من الأنترنت</string>
     <string name="do_want_Save">هل تريد الرجوع إلى الصفحة المحفوظة</string>
@@ -217,25 +67,18 @@
     <string name="skip">تخطي</string>
     <string name="next">التالي</string>
     <string name="use_way">طريقة الإستخدام</string>
-
     <string name="settings_Notification_label">الإشعارات</string>
+
     <string name="settings_Notification_key" translatable="false">AlarmManager.INTERVAL_HALF_DAY</string>
     <string name="settings_Notification_default" translatable="false">@string/settings_by_department_value_half_day</string>
-
     <string name="settings_by_Notification_every_square_hour">كل ربع ساعة</string>
     <string name="settings_by_department_value_square_hour" translatable="false">AlarmManager.INTERVAL_FIFTEEN_MINUTES</string>
-
     <string name="settings_by_Notification_every_half_hour">كل نصف ساعة</string>
     <string name="settings_by_department_value_half_hour" translatable="false">AlarmManager.INTERVAL_HALF_HOUR</string>
-
     <string name="settings_by_department_label_every_hour">كل ساعة</string>
     <string name="settings_by_department_value_every_hour" translatable="false">AlarmManager.INTERVAL_HOUR</string>
-
     <string name="settings_by_department_label_half_day">كل نصف يوم </string>
     <string name="settings_by_department_value_half_day" translatable="false">AlarmManager.INTERVAL_HALF_DAY</string>
-
-
     <string name="settings_by_department_label_every_day">كل  يوم </string>
     <string name="settings_by_department_value_every_day" translatable="false">AlarmManager.INTERVAL_DAY</string>
-
 </resources>

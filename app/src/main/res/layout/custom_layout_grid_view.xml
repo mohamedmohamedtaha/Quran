@@ -2,46 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    style="@style/style_default_layout_wrap_content"
     android:gravity="center">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimens_m"
-        android:outlineSpotShadowColor="@color/colorAccent"
-        card:cardBackgroundColor="@android:color/white"
-        card:cardCornerRadius="@dimen/dimens_l"
-        card:cardElevation="@dimen/dimens_m">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView style="@style/style_material_card_view">
+        <RelativeLayout style="@style/style_default_layout_wrap_content">
 
             <TextView
                 android:id="@+id/TV_Name_Sora"
                 android:layout_width="@dimen/defaultValueTowHandredTen"
                 android:layout_height="@dimen/dimens_xxxxl"
                 android:gravity="center"
+                android:paddingTop="@dimen/dimens_mm"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/defultValueSixTeen"
+                android:textSize="@dimen/txt_size_l"
                 android:textStyle="bold"
                 tools:text="@string/nameSora" />
 
             <TextView
                 android:id="@+id/TV_Nzol_elsora"
-                android:layout_width="wrap_content"
+                android:layout_width="  wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TV_Name_Sora"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/dimens_xl"
-                android:layout_marginBottom="@dimen/defultValueThree"
+                android:layout_marginBottom="@dimen/dimens_ss"
                 android:textColor="@color/colorAccent"
-                android:textSize="@dimen/defultValueSixTeen"
+                android:textSize="@dimen/txt_size_l"
                 android:textStyle="bold"
                 tools:text="@string/nameSora" />
         </RelativeLayout>
-
     </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

@@ -6,22 +6,21 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.text.TextUtilsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterForSwipe;
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.helper.ShowDialog;
 import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.booking.rtlviewpager.RtlViewPager;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,8 +29,8 @@ import static com.MohamedTaha.Imagine.Quran.interactor.GridViewFragmentInteracto
 import static com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment.SAVE_IMAGES;
 
 public class SwipePagesActivity extends AppCompatActivity {
-
-    ArrayList<ModelSora> images = new ArrayList<>();
+    //  ArrayList<ModelSora> images = new ArrayList<>();
+    ArrayList<Integer> images = new ArrayList<>();
     public static final String IS_TRUE = "is_true";
     //  @BindView(R.id.SwipePagesActivity_VP)
     // ViewPager SwipePagesActivityVP;
@@ -52,17 +51,15 @@ public class SwipePagesActivity extends AppCompatActivity {
         bundle = getIntent().getExtras();
         getArgemnets();
         createImage();
-        //For Support RTL and put it in AdapterForSwipe in ImageView also
-        //  SwipePagesActivityVP.setRotationY(180);
-        //For Support RTL and put it in AdapterForSwipe in ImageView also
-        boolean istue= TextUtilsCompat.getLayoutDirectionFromLocale(getResources().getConfiguration().locale) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        //to Check before change Language
+        String language_name = Locale.getDefault().getLanguage();
+        if (language_name != "ar") {
+            HelperClass.change_language("ar", this);
+        }
         AdapterForSwipe adapterForSwipe = new AdapterForSwipe(this, images, new AdapterForSwipe.showDetail() {
             @Override
             public void showDetails(int positon) {
-                //setNamePart(save_position);
                 ShowDialog.showDialog(SwipePagesActivity.this, save_position);
-
-
             }
         });
         SwipePagesActivityVP.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -96,22 +93,23 @@ public class SwipePagesActivity extends AppCompatActivity {
 
     }
 
+
     private void getArgemnets() {
         if (bundle != null) {
             Type listType = new TypeToken<List<ModelSora>>() {
             }.getType();
             String st = bundle.getString(SAVE_IMAGES);
-            images = new Gson().fromJson(st, listType);
-            //images = bundle.getIntegerArrayList(SAVE_IMAGES);
+            //images = new Gson().fromJson(st, listType);
+            images = bundle.getIntegerArrayList(SAVE_IMAGES);
             position = bundle.getInt(SAVE_POSITION);
         }
     }
 
     private void createImage() {
         for (int i = 0; i < images.size(); i++) {
-            bundle.putString(SAVE_IMAGES, images.get(i).getName_sora());
+            //  bundle.putString(SAVE_IMAGES, images.get(i).getName_sora());
 
-            // bundle.putInt(SAVE_IMAGES, images.get(i));
+            bundle.putInt(SAVE_IMAGES, images.get(i));
             bundle.putInt(SAVE_POSITION, position);
         }
         if (position == 2) {
