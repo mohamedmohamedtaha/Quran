@@ -10,6 +10,7 @@
         <domain includeSubdomains="true">server12.mp3quran.net</domain>
         <domain includeSubdomains="true">server13.mp3quran.net</domain>
         <domain includeSubdomains="true">clients3.google.com</domain>
+        <domain includeSubdomains="true">api.aladhan.com</domain>
 
 
     </domain-config>

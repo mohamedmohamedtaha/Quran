@@ -45,6 +45,8 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
     @BindView(R.id.GridViewActivity_ProgressBar)
     ProgressBar GridViewActivityProgressBar;
     public static final String SAVE_IMAGES = "save_images";
+    public static final String SAVE_STATE = "save_state";
+
     Bundle bundle;
     private List<ModelSora> name_swar;
     private AdapterGridView adapterGridView;
@@ -118,8 +120,8 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 presenter.getPosition(name_swar.get(position).getPosition(), bundle);
-             //   bundle.putString(SAVE_IMAGES,new Gson().toJson(integers));
                 bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
+                bundle.putBoolean(SAVE_STATE, true);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

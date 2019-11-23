@@ -24,7 +24,12 @@
     <string name="nameSora">القُرْانُ الكَرِيمُ</string>
     <string name="readswar">الْقِرَاءةُ بِالسُّورٍ </string>
     <string name="listen_swar">  التِّلَاوَةُ</string>
+    <string name="azkar">  الأذكار</string>
+    <string name="elslah">  مواقيت الصلاة</string>
+
     <string name="read_parts">الْقِرَاءةُ بِالْأَجْزَاءِ </string>
+    <string name="azkar_elmosle">حَصَّنَ الْمُسْلِمُ</string>
+
     <string name="about">\n قراءة القرأن الكريمِ\n والإستماع والتحميل بأكثر من شيخ بسهولة وتشغيله بدون انترنت بعد التحميل.</string>
     <string name="shareApp">مشاركة التطبيق</string>
     <string name="notSupport">للأسف التليفون لا يوجد به اي تطبيق لإرسال الرسائل</string>
@@ -57,6 +62,8 @@
     <string name="no_internet">لا يوجد إنترنت</string>
     <string name="no_internet_network">ربما لا توجد شبكة إنترنت تأكد من الأنترنت</string>
     <string name="do_want_Save">هل تريد الرجوع إلى الصفحة المحفوظة</string>
+    <string name="do_want_Save_azkar">هل تريد الرجوع إلى الذكر المحفوظ</string>
+
     <string name="allow">السماح</string>
     <string name="grand_permission">يجب إعطاء الأذن للتطبيق</string>
     <string name="cancel">لا</string>
@@ -81,4 +88,7 @@
     <string name="settings_by_department_value_half_day" translatable="false">AlarmManager.INTERVAL_HALF_DAY</string>
     <string name="settings_by_department_label_every_day">كل  يوم </string>
     <string name="settings_by_department_value_every_day" translatable="false">AlarmManager.INTERVAL_DAY</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

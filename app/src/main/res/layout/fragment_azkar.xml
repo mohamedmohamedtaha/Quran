@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/style_default_layout_match_parent_with_background"
+    tools:context=".ui.fragments.AzkarFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/AzkarFragmentRecycleView"
+        style="@style/style_default_layout_match_parent"
+        android:layout_marginTop="@dimen/dimens_l"
+        android:layout_marginBottom="@dimen/dimens_7xl"
+        android:clickable="true"
+        android:focusable="true"
+        android:foregroundGravity="center" />
+
+    <TextView
+        android:id="@+id/AzkarFragment_TV_No_Data"
+        style="@style/style_text_view_no_data" />
+</RelativeLayout>

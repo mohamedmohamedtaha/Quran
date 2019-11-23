@@ -30,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity.searchView;
+import static com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment.SAVE_STATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,6 +92,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 presenter.getPosition(name_part.get(position).getPosition(), bundle);
                 bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
+                bundle.putBoolean(SAVE_STATE, true);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

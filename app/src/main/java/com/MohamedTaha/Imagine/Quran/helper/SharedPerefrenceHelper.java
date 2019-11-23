@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 public class SharedPerefrenceHelper {
     private static final String SHARED_PREFRENCES_NAME = "save_path_images";
+    private static final String SHARED_PREFRENCES_NAME_AZKAR = "save_path_azkar";
+
     private static final String SHARED_PREFRENCES_NAME_FOR_SERVICE_BOUND = "save_service_bound";
     private static final String SHARED_PREFRENCES_NAME_FOR_FirstTime = "save_first_time";
 
@@ -16,6 +18,24 @@ public class SharedPerefrenceHelper {
     }
     private static SharedPreferences getSharedPrefrencesForFirstTime(Context context){
         return context.getSharedPreferences(SHARED_PREFRENCES_NAME_FOR_FirstTime,Context.MODE_PRIVATE);
+    }
+    private static SharedPreferences getSharedPrefrencesForAzkar(Context context){
+        return context.getSharedPreferences(SHARED_PREFRENCES_NAME_AZKAR,Context.MODE_PRIVATE);
+    }
+    public static void putBooleanForAzkar(Context context,String key, boolean value){
+        getSharedPrefrencesForAzkar(context).edit().putBoolean(key,value).apply();
+    }
+    public static void putIntForAzkar(Context context,String key, int value){
+        getSharedPrefrencesForAzkar(context).edit().putInt(key,value).apply();
+    }
+    public static int getIntForAzkar(Context context , String key, int defaultValue){
+        return getSharedPrefrencesForAzkar(context).getInt(key,defaultValue);
+    }
+    public static boolean getBooleanForAzkar(Context context,String key, boolean defaultValue){
+        return getSharedPrefrencesForAzkar(context).getBoolean(key,defaultValue);
+    }
+    public static void removeDataForAzkar(Context context){
+        getSharedPrefrencesForAzkar(context).edit().clear().commit();
     }
     public static void putInt(Context context,String key, int value){
         getSharedPrefrences(context).edit().putInt(key,value).apply();

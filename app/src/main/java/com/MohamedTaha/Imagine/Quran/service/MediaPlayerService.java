@@ -35,7 +35,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
@@ -150,7 +149,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public void onCreate() {
         super.onCreate();
         //For don't throw exception when there is not Internet
-      //  int NOTIFICATION_ID = (int) (System.currentTimeMillis()%10000);
+        //  int NOTIFICATION_ID = (int) (System.currentTimeMillis()%10000);
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //            startForeground(NOTIFICATION_ID_SERVICE, new Notification.Builder(this,CHANNEL_ID).build());
 //        }
@@ -475,9 +474,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             mediaPlayer.stop();
             isPlaying = false;
             ListSoundReader.IsPlay = false;
-            if (timer != null) {
-                timer.cancel();
-            }
+        }
+        if (timer != null) {
+            timer.cancel();
         }
     }
 
@@ -660,7 +659,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             public void onStop() {
                 super.onStop();
                 removeNotification();
-                //stopMedia();
+                stopMedia();
                 //Stop the service
                 stopSelf();
                 if (IS_OPEN) {
@@ -701,7 +700,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                         sendBroadcast(broadcastIntent);
                         startForeground(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
                         stopMedia();
-                         removeNotification();
+                        removeNotification();
                         stopSelf();
                         FragmentListSoundLLControlMedia.setVisibility(View.GONE);
                     } else {
@@ -712,7 +711,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                             startForeground(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
                             stopMedia();
                             stopSelf();
-                           removeNotification();
+                            removeNotification();
                             FragmentListSoundLLControlMedia.setVisibility(View.GONE);
                         } else {
                             if (URLUtil.isValidUrl(activeAudio.getSora_link())) {
@@ -817,7 +816,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-
         // Given a media session and its context (usually the component containing the session)
         // Create a NotificationCompat.Builder
 
@@ -830,7 +828,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         //.setShowWhen(false)
         notificationBuilder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
 
-                notificationBuilder.setWhen(System.currentTimeMillis())  // the time stamp
+        notificationBuilder.setWhen(System.currentTimeMillis())  // the time stamp
                 //Set notification content information
                 .setSmallIcon(activeAudio.getUrl_image())
                 //.setContentText(activeAudio.getSora_name())

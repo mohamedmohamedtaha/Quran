@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,8 @@ import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.interactor.NavigationDrawarInteractor;
 import com.MohamedTaha.Imagine.Quran.notification.NotificationHelper;
 import com.MohamedTaha.Imagine.Quran.presenter.NavigationDrawarPresenter;
+import com.MohamedTaha.Imagine.Quran.ui.fragments.AzanFragment;
+import com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.FragmentSound;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.PartsFragment;
@@ -35,6 +38,7 @@ import butterknife.ButterKnife;
 import static com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor.FIRST_TIME;
 
 public class NavigationDrawaberActivity extends AppCompatActivity implements NavigationDrawarView {
+    private static final String SAVE_STATE_VIEW_PAGER = "save_state_view_pager";
     @BindView(R.id.nav_view)
     BottomNavigationView navView;
     @BindView(R.id.toobar)
@@ -78,7 +82,12 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navView.setSelectedItemId(R.id.read_quran);
+        if (savedInstanceState != null){
+            int save = savedInstanceState.getInt(SAVE_STATE_VIEW_PAGER);
+            navView.setSelectedItemId(save);
+        }else {
+            navView.setSelectedItemId(R.id.read_quran);
+        }
         setSupportActionBar(toobar);
         //for change color text toolbar
         toobar.setTitleTextColor(Color.parseColor("#FFFFFF"));
@@ -139,6 +148,14 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                     FragmentSound fragmentSound = new FragmentSound();
                     HelperClass.replece(fragmentSound, getSupportFragmentManager(), R.id.frameLayout);
                     break;
+                case R.id.azkar:
+                    AzkarFragment azkarFragment = new AzkarFragment();
+                    HelperClass.replece(azkarFragment, getSupportFragmentManager(), R.id.frameLayout);
+                    break;
+//                case R.id.elslah:
+//                    AzanFragment azanFragment = new AzanFragment();
+//                HelperClass.replece(azanFragment, getSupportFragmentManager(), R.id.frameLayout);
+//                break;
             }
             current_fragment = id;
             return true;
@@ -227,7 +244,14 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         super.onDestroy();
         presenter.onDestroy();
     }
-//    private void setupViewPager(ViewPager viewPager){
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_STATE_VIEW_PAGER,current_fragment);
+
+    }
+    //    private void setupViewPager(ViewPager viewPager){
 //        AdapterForNavigation adapterForNavigation = new AdapterForNavigation(getSupportFragmentManager());
 //        GridViewFragment gridViewFragment = new GridViewFragment();
 //          PartsFragment partsFragment = new PartsFragment();

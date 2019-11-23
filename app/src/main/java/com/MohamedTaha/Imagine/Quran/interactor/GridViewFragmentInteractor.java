@@ -23,10 +23,6 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
     private GridViewFragmentView fragmentView;
     private ImagesViewHolder imagesViewHolder;
     private FragmentActivity activity;
-
-    private float width;
-    int count = 1;
-
     public GridViewFragmentInteractor(GridViewFragmentView fragmentView, FragmentActivity context) {
         this.fragmentView = fragmentView;
         activity = context;
@@ -393,16 +389,6 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
         });
 
    }
-
-//    @Override
-//    public void getDisplayMetrics(ListView GridViewActivityGVShowImages, int imageDiemn) {
-//        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-//        width = displayMetrics.widthPixels / displayMetrics.density;
-//        count = (int) width / imageDiemn;
-//        GridViewActivityGVShowImages.setNumColumns(count);
-//
-//    }
-
     @Override
     public void onDestroy() {
         fragmentView = null;
