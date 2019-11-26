@@ -100,6 +100,8 @@ public class ListSoundReader extends AppCompatActivity {
     TextView FragmentListSoundTVNameSora;
     RecycleViewReaderAdapter recycleViewAdaptor;
     public static ProgressBar ListSoundReaderLoadingIndicator;
+    public static  boolean isServiceRunning;
+
     private ArrayList<ImageModel> respones;
     public static TextView textNowPlaying;
 
@@ -128,18 +130,14 @@ public class ListSoundReader extends AppCompatActivity {
     int poisition;
     String imageModelTest = null;
     public static boolean IsPlay = true;
-
     //for Service
     public static final String Broadcast_PLAY_NEW_AUDIO = "com.example.createmediaplayer.PlayNewAudio";
-
     //Create arrayList from Audio class
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
     Intent playeIntent;
-    boolean isServiceRunning ;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        //   outState.putBoolean(SAVE_BOUND, serviceBound);
         super.onSaveInstanceState(outState);
 
     }
@@ -147,13 +145,11 @@ public class ListSoundReader extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        //   serviceBound = savedInstanceState.getBoolean(SAVE_BOUND);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 
     @Override
@@ -162,8 +158,8 @@ public class ListSoundReader extends AppCompatActivity {
         setContentView(R.layout.fragment_list_sound);
         ButterKnife.bind(this);
         utilities = new Utilities();
-         isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
-       FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
+        isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+        FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
         ListSoundReaderLoadingIndicator = (ProgressBar) findViewById(R.id.ListSoundReader_loading_indicator);
         imageViewAlbumArt = (CircleImageView) findViewById(R.id.imageViewAlbumArt);
         btnPlay = (Button) findViewById(R.id.btnPlay);
@@ -208,7 +204,7 @@ public class ListSoundReader extends AppCompatActivity {
                 recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), respones, new RecycleViewReaderAdapter.ClickListener() {
                     @Override
                     public void onClick(View view, int position) {
-                            playAudio(position);
+                        playAudio(position);
                     }
 
                 }, new RecycleViewReaderAdapter.DownloadMusic() {
@@ -252,9 +248,7 @@ public class ListSoundReader extends AppCompatActivity {
                 recycleViewSound.setAdapter(recycleViewAdaptor);
                 FragmentListSoundTVNoData.setVisibility(View.GONE);
                 recycleViewSound.setVisibility(View.VISIBLE);
-
             }
-
         });
 
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -265,14 +259,12 @@ public class ListSoundReader extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ImageModel imageModel;
                 if (newText != null && !newText.isEmpty()) {
                     List<ImageModel> stringList = new ArrayList<>();
                     for (ImageModel item : respones) {
                         if (item.getName_sora().contains(newText)) {
                             stringList.add(item);
                         }
-
                     }
                     if (!stringList.isEmpty()) {
                         recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -293,12 +285,9 @@ public class ListSoundReader extends AppCompatActivity {
                         FragmentListSoundTVNoData.setVisibility(View.GONE);
                         recycleViewSound.setVisibility(View.VISIBLE);
                     } else {
-
                         FragmentListSoundTVNoData.setVisibility(View.VISIBLE);
                         recycleViewSound.setVisibility(View.GONE);
-
                     }
-
                 } else {
                     //If search is Null return default
                     FragmentListSoundTVNoData.setVisibility(View.GONE);
@@ -318,19 +307,17 @@ public class ListSoundReader extends AppCompatActivity {
                     });
                     recycleViewSound.setAdapter(recycleViewAdaptor);
                 }
-
                 return false;
             }
-
         });
     }
 
     private void downloadSora() {
         music_uri = Uri.parse(urlLink);
         Music_DownloadId = DownloadData(music_uri, name_sora);
-
     }
-        public void custom_toolbar() {
+
+    public void custom_toolbar() {
         setSupportActionBar(FragmentListSoundTB);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -339,22 +326,18 @@ public class ListSoundReader extends AppCompatActivity {
     }
 
     private void playAudio(int audioIndex) {
-      //  //Check is service is active
-      //  boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+        //  //Check is service is active
         StorageUtil storageUtil = new StorageUtil(getApplicationContext());
         storageUtil.storeAudio(respones);
         storageUtil.storeAudioIndex(audioIndex);
         if (!isServiceRunning) {
             //Store Serializable audioList to SharedPreferences
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 ContextCompat.startForegroundService(getApplicationContext(), playeIntent);
             } else {
                 startService(playeIntent);
-                //  bindService(playeIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-
             }
-            //  bindService(playeIntent, serviceConnection, Context.BIND_AUTO_CREATE);
+            isServiceRunning = true;
         } else {
             //Service is active
             //send BroadcastReceiver to the Service -> PLAY_NEW_AUDIO
@@ -380,7 +363,7 @@ public class ListSoundReader extends AppCompatActivity {
         //check download folder Global
         mediaStorageDir = new File(media_path, name_sora + ".mp3");
         if (mediaStorageDir != null && mediaStorageDir.exists()) {
-            HelperClass.customToast(this,"السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا");
+            HelperClass.customToast(this, "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا");
             //Toast.makeText(getApplicationContext(), "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا", Toast.LENGTH_LONG).show();
         } else {
             request.setDestinationInExternalFilesDir(ListSoundReader.this, Environment.DIRECTORY_DOWNLOADS + FILENAME
@@ -390,7 +373,6 @@ public class ListSoundReader extends AppCompatActivity {
         }
         return downloadReference;
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -427,12 +409,8 @@ public class ListSoundReader extends AppCompatActivity {
                         , MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
             } else {
                 downloadSora();
-
             }
-        } else {
-
         }
-
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -443,7 +421,6 @@ public class ListSoundReader extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //Download Sora
                     downloadSora();
-
                 } else {
                     if (shouldShowRequestPermissionRationale(permissions[0])) {
                         new AlertDialog.Builder(this)
@@ -452,7 +429,6 @@ public class ListSoundReader extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         checkPermistion();
-
                                     }
                                 })
                                 .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -482,13 +458,11 @@ public class ListSoundReader extends AppCompatActivity {
                                     }
                                 }).create().show();
                     }
-
                 }
                 return;
             }
         }
     }
-
 
     //For Delete those menus from that page
     @Override
@@ -499,7 +473,6 @@ public class ListSoundReader extends AppCompatActivity {
         globalMenu.findItem(R.id.action_use_way).setVisible(false);
         globalMenu.findItem(R.id.action_settings).setVisible(false);
         globalMenu.findItem(R.id.action_rate).setVisible(false);
-
         return super.onPrepareOptionsMenu(globalMenu);
     }
 
@@ -511,14 +484,11 @@ public class ListSoundReader extends AppCompatActivity {
             btnPlay.setVisibility(View.GONE);
             btnPause.setVisibility(View.VISIBLE);
         }
-
         textNowPlaying.setText(activeAudio.getName_sora() + " / " + activeAudio.getName_shekh());
         Glide.with(context)
-
                 .load(activeAudio.getUrl_image())
                 .apply(new RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(imageViewAlbumArt);
-
     }
 
     @Override
@@ -531,15 +501,14 @@ public class ListSoundReader extends AppCompatActivity {
                 textBufferDuration.setText("" + utilities.milliSecondsToTimer(i[0]));
                 textDuration.setText("" + utilities.milliSecondsToTimer(i[1]));
                 seekBar.setProgress(i[2]);
-
             }
         };
-        boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+     //   boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
         if (isServiceRunning) {
             updateUI(getApplicationContext());
         }
-
     }
+
     @OnClick({R.id.imageViewAlbumArt, R.id.btnPrevious, R.id.btnPlay, R.id.btnPause, R.id.btnStop, R.id.btnNext, R.id.Fragment_List_Sound_LL_Control_Media})
     public void onViewClicked(View view) {
         Intent openDetails = new Intent(ListSoundReader.this, DetailsSoundActivity.class);
@@ -567,13 +536,13 @@ public class ListSoundReader extends AppCompatActivity {
                 //service is active
                 stopService(playeIntent);
                 FragmentListSoundLLControlMedia.setVisibility(View.GONE);
+                isServiceRunning = false;
+
                 break;
             case R.id.btnNext:
                 transportControls.skipToNext();
-
                 IsPlay = true;
                 updateUI(getApplicationContext());
-
                 break;
             case R.id.Fragment_List_Sound_LL_Control_Media:
                 Bundle bundle = new Bundle();
@@ -583,7 +552,6 @@ public class ListSoundReader extends AppCompatActivity {
                 openDetails.putExtras(bundle);
                 startActivity(openDetails);
                 overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
-
                 break;
         }
     }

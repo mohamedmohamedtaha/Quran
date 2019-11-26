@@ -25,6 +25,7 @@
             android:id="@+id/TV_Name_Describe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:padding="@dimen/dimens_mm"
             android:layout_marginStart="@dimen/dimens_xl"
             android:layout_marginTop="@dimen/dimens_xl"
             android:layout_marginEnd="@dimen/dimens_xl"

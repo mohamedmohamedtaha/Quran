@@ -1,6 +1,7 @@
 package com.MohamedTaha.Imagine.Quran.ui.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +11,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterGridView;
@@ -43,6 +45,8 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     ListView PartsFragmentGVShowImages;
     @BindView(R.id.PartsFragment_TV_No_Data)
     TextView PartsFragmentTVNoData;
+    @BindView(R.id.PartsFragment_ProgressBar)
+    ProgressBar PartsFragmentProgressBar;
     private List<ModelSora> name_part;
     private AdapterGridView adapterNamePart;
     private PartsFragmentPresenter presenter;
@@ -50,8 +54,6 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     public PartsFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
         presenter.setOnSearchView(searchView);
         return view;
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -74,7 +77,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
 
     @Override
     public void showAfterSearch() {
-        adapterNamePart = new AdapterGridView(getActivity(), name_part,true);
+        adapterNamePart = new AdapterGridView(getActivity(), name_part, true);
         PartsFragmentGVShowImages.setAdapter(adapterNamePart);
     }
 
@@ -82,9 +85,10 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     public void showAfterQueryText(List<ModelSora> stringList) {
         //name_part.clear();
         name_part = stringList;
-        adapterNamePart = new AdapterGridView(getActivity(), stringList,true);
+        adapterNamePart = new AdapterGridView(getActivity(), stringList, true);
         PartsFragmentGVShowImages.setAdapter(adapterNamePart);
     }
+
     @Override
     public void showAllImages(List<Integer> integers) {
         PartsFragmentGVShowImages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -114,10 +118,20 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     }
 
     @Override
+    public void showProgress() {
+        PartsFragmentProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        PartsFragmentProgressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void showAllINamePart(List<ModelSora> strings) {
         name_part = strings;
         //Toast.makeText(getActivity(), "" + name_part.get(2).getName_part(), Toast.LENGTH_SHORT).show();
-        adapterNamePart = new AdapterGridView(getActivity(), name_part,true);
+        adapterNamePart = new AdapterGridView(getActivity(), name_part, true);
         PartsFragmentGVShowImages.setAdapter(adapterNamePart);
         adapterNamePart.notifyDataSetChanged();
         //For feel when Search

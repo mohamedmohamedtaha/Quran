@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,8 @@ public class FragmentSound extends Fragment implements ListSoundReaderView {
     TextView FragmentGridViewTVNoData;
     Unbinder unbinder;
     ImageAdapter imageAdapter;
+    @BindView(R.id.FragmentGridView_ProgressBar)
+    ProgressBar FragmentGridViewProgressBar;
     private List<ImageModel> imageModel;
     private ListSoundReaderPresenter presenter;
 
@@ -63,12 +66,23 @@ public class FragmentSound extends Fragment implements ListSoundReaderView {
 
     @Override
     public void showProgress() {
+
+        FragmentGridViewProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        FragmentGridViewProgressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void noData() {
         FragmentGridViewTVNoData.setVisibility(View.VISIBLE);
         FragmentGridViewGridView.setVisibility(View.GONE);
     }
 
     @Override
-    public void hideProgress() {
+    public void thereData() {
         FragmentGridViewTVNoData.setVisibility(View.GONE);
         FragmentGridViewGridView.setVisibility(View.VISIBLE);
     }

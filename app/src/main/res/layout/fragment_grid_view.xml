@@ -14,7 +14,15 @@
         android:paddingTop="@dimen/dimens_mm"
         android:stretchMode="columnWidth"
         android:verticalSpacing="@dimen/dimens_mm"></GridView>
-
+    <ProgressBar
+        android:id="@+id/FragmentGridView_ProgressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/color_progressbar"
+        />
     <TextView
         android:id="@+id/Fragment_Grid_View_TV_No_Data"
         style="@style/style_text_view_no_data" />

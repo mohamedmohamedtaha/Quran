@@ -62,6 +62,7 @@ import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.B
 import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.IS_OPEN;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.FragmentListSoundLLControlMedia;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.ListSoundReaderLoadingIndicator;
+import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.isServiceRunning;
 
 public class MediaPlayerService extends Service implements MediaPlayer.OnCompletionListener,
         MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener,
@@ -329,7 +330,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     private void initMediaPlayer() {
         if (mediaPlayer == null)
             mediaPlayer = new MediaPlayer(); // new MediaPlayer instance
-
         //Set up MediaPlayer event listeners
         mediaPlayer.setOnCompletionListener(this);
         mediaPlayer.setOnErrorListener(this);
@@ -347,7 +347,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         }
         try {
-
             //Set the data source to the mediaFile location
             //  mediaPlayer.setDataSource("http://server11.mp3quran.net/minsh_mjwd/044.mp3");
             FILENAME = "/" + activeAudio.getName_shekh() + "/";
@@ -667,6 +666,8 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                     Intent intent = new Intent(BROADCAST_FINISH_ACTIVITY);
                     sendBroadcast(intent);
                 }
+                isServiceRunning = false;
+
 
             }
 

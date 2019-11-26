@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -40,6 +41,8 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
     RecyclerView AzkarFragmentRecycleView;
     @BindView(R.id.AzkarFragment_TV_No_Data)
     TextView AzkarFragmentTVNoData;
+    @BindView(R.id.AzkarFragment_ProgressBar)
+    ProgressBar AzkarFragmentProgressBar;
     private AdapterForAzkar adapterForAzkar;
     private List<ModelAzkar> modelAzkar;
     Bundle bundle;
@@ -103,6 +106,16 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
     public void thereData() {
         AzkarFragmentTVNoData.setVisibility(View.GONE);
         AzkarFragmentRecycleView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showProgress() {
+        AzkarFragmentProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        AzkarFragmentProgressBar.setVisibility(View.GONE);
     }
 
     @Override

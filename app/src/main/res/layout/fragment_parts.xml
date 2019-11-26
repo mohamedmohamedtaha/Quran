@@ -8,6 +8,15 @@
         android:id="@+id/PartsFragment_GV_Show_Images"
         style="@style/style_list_view" />
 
+    <ProgressBar
+        android:id="@+id/PartsFragment_ProgressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/color_progressbar"
+        />
     <TextView
         android:id="@+id/PartsFragment_TV_No_Data"
         style="@style/style_text_view_no_data" />
