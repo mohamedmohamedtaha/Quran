@@ -56,8 +56,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageViewAlbumArt"
-                android:layout_width="@dimen/dimens_hundrand"
-                android:layout_height="@dimen/dimens_seventy" />
+                android:layout_width="@dimen/dimens_9xl"
+                android:layout_height="@dimen/dimens_8xl"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="@dimen/dimens_sss" />
 
             <LinearLayout
                 style="@style/style_default_layout_wrap_match"

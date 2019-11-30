@@ -5,8 +5,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_default_layout_wrap_match"
         android:layout_margin="@dimen/dimens_ss"
         android:outlineSpotShadowColor="@color/blue"
         card:cardCornerRadius="@dimen/dimens_l"
@@ -40,7 +39,9 @@
                 android:id="@+id/textTypeTlawa"
                 style="@style/themecustom_name_reader"
                 android:layout_weight="1"
+                android:layout_marginBottom="@dimen/dimens_m"
                 android:textColor="@android:color/black" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

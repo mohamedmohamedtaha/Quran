@@ -14,7 +14,11 @@
     <dimen name="dimens_xxxxl">48dp</dimen>
     <dimen name="dimens_6xl">55dp</dimen>
     <dimen name="dimens_7xl">64dp</dimen>
+    <dimen name="dimens_8xl">80dp</dimen>
+
     <dimen name="dimens_seventy">70dp</dimen>
+    <dimen name="dimens_9xl">96dp</dimen>
+
     <dimen name="dimens_hundrand">100dp</dimen>
     <dimen name="dimens_onehaundrad_twenty">120dp</dimen>
     <dimen name="dimens_half_hundrand">150dp</dimen>

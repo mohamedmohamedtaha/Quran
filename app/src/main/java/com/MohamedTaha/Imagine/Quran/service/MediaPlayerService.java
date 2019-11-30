@@ -306,7 +306,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                         if (mediaPlayer != null && isPlaying) {
                             pauseMedia();
                             ongoingCall = true;
-
                         }
                         break;
                     case TelephonyManager.CALL_STATE_IDLE:
@@ -510,7 +509,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
     }
 
-
     //Becoming noisy
     private BroadcastReceiver becomingNoisyReceiver = new BroadcastReceiver() {
         @Override
@@ -520,7 +518,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                 pauseMedia();
                 buildNotification(PlaybackStatus.PAUSED);
             }
-
         }
     };
 
@@ -813,10 +810,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         PendingIntent exitPending = PendingIntent.getBroadcast(this, 0, cancelNotification, PendingIntent.FLAG_CANCEL_CURRENT);
         // The PendingIntent to launch our activity if the user selects this notification
         //Create an explicit intent for an Activity in your app
-        Intent intent = new Intent(getApplicationContext(), NavigationDrawaberActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = new Intent(getApplicationContext(), DetailsSoundActivity.class);
+      //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
         // Given a media session and its context (usually the component containing the session)
         // Create a NotificationCompat.Builder
 
@@ -851,14 +847,12 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                 //Set the notification color
                 .setColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
                 .setLargeIcon(largeIcon)
-
                 //.setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 //Add media control buttons that invoke intents in your media service
                 .addAction(android.R.drawable.ic_media_previous, "previous", playbackAction(3))
                 .addAction(notificationAction, "ic_pause", play_pauseAction)
                 .addAction(android.R.drawable.ic_media_next, "changeTextToNext", playbackAction(2))
                 .addAction(R.drawable.ic_exit, "close", playbackAction(4))
-
                 //Set the Notification Media Style
                 .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
                         //Attach our MediaSession token
@@ -866,8 +860,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                         //Show our playback controls in the compact notification view.
                         .setShowActionsInCompactView(0, 1, 2, 3)
                 );
-
-
         //Display the notification and place the service in the foreground
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
@@ -900,7 +892,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             case 3:
                 // Previous track
                 playbackAction.setAction(ACTION_PREVIOUS);
-
                 return PendingIntent.getService(this, actionNumber, playbackAction, 0);
             case 4:
                 // stop track
@@ -913,7 +904,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         }
         return null;
     }
-
     //Now that the service generates actions when the user clicks
 // on the notification buttons it needs a way to handle these actions. Add the following action to the service.
     private void handleIncomingActions(Intent playbackAction) {
@@ -930,9 +920,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         } else if (actionString.equalsIgnoreCase(ACTION_STOP)) {
             transportControls.stop();
             FragmentListSoundLLControlMedia.setVisibility(View.GONE);
-            //  stopMedia();
-            //    stopSelf();
-
         }
     }
 
@@ -941,7 +928,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         //The id of the channel
         //for create Channel for notification for Android O
-
         //The user visible name of the channel
         CharSequence name = "Quran playback";
         //The user visible description of the channel

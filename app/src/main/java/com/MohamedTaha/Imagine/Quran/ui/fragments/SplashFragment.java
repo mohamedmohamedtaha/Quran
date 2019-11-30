@@ -3,13 +3,13 @@ package com.MohamedTaha.Imagine.Quran.ui.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -20,7 +20,7 @@ import com.MohamedTaha.Imagine.Quran.presenter.SplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
 import com.MohamedTaha.Imagine.Quran.view.SplashView;
 
-import java.util.Locale;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

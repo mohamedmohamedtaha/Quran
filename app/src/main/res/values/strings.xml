@@ -34,6 +34,18 @@
     <string name="shareApp">مشاركة التطبيق</string>
     <string name="notSupport">للأسف التليفون لا يوجد به اي تطبيق لإرسال الرسائل</string>
     <string name="hafs_an_asem">حَفْصٌ عَنْ عَاصِمٍ</string>
+    <string name="khalaf_ben_hamza">خَلَفٌ عَنْ حَمْزَةَ </string>
+    <string name="alsosy_ebn_omar">السُّوسِيّ عَنْ أَبِي عَمْرٍو </string>
+        <string name="qalon_an_nafea">قالون عَنْ نَافِعٍ</string>
+    <string name="warsh_an_nafea">وَرُشّ عَنْ نَافِعٍ </string>
+    <string name="aldawry_ebn_omar">الدَّوْرِيُّ عَنْ أَبِي عَمْرٍو  </string>
+    <string name="aldawry_an_elkasai">الدَّوْرِيُّ عَنْ الْكِسَائِيّ </string>
+    <string name="abnzakor">ابْن ذَكْوَانَ عَنْ ابْنِ عَامِرٍ  </string>
+
+    <string name="elbezy_an_ebnkaser">الْبَزِّيّ وقنبل عَنْ ابْنِ كَثِيرٍ </string>
+    <string name="alon_ben_nafea">الون عَنْ نَافِعٍ مِنْ طَرِيقِ أَبِي نَشِيط </string>
+    <string name="yaqob_elhadrmy">قِرَاءَة يَعْقُوب الْحَضْرَمِيّ بروايتي رُوَيس وَرَوْح  </string>
+
     <string name="ekmoshaf_elmogawad">الْمُصْحَفُ الْمُجَوِّدُ</string>
     <string name="abdelrhman_elsodes">عبدالرحمن السديس</string>
     <string name="adel_elkalbany">عادل الكلباني</string>
@@ -54,9 +66,52 @@
     <string name="mahmoud_elbana">محمود علي البنا</string>
     <string name="yaser_elqarashy">ياسر القرشي</string>
     <string name="abdelrhman_elqasem">عبدالمحسن القاسم</string>
-    <string name="slah_elbadry">صلاح البدري</string>
+    <string name="slah_elbadry">صلاح البدير</string>
+    <string name="ahmed_eltrabolsy"> أحمد خضر الطرابلسي</string>
+    <string name="ahmed_elhawashy"> أحمد الحواشي</string>
+    <string name="ahmed_saber"> أحمد صابر</string>
+    <string name="ahmed_amer"> أحمد عامر</string>
+    <string name="ahmed_naeane"> أحمد نعينع</string>
+    <string name="akram_al_aalakmi"> أكرم العلاقمي</string>
+    <string name="ibrahim_al_akhdar"> إبراهيم الأخضر</string>
+    <string name="ibrahim_al_dosary"> إبراهيم الدوسري</string>
+    <string name="dokaly_mohamed">الدوكالي محمد العالم</string>
+    <string name="elzen_mohamed">الزين محمد أحمد</string>
+    <string name="al_ouoon_alkushi">العيون الكوشي</string>
+    <string name="alfateh_mohamed">الفاتح محمد الزبير</string>
+    <string name="yasen_elgazaery">ياسين الجزائري</string>
+    <string name="bnder_belela">بندر بليله</string>
+    <string name="jamal_shaker">جمال شاكر عبدالله</string>
+    <string name="jaman_elesemy">جمعان العصيمي</string>
+    <string name="zaki_daghistani">زكي داغستاني</string>
+    <string name="abdelrshed_sofy">عبدالرشيد صوفي</string>
+    <string name="abdelazez_elzahrany">عبدالعزيز الزهراني</string>
+    <string name="ali_elhozefy">علي  الحذيفي</string>
+    <string name="ali_swiesy">علي حجاج السويسي</string>
+    <string name="omar_kzabri">عمر القزابري</string>
+    <string name="mohamed_abd_elhakem"> محمد العبدالله</string>
+    <string name="moftah_elslty"> مفتاح السلطني</string>
+    <string name="nabel_elrefaay"> نبيل الرفاعي</string>
+    <string name="waled_elnaehy"> وليد النائحي</string>
+    <string name="yaser_elmazroay"> ياسر المزروعي</string>
+    <string name="yosem_elshereay">يوسف الشويعي</string>
+    <string name="tawfik_sayegh">توفيق الصايغ</string>
+    <string name="ramy_eldabs"> رامي الدعيس</string>
+    <string name="sahl_yassen">  سهل ياسين</string>
+    <string name="abdelbara_elthebety">  عبدالبارئ الثبيتي</string>
+    <string name="abdelrhman_elosa">  عبدالرحمن العوسي</string>
+    <string name="wadea_elyamany">  وديع اليمني</string>
+    <string name="hatem_fared">  حاتم فريد الواعر</string>
+    <string name="khaled_elmehana"> خالد المهنا</string>
+    <string name="khaled_abdelkafy">خالد عبدالكافي</string>
+
+
+
+
 
     <string name="save_position">حفظ القراءة</string>
+    <string name="save_position_alzekr">حفظ الذكر</string>
+
     <string name="save">تم الحفظ</string>
     <string name="no_data">لا توجد بيانات</string>
     <string name="no_internet">لا يوجد إنترنت</string>

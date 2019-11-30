@@ -95,7 +95,6 @@ public class FragmentSound extends Fragment implements ListSoundReaderView {
         imageAdapter.notifyDataSetChanged();
         //For feel when Search
         presenter.setOnQueryTextListener(searchView, imageModel);
-
     }
 
     @Override

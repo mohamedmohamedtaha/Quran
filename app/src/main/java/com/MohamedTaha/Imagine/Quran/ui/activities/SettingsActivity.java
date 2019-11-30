@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.MohamedTaha.Imagine.Quran.R;
 
 public class SettingsActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +15,5 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
     }
 }

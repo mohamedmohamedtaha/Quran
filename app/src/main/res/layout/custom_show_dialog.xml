@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/style_default_layout_wrap_match"
-    android:background="@drawable/image_border"
-    android:orientation="vertical">
+    android:background="@drawable/image_border">
 
     <ImageView
         android:id="@+id/show_icon"
@@ -16,9 +15,12 @@
     <TextView
         android:id="@+id/show_text"
         style="@style/style_default_layout_wrap_match"
-        android:layout_below="@+id/show_icon"
-        android:layout_margin="@dimen/dimens_l"
-        android:gravity="center"
+        android:layout_marginStart="@dimen/dimens_mm"
+        android:layout_marginTop="@dimen/dimens_l"
+        android:layout_marginEnd="@dimen/dimens_m"
+        android:layout_marginBottom="@dimen/dimens_l"
+        android:layout_toStartOf="@+id/show_icon"
+        android:gravity="start"
         android:textColor="@android:color/black"
         android:textSize="@dimen/txt_size_xl" />
 

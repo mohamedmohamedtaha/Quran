@@ -24,12 +24,7 @@ public class SplashActivity extends AppCompatActivity implements ExitAppSplashVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-
-        //  MyApp.getInstance().getExitAppSplashComponent().inject(this);
         presenter = new ExitAppSplashInteractor();
-        // MyApp.getInstance().getSplashComponent().inject(this);
-
-
         SplashFragment splashFragment = new SplashFragment();
         HelperClass.replece(splashFragment, getSupportFragmentManager(), R.id.Cycle_Splash_contener);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);

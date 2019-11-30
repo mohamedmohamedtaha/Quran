@@ -31,6 +31,7 @@ public class AdapterForSwipe extends PagerAdapter {
     private ArrayList<Integer> GalImages = new ArrayList<>();
     private static final String FONT_TYPE = "fonts/Aayat-Quraan3.ttf";
     Typeface nyTypeface;
+    private  int position;
 
     public AdapterForSwipe(Context context, ArrayList<Integer> GalImages, showDetail lisenter) {
         this.context = context;
@@ -38,9 +39,23 @@ public class AdapterForSwipe extends PagerAdapter {
         this.lisenter = lisenter;
     }
 
+    public AdapterForSwipe(Context context, ArrayList<Integer> GalImages) {
+        this.context = context;
+        this.GalImages = GalImages;
+    }
+    public AdapterForSwipe(Context context, int GalImages) {
+        this.context = context;
+        this.position = GalImages;
+    }
+
     @Override
     public int getCount() {
-        return GalImages.size();
+        if (GalImages != null && GalImages.size() >=0){
+            return GalImages.size();
+        }
+        else {
+            return 0;
+        }
     }
 
     @Override

@@ -11,11 +11,9 @@ import android.content.Intent;
 public class AlarmBootRecevier extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
+        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             //only enabling one type of notification
             NotificationHelper.sendNotificationEveryHalfDay(context);
-
         }
-
     }
 }

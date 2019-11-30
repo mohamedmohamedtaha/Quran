@@ -46,12 +46,13 @@ public class ShowDialog {
         dialog.show();
     }
 
-    public static void showDialog(Activity activity, int save_position) {
+    public static void showDialog(Activity activity, int save_position,String text) {
         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.custom_details);
         TextView tv_save_position = (TextView) dialog.findViewById(R.id.TV_Save_Position);
+        tv_save_position.setText(text);
         tv_save_position.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,12 +68,13 @@ public class ShowDialog {
         dialog.show();
     }
 
-    public static void showDialogAzkar(Activity activity, int save_position) {
+    public static void showDialogAzkar(Activity activity, int save_position,String text) {
         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.custom_details);
         TextView tv_save_position = (TextView) dialog.findViewById(R.id.TV_Save_Position);
+        tv_save_position.setText(text);
         tv_save_position.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

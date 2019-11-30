@@ -1,7 +1,6 @@
 package com.MohamedTaha.Imagine.Quran.ui.fragments;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterGridView;
@@ -38,7 +36,6 @@ import static com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment.SAVE_S
  * A simple {@link Fragment} subclass.
  */
 public class PartsFragment extends Fragment implements PartsFragmentView {
-
     public static final String SAVE_IMAGES = "save_images";
     Bundle bundle;
     @BindView(R.id.PartsFragment_GV_Show_Images)
@@ -54,6 +51,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     public PartsFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

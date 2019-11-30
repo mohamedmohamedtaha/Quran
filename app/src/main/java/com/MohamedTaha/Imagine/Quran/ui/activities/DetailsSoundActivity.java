@@ -27,8 +27,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
-import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
-
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.transportControls;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.IsPlay;
 
@@ -84,7 +82,6 @@ public class DetailsSoundActivity extends AppCompatActivity {
                 MainActivityTVBufferDuration.setText("" + utilities.milliSecondsToTimer(i[0]));
                 MainActivityTVDuration.setText("" + utilities.milliSecondsToTimer(i[1]));
                 MainActivitySeekBar.setProgress(i[2]);
-
             }
         };
         updateUI();
@@ -98,7 +95,6 @@ public class DetailsSoundActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(finishActivity);
-
     }
 
     @Override
@@ -141,7 +137,6 @@ public class DetailsSoundActivity extends AppCompatActivity {
             btnPlay.setVisibility(View.GONE);
             btnPause.setVisibility(View.VISIBLE);
         }
-
         MainActivityNameShekh.setText("" + activeAudio.getName_shekh());
         MainActivityNameSora.setText("" + activeAudio.getName_sora());
     }

@@ -38,7 +38,12 @@ public class AdapterForAzkarSwipe extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return modelAzkarList.size();
+        if (modelAzkarList != null && modelAzkarList.size() >=0){
+            return modelAzkarList.size();
+        }
+        else {
+            return 0;
+        }
     }
 
     @Override

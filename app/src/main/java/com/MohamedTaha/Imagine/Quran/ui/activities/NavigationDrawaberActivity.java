@@ -1,6 +1,7 @@
 package com.MohamedTaha.Imagine.Quran.ui.activities;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -8,21 +9,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.MohamedTaha.Imagine.Quran.Adapter.AdapterForNavigation;
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.interactor.NavigationDrawarInteractor;
+import com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver;
 import com.MohamedTaha.Imagine.Quran.notification.NotificationHelper;
 import com.MohamedTaha.Imagine.Quran.presenter.NavigationDrawarPresenter;
-import com.MohamedTaha.Imagine.Quran.ui.fragments.AzanFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.FragmentSound;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment;
@@ -30,6 +29,10 @@ import com.MohamedTaha.Imagine.Quran.ui.fragments.PartsFragment;
 import com.MohamedTaha.Imagine.Quran.view.NavigationDrawarView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -53,15 +56,12 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     String exit_app;
     @BindView(R.id.NavigationDrawaberActivity_VPager)
     ViewPager NavigationDrawaberActivityVPager;
-
     private int current_fragment;
     public static MaterialSearchView searchView;
-    public static final String NOTIFICATION_OPEN = "notificationOpen";
     String appPackageName;
     int notificationId;
     private NavigationDrawarPresenter presenter;
     MenuItem prevMenuItem;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,22 +70,45 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         ButterKnife.bind(this);
         presenter = new NavigationDrawarInteractor(this);
         appPackageName = getPackageName();
-
         //For Settings Notifications
         NotificationHelper.sendNotificationEveryHalfDay(getApplicationContext());
         NotificationHelper.enableBootRecieiver(getApplicationContext());
 
-        //for close Notification
-        notificationId = getIntent().getIntExtra(NOTIFICATION_OPEN, 1);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.cancel(notificationId);
+//        //for close Notification
+//        notificationId = getIntent().getIntExtra(NOTIFICATION_ID, 1);
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        notificationManager.cancel(notificationId);
+
+//
+//        String[] toastMessages = getResources().getStringArray(R.array.notificationAlarm);
+//        int randomIndex = new Random().nextInt(toastMessages.length - 1);
+//
+//        notificationId = setNotificationForShow(randomIndex);
+//        addImages(notificationId);
+//
+//        //Get notification Manager to manage/send notification
+//        //Intent to invoke app when click on notification
+//        //In the sample, we want to start/launch this sample app when user clicks on notification
+//        intentToRepeat = new Intent(getApplicationContext(), SwipePagesActivity.class);
+//        intentToRepeat.putExtra(NOTIFICATION_ID, notificationId);
+//        intentToRepeat.putIntegerArrayListExtra(SAVE_Position_Notification, (ArrayList<Integer>) images);
+//
+//        //set flag to restart /relaunch the app
+//        intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        //Pending intent to handle launch of Activity in intent above
+//        PendingIntent openIntent = PendingIntent.getActivity(getApplicationContext(), NotificationHelper.ALARM_TYPE_RTC,
+//                intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        //Build notification
+//        AlarmReceiver.createNotification(getApplicationContext(), openIntent, getString(R.string.app_name), toastMessages[randomIndex]);
+//
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             int save = savedInstanceState.getInt(SAVE_STATE_VIEW_PAGER);
             navView.setSelectedItemId(save);
-        }else {
+        } else {
             navView.setSelectedItemId(R.id.read_quran);
         }
         setSupportActionBar(toobar);
@@ -120,7 +143,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
 //        });
 //        setupViewPager(NavigationDrawaberActivityVPager);
 //
-   }
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -138,13 +161,12 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                     HelperClass.replece(gridViewFragment, getSupportFragmentManager(), R.id.frameLayout);
                     break;
                 case R.id.read_parts:
-                  //  NavigationDrawaberActivityVPager.setCurrentItem(1);
+                    //  NavigationDrawaberActivityVPager.setCurrentItem(1);
                     PartsFragment partsFragment = new PartsFragment();
                     HelperClass.replece(partsFragment, getSupportFragmentManager(), R.id.frameLayout);
                     break;
                 case R.id.sound_quran:
-                //    NavigationDrawaberActivityVPager.setCurrentItem(2);
-
+                    //    NavigationDrawaberActivityVPager.setCurrentItem(2);
                     FragmentSound fragmentSound = new FragmentSound();
                     HelperClass.replece(fragmentSound, getSupportFragmentManager(), R.id.frameLayout);
                     break;
@@ -161,7 +183,6 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
             return true;
         }
     };
-
 
     @Override
     public void onBackPressed() {
@@ -200,7 +221,6 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                 presenter.actionRate(appPackageName);
                 break;
             default:
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -248,8 +268,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(SAVE_STATE_VIEW_PAGER,current_fragment);
-
+        outState.putInt(SAVE_STATE_VIEW_PAGER, current_fragment);
     }
     //    private void setupViewPager(ViewPager viewPager){
 //        AdapterForNavigation adapterForNavigation = new AdapterForNavigation(getSupportFragmentManager());

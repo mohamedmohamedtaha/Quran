@@ -1,6 +1,5 @@
 package com.MohamedTaha.Imagine.Quran.ui.fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,6 +48,7 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
     public static final String SAVE_AZKAR = "save_azkar";
     public static final String SAVE_POTION_AZKAR = "save_poition_azkar";
     private AzkarFragmentPresenter presenter;
+    LinearLayoutManager linearLayoutManager;
 
     public AzkarFragment() {
         // Required empty public constructor
@@ -76,14 +76,10 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
 
     @Override
     public void showAfterQueryText(List<ModelAzkar> stringList) {
-        modelAzkar = stringList;
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        AzkarFragmentRecycleView.setLayoutManager(linearLayoutManager);
         adapterForAzkar = new AdapterForAzkar(stringList, new RecycleViewReaderAdapter.ClickListener() {
 
             @Override
             public void onClick(View view, int position) {
-                //          Toast.makeText(getActivity(), "pos: "+ modelAzkar.get(position).getName_azkar(), Toast.LENGTH_SHORT).show();
                 bundle.putString(SAVE_AZKAR, new Gson().toJson(modelAzkar));
                 bundle.putInt(SAVE_POTION_AZKAR, position);
                 bundle.putBoolean(SAVE_STATE, false);
@@ -121,13 +117,12 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
     @Override
     public void showAllINameAzkar(List<ModelAzkar> strings) {
         modelAzkar = strings;
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager = new LinearLayoutManager(getActivity());
         AzkarFragmentRecycleView.setLayoutManager(linearLayoutManager);
         adapterForAzkar = new AdapterForAzkar(modelAzkar, new RecycleViewReaderAdapter.ClickListener() {
 
             @Override
             public void onClick(View view, int position) {
-                //          Toast.makeText(getActivity(), "pos: "+ modelAzkar.get(position).getName_azkar(), Toast.LENGTH_SHORT).show();
                 bundle.putString(SAVE_AZKAR, new Gson().toJson(modelAzkar));
                 bundle.putInt(SAVE_POTION_AZKAR, position);
                 bundle.putBoolean(SAVE_STATE, false);
@@ -137,6 +132,7 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
                 getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
             }
         });
+
         AzkarFragmentRecycleView.setAdapter(adapterForAzkar);
         adapterForAzkar.notifyDataSetChanged();
         //For feel when Search
@@ -153,10 +149,7 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
 
     @Override
     public void showAfterSearch() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        AzkarFragmentRecycleView.setLayoutManager(linearLayoutManager);
         adapterForAzkar = new AdapterForAzkar(modelAzkar, new RecycleViewReaderAdapter.ClickListener() {
-
             @Override
             public void onClick(View view, int position) {
                 bundle.putString(SAVE_AZKAR, new Gson().toJson(modelAzkar));
