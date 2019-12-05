@@ -45,6 +45,7 @@
     <string name="elbezy_an_ebnkaser">الْبَزِّيّ وقنبل عَنْ ابْنِ كَثِيرٍ </string>
     <string name="alon_ben_nafea">الون عَنْ نَافِعٍ مِنْ طَرِيقِ أَبِي نَشِيط </string>
     <string name="yaqob_elhadrmy">قِرَاءَة يَعْقُوب الْحَضْرَمِيّ بروايتي رُوَيس وَرَوْح  </string>
+    <string name="warsh_an_nafea_by_abe_bakr">وَرُشّ عَنْ نَافِعٍ مِنْ طَرِيقِ أَبِي بَكْرٍ الْأَصْبَهَانِيّ</string>
 
     <string name="ekmoshaf_elmogawad">الْمُصْحَفُ الْمُجَوِّدُ</string>
     <string name="abdelrhman_elsodes">عبدالرحمن السديس</string>
@@ -104,6 +105,56 @@
     <string name="hatem_fared">  حاتم فريد الواعر</string>
     <string name="khaled_elmehana"> خالد المهنا</string>
     <string name="khaled_abdelkafy">خالد عبدالكافي</string>
+    <string name="jleel">خالد الجليل</string>
+    <string name="qht">خالد القحطاني</string>
+    <string name="tnjy">خليفة الطنيجي</string>
+    <string name="s_gmd">سعد الغامدي</string>
+    <string name="saad">سعد المقرن</string>
+    <string name="sayed">سيد رمضان</string>
+    <string name="shatri">أبو بكر الشاطري</string>
+    <string name="taher">شيرزاد عبدالرحمن طاهر</string>
+    <string name="hkm">صابر عبدالحكم</string>
+    <string name="salah_hashim_m">صلاح الهاشم</string>
+    <string name="bu_khtr">صلاح بو خاطر</string>
+    <string name="tareq">طارق عبدالغني دعوب</string>
+    <string name="ryan">عادل ريان</string>
+    <string name="bari">عبدالبارئ محمد</string>
+    <string name="a_majed">عبدالرحمن الماجد</string>
+    <string name="soufi_hfs">عبدالرشيد صوفي</string>
+    <string name="a_ahmed">عبدالعزيز الأحمد</string>
+    <string name="khalf">عبدالله الخلف</string>
+    <string name="abdullahk">عبدالله الكندري</string>
+    <string name="bsfr">عبدالله بصفر</string>
+    <string name="kyat">عبدالله خياط</string>
+    <string name="gulan">عبدالله غيلان</string>
+    <string name="mohsin_harthi">عبدالمحسن الحارثي</string>
+    <string name="obk">عبدالمحسن العبيكان</string>
+    <string name="kanakeri">عبدالهادي أحمد كناكري</string>
+    <string name="wdod">عبدالودود حنيف</string>
+    <string name="a_jbr">علي جابر</string>
+    <string name="hafz">عماد زهير حافظ</string>
+    <string name="frs_a">فارس عباد</string>
+    <string name="shaksh">ماهر شخاشيرو</string>
+    <string name="ayyub">محمدأيوب</string>
+    <string name="earawi">محمد الأيراوي</string>
+    <string name="lhdan">محمد اللحيدان</string>
+    <string name="rashad">محمد رشاد الشريف</string>
+    <string name="shah">محمد صالح عالم شاه</string>
+    <string name="m_krm">محمد عبدالكريم</string>
+    <string name="khan">محمد عثمان خان</string>
+    <string name="mrifai">محمود الرفاعي</string>
+    <string name="sheimy">محمود الشيمي</string>
+    <string name="mustafa">مصطفى إسماعيل</string>
+    <string name="lahoni">مصطفى اللاهوني</string>
+    <string name="ra3ad">مصطفى رعد العزاوي</string>
+    <string name="harthi">معيض الحارثي</string>
+    <string name="bilal">موسى بلال</string>
+    <string name="nasser_almajed">ناصر الماجد</string>
+    <string name="namh">نعمة الحسان</string>
+    <string name="hani">هاني الرفاعي</string>
+    <string name="salamah">ياسر سلامة</string>
+    <string name="yahya">يحيى حوا</string>
+    <string name="noah">يوسف بن نوح أحمد</string>
 
 
 
@@ -146,4 +197,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spectial_button">هذا الزر خاص</string>
+    <string name="read_azkar">بقراءة الأذكار اليومية</string>
+    <string name="sound_string">بالاستماع إلى القراءن عن طريق أكثر من 70 قارئ ويمكن تحميل اي سورة ثم تشغيلها بدون الانترنت</string>
+    <string name="read_string">خاص بقراءة القرآن عن طريق السور</string>
+    <string name="description_string">لقد قمت بإلغاء التعليمات التي تستعرض شرح التطبيق</string>
+    <string name="end">إنتهاء</string>
+    <string name="sorry">للأسف</string>
+    <string name="search_string">بالبحث</string>
+    <string name="share_string">بمشاركة التطبيق مع الأصدقاء</string>
+    <string name="read_parts_string">بقراءة القرآن عن طريق الاجزاء</string>
 </resources>

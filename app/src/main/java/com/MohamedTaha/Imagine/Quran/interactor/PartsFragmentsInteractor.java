@@ -2,17 +2,13 @@ package com.MohamedTaha.Imagine.Quran.interactor;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.MohamedTaha.Imagine.Quran.presenter.PartsFragmentPresenter;
 import com.MohamedTaha.Imagine.Quran.view.PartsFragmentView;
-import com.MohamedTaha.Imagine.Quran.viewmodel.ImagesViewHolder;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;

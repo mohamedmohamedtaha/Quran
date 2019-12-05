@@ -13,10 +13,11 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import rx.Observable;
 import rx.Observer;
-import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -29,6 +30,8 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
     private List<ModelSora> name_Sroa;
     private String[] a = null;
     private String[] nzol_elsora = null;
+    private Subscription subscription;
+    private Subscription subscriptionForNameSora;
 
     public GridViewFragmentInteractor(GridViewFragmentView fragmentView, FragmentActivity context) {
         this.fragmentView = fragmentView;
@@ -357,11 +360,10 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
 
     @Override
     public void getAllNameSour() {
-        Observable<List<ModelSora>> observable = Observable.create(new Observable.OnSubscribe<List<ModelSora>>() {
+        Observable<List<ModelSora>> observable = Observable.fromCallable(new Callable<List<ModelSora>>() {
             @Override
-            public void call(Subscriber<? super List<ModelSora>> subscriber) {
-                try {
-                    name_Sroa = new ArrayList<>();
+            public List<ModelSora> call() throws Exception {
+                name_Sroa = new ArrayList<>();
                     a = activity.getResources().getStringArray(R.array.name_allSwar_read);
                     nzol_elsora = activity.getResources().getStringArray(R.array.nzolElswar);
                     for (int i = 0; i < a.length; i++) {
@@ -371,28 +373,25 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
                         name_Sroa_local.setNzol_elsora(nzol_elsora[i]);
                         name_Sroa.add(name_Sroa_local);
                     }
-                    subscriber.onNext(name_Sroa);
-                    subscriber.onCompleted();
-                } catch (Exception e) {
-                    subscriber.onError(e);
-                }
+                return name_Sroa;
             }
-        }).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread());
-        Observer<List<ModelSora>> observer = new Observer<List<ModelSora>>() {
-            @Override
-            public void onCompleted() {
+        });
+        subscriptionForNameSora = observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<ModelSora>>() {
+                    @Override
+                    public void onCompleted() {
 
-            }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            @Override
-            public void onNext(List<ModelSora> modelSoras) {
-                if (fragmentView != null) {
+                    @Override
+                    public void onNext(List<ModelSora> modelSoras) {
+                        if (fragmentView != null) {
                     fragmentView.showAllINameSour(name_Sroa);
                     //   fragmentView.hideProgress();
                     fragmentView.thereData();
@@ -400,57 +399,92 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
                     Log.i("SetNameSora", "onNext");
 
                 }
-            }
-        };
-        observable.subscribe(observer);
+                    }
+                });
     }
 
     @Override
     public void getAllImages() {
+
         fragmentView.showProgress();
-        addImages();
-        Observable<List<Integer>> modelAzkarObservable = Observable.create(new Observable.OnSubscribe<List<Integer>>() {
-            @Override
-            public void call(Subscriber<? super List<Integer>> subscriber) {
-                try {
-                    addImages();
-                    subscriber.onNext(images);
-                    subscriber.onCompleted();
-                } catch (Exception e) {
-                    subscriber.onError(e);
-                }
-            }
 
-        }).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread());
-        Observer<List<Integer>> observer = new Observer<List<Integer>>() {
+        Observable<List<Integer>> modelAzkarObservable = Observable.fromCallable(new Callable<List<Integer>>() {
             @Override
-            public void onCompleted() {
-                if (fragmentView != null) {
-                    fragmentView.hideProgress();
-                }
-                Log.i("addImages", "onCompleted");
+            public List<Integer> call() throws Exception {
+                return addImagesList();
             }
+        });
+        subscription = modelAzkarObservable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<List<Integer>>() {
+                    @Override
+                    public void onCompleted() {
+                        if (fragmentView != null) {
+                            fragmentView.hideProgress();
+                        }
+                        Log.i("addImages", "onCompleted");
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                if (fragmentView != null) {
-                    fragmentView.hideProgress();
-                }
-            }
+                    @Override
+                    public void onError(Throwable e) {
+                        if (fragmentView != null) {
+                            fragmentView.hideProgress();
+                        }
+                    }
 
-            @Override
-            public void onNext(List<Integer> integers) {
-                if (fragmentView != null) {
-                    fragmentView.showAllImages(integers);
-                    Log.i("addImages", "onNext");
-                }
-            }
-        };
-        modelAzkarObservable.subscribe(observer);
+                    @Override
+                    public void onNext(List<Integer> integers) {
+                        if (fragmentView != null) {
+                            fragmentView.showAllImages(integers);
+                            Log.i("addImages", "onNext");
+                        }
+                    }
+                });
+
+//        Observable<List<Integer>> modelAzkarObservable = Observable.create(new Observable.OnSubscribe<List<Integer>>() {
+//            @Override
+//            public void call(Subscriber<? super List<Integer>> subscriber) {
+//                try {
+//                    addImages();
+//                    subscriber.onNext(images);
+//                    subscriber.onCompleted();
+//                } catch (Exception e) {
+//                    subscriber.onError(e);
+//                }
+//            }
+//
+//        }).subscribeOn(Schedulers.newThread())
+//                .observeOn(AndroidSchedulers.mainThread());
+//        Observer<List<Integer>> observer = new Observer<List<Integer>>() {
+//            @Override
+//            public void onCompleted() {
+//                if (fragmentView != null) {
+//                    fragmentView.hideProgress();
+//                }
+//                Log.i("addImages", "onCompleted");
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                if (fragmentView != null) {
+//                    fragmentView.hideProgress();
+//                }
+//            }
+//
+//            @Override
+//            public void onNext(List<Integer> integers) {
+//                if (fragmentView != null) {
+//                    fragmentView.showAllImages(integers);
+//                    Log.i("addImages", "onNext");
+//                }
+//            }
+//        };
+//        modelAzkarObservable.subscribe(observer);
+//
+//
+
     }
-
-    public void addImages() {
+    public List<Integer> addImagesList() {
         images.add(R.drawable.page1);
         images.add(R.drawable.page2);
         images.add(R.drawable.page3);
@@ -1068,12 +1102,20 @@ public class GridViewFragmentInteractor implements GridViewFragmentPresenter {
         images.add(R.drawable.page615);
         images.add(R.drawable.page616);
         images.add(R.drawable.page617);
+        return images;
 
     }
+
 
     @Override
     public void onDestroy() {
         fragmentView = null;
+        if (subscription != null && !subscription.isUnsubscribed()){
+            subscription.unsubscribe();
+        }
+        if (subscriptionForNameSora != null && !subscriptionForNameSora.isUnsubscribed()){
+            subscriptionForNameSora.unsubscribe();
+        }
     }
 
     @Override

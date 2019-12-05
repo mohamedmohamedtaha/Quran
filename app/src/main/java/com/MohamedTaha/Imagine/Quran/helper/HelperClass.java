@@ -59,27 +59,6 @@ public class HelperClass {
         transaction.commitAllowingStateLoss();
 
     }
-
-    //this method for Close App
-    public static void AlertDialogForCloseApp(final Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.tetileClose);
-        builder.setMessage(R.string.messageClose);
-        builder.setPositiveButton(R.string.textYes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                closeApp(context);
-            }
-        });
-        builder.setNegativeButton(R.string.textNo, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        builder.show();
-    }
-
     //This method for Exit App
     public static void closeApp(Context context) {
         Intent exitAppIntent = new Intent(Intent.ACTION_MAIN);
@@ -87,4 +66,5 @@ public class HelperClass {
         exitAppIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(exitAppIntent);
     }
+
 }

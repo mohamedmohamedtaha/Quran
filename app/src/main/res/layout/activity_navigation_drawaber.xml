@@ -27,5 +27,6 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
+        app:labelVisibilityMode="labeled"
         style="@style/style_navigation_bottom" />
 </RelativeLayout>

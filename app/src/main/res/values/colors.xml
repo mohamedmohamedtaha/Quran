@@ -3,6 +3,8 @@
     <color name="colorPrimaryDark">#636250</color>
     <color name="colorPrimary">#FCFCFC</color>
     <color name="colorAccent">#F05A28</color>
+    <color name="colorOrange">#F37E58</color>
+
     <color name="colorBackground">#BDBDBD</color>
     <color name="colorButton">#f9ea1f</color>
     <color name="colorNameShekhFragment">#f7db07</color>
@@ -16,4 +18,6 @@
     <!--Color BackgroundFloatingButton XML -->
     <color name="textColorBackgroundFloatingButton">#92948d</color>
     <color name="textColortextContent">#f5f2f2</color>
+    <color name="color">#0547F0</color>
+
 </resources>

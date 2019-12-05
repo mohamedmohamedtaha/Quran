@@ -41,6 +41,7 @@ public class NotificationHelper {
         //Inexact alarm everyday since device is booted up. This is a better choise and
         //scales well when device time preference/locale is changed
         //we are setting alarm to fire notification after 15 minutes , and every 15 minutes there on
+
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + setAlarm(repear),
                 setAlarm(repear), alarmPendingIntent);

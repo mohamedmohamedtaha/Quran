@@ -17,9 +17,6 @@ public class SoundViewHolder extends AndroidViewModel {
         super(application);
         soundRepositiory = new SoundRepositiory(application);
     }
-    public LiveData<List<ImageModel>> getAllImageModle(){
-        return soundRepositiory.getMutableLiveDataImageModel();
-    }
     public LiveData<ArrayList<ImageModel>> getAllNameSora(int position){
         return soundRepositiory.getMutableLiveDataNameSora(position);
     }

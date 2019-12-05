@@ -46,7 +46,7 @@ public class ShowDialog {
         dialog.show();
     }
 
-    public static void showDialog(Activity activity, int save_position,String text) {
+    public static void showDialog(Activity activity, int save_position, String text) {
         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -62,13 +62,13 @@ public class ShowDialog {
                 dialog.dismiss();
             }
         });
-      //  textView.setText(msg);
-       // textView2.setText(number_part);
-       // tv_number_page.setText("" + number_page);
+        //  textView.setText(msg);
+        // textView2.setText(number_part);
+        // tv_number_page.setText("" + number_page);
         dialog.show();
     }
 
-    public static void showDialogAzkar(Activity activity, int save_position,String text) {
+    public static void showDialogAzkar(Activity activity, int save_position, String text) {
         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -90,6 +90,7 @@ public class ShowDialog {
         // tv_number_page.setText("" + number_page);
         dialog.show();
     }
+
     public static void showDialogForAzkar(Activity activity, ViewPager SwipePagesActivityVP, int position) {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

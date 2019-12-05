@@ -30,6 +30,7 @@ import butterknife.ButterKnife;
 
 import static com.MohamedTaha.Imagine.Quran.interactor.GridViewFragmentInteractor.SAVE_POSITION;
 import static com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver.NOTIFICATION_ID;
+import static com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver.TIME_SEND;
 import static com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment.SAVE_AZKAR;
 import static com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment.SAVE_POTION_AZKAR;
 import static com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment.SAVE_IMAGES;
@@ -68,16 +69,15 @@ public class SwipePagesActivity extends AppCompatActivity {
         }
         //for close Notification
         notificationId = getIntent().getIntExtra(NOTIFICATION_ID, -1);
+       int timeSend  = getIntent().getIntExtra(TIME_SEND,-1);
         if (notificationId >= 0) {
             getArgemnetsNotification();
             createImageNotification();
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.cancel(notificationId);
             AdapterForSwipe adapterForSwipe = new AdapterForSwipe(this, imagesNotification);
-
             SwipePagesActivityVP.setAdapter(adapterForSwipe);
             SwipePagesActivityVP.setCurrentItem(notificationId);
-            Log.i("Number :", String.valueOf(notificationId));
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.cancel(timeSend);
 
         } else if (bundle.getBoolean(SAVE_STATE) == true) {
             getArgemnets();
@@ -148,10 +148,10 @@ public class SwipePagesActivity extends AppCompatActivity {
             position = bundle.getInt(SAVE_POSITION);
         }
     }
+
     private void getArgemnetsNotification() {
         if (bundle != null) {
             imagesNotification = bundle.getIntegerArrayList(SAVE_Position_Notification);
-         //   position = bundle.getInt(SAVE_POSITION);
         }
     }
 
@@ -165,21 +165,17 @@ public class SwipePagesActivity extends AppCompatActivity {
         }
         SwipePagesActivityPB.setVisibility(View.GONE);
     }
+
     private void createImageNotification() {
-        if (imagesNotification != null){
+        if (imagesNotification != null) {
             for (int i = 0; i < imagesNotification.size(); i++) {
                 bundle.putInt(SAVE_Position_Notification, imagesNotification.get(i));
                 //    bundle.putInt(SAVE_POSITION, position);
             }
             SwipePagesActivityPB.setVisibility(View.GONE);
-            Log.i("Arrayy: ", "2");
-
-        }else {
-            Log.i("Arrayy: ", "1");
         }
-
-
     }
+
     private void createImage() {
         for (int i = 0; i < images.size(); i++) {
             bundle.putInt(SAVE_IMAGES, images.get(i));
@@ -205,8 +201,8 @@ public class SwipePagesActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        imagesNotification.clear();
-        images.clear();
+//        imagesNotification.clear();
+  //      images.clear();
     }
 
     @Override

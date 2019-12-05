@@ -49,6 +49,9 @@ public class DetailsSoundActivity extends AppCompatActivity {
     private static ImageView DetailsSoundActivity_IV_Picture_Shekh;
     public static boolean IS_OPEN = false;
     public static final String BROADCAST_FINISH_ACTIVITY = "com.example.FinishActivityBroadCast.finish.activity";
+    public static  ProgressBar DetailsSoundActivity_loading_indicator;
+    public static boolean isDetailsActivityTrue = false;
+
     private BroadcastReceiver finishActivity = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -64,6 +67,7 @@ public class DetailsSoundActivity extends AppCompatActivity {
         utilities = new Utilities();
         IS_OPEN = true;
         registerReceiver(finishActivity, new IntentFilter(BROADCAST_FINISH_ACTIVITY));
+        DetailsSoundActivity_loading_indicator = (ProgressBar)findViewById(R.id.DetailsSoundActivity_loading_indicator);
         btnPlay = (Button) findViewById(R.id.btnPlay);
         btnPause = (Button) findViewById(R.id.btnPause);
         MainActivityNameSora = (TextView) findViewById(R.id.MainActivity_Name_Sora);
@@ -75,6 +79,7 @@ public class DetailsSoundActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        isDetailsActivityTrue = true;
         PlayerConstants.PROGRESSER_HANDLER = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -90,11 +95,17 @@ public class DetailsSoundActivity extends AppCompatActivity {
                 .apply(new RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(DetailsSoundActivity_IV_Picture_Shekh);
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(finishActivity);
+        isDetailsActivityTrue = false;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isDetailsActivityTrue = false;
     }
 
     @Override

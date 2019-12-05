@@ -1,16 +1,17 @@
 package com.MohamedTaha.Imagine.Quran.ui.activities;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
@@ -18,8 +19,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
+import com.MohamedTaha.Imagine.Quran.informationInrto.TapTarget;
+import com.MohamedTaha.Imagine.Quran.informationInrto.TapTargetSequence;
+import com.MohamedTaha.Imagine.Quran.informationInrto.TapTargetView;
 import com.MohamedTaha.Imagine.Quran.interactor.NavigationDrawarInteractor;
-import com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver;
 import com.MohamedTaha.Imagine.Quran.notification.NotificationHelper;
 import com.MohamedTaha.Imagine.Quran.presenter.NavigationDrawarPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment;
@@ -32,16 +35,15 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor.FIRST_TIME;
-
 public class NavigationDrawaberActivity extends AppCompatActivity implements NavigationDrawarView {
     private static final String SAVE_STATE_VIEW_PAGER = "save_state_view_pager";
+    public static final String IS_FIRST_TIME_WAY_USING = "way_sueing";
+
     @BindView(R.id.nav_view)
     BottomNavigationView navView;
     @BindView(R.id.toobar)
@@ -59,9 +61,9 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     private int current_fragment;
     public static MaterialSearchView searchView;
     String appPackageName;
-    int notificationId;
     private NavigationDrawarPresenter presenter;
     MenuItem prevMenuItem;
+    TapTargetSequence sequence;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,34 +76,11 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         NotificationHelper.sendNotificationEveryHalfDay(getApplicationContext());
         NotificationHelper.enableBootRecieiver(getApplicationContext());
 
-//        //for close Notification
-//        notificationId = getIntent().getIntExtra(NOTIFICATION_ID, 1);
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        notificationManager.cancel(notificationId);
-
-//
-//        String[] toastMessages = getResources().getStringArray(R.array.notificationAlarm);
-//        int randomIndex = new Random().nextInt(toastMessages.length - 1);
-//
-//        notificationId = setNotificationForShow(randomIndex);
-//        addImages(notificationId);
-//
-//        //Get notification Manager to manage/send notification
-//        //Intent to invoke app when click on notification
-//        //In the sample, we want to start/launch this sample app when user clicks on notification
-//        intentToRepeat = new Intent(getApplicationContext(), SwipePagesActivity.class);
-//        intentToRepeat.putExtra(NOTIFICATION_ID, notificationId);
-//        intentToRepeat.putIntegerArrayListExtra(SAVE_Position_Notification, (ArrayList<Integer>) images);
-//
-//        //set flag to restart /relaunch the app
-//        intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        //Pending intent to handle launch of Activity in intent above
-//        PendingIntent openIntent = PendingIntent.getActivity(getApplicationContext(), NotificationHelper.ALARM_TYPE_RTC,
-//                intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        //Build notification
-//        AlarmReceiver.createNotification(getApplicationContext(), openIntent, getString(R.string.app_name), toastMessages[randomIndex]);
-//
+        //for show way using
+        if (!SharedPerefrenceHelper.getBooleanForWayUsing(getApplicationContext(),IS_FIRST_TIME_WAY_USING,false)){
+            showInformation();
+            SharedPerefrenceHelper.putBooleanForWayUsing(getApplicationContext(), IS_FIRST_TIME_WAY_USING, true);
+        }
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -208,7 +187,10 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                 presenter.sendUs();
                 break;
             case R.id.action_use_way:
-                SharedPerefrenceHelper.putFirstTime(getApplicationContext(), FIRST_TIME, false);
+                SharedPerefrenceHelper.removeDataForWayUsing(this);
+
+              //  SharedPerefrenceHelper.putBooleanForWayUsing(this,IS_FIRST_TIME_WAY_USING,false);
+                //SharedPerefrenceHelper.putFirstTime(getApplicationContext(), FIRST_TIME, false);
                 HelperClass.startActivity(getApplicationContext(), SplashActivity.class);
                 break;
             case R.id.action_settings:
@@ -270,6 +252,212 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         super.onSaveInstanceState(outState);
         outState.putInt(SAVE_STATE_VIEW_PAGER, current_fragment);
     }
+
+    public void showInformation() {
+        toobar.inflateMenu(R.menu.menu);
+
+        sequence = new TapTargetSequence(this)
+                .targets(
+                        // This tap target will target the tool bar
+                        //This for R.id.action_search
+                        TapTarget.forToolbarMenuItem(toobar, R.id.action_search, getString(R.string.spectial_button), getString(R.string.search_string))
+
+                                .transparentTarget(true)
+                                .outerCircleColor(R.color.blue)
+                                .outerCircleAlpha(0.9f)
+                                .textColor(android.R.color.white)
+                                .targetCircleColor(R.color.colorAccent)
+                                .titleTextSize(18)
+                                .tintTarget(false)
+                                .id(1),
+                        //This for R.id.action_share
+                        TapTarget.forToolbarMenuItem(toobar, R.id.action_share, getString(R.string.spectial_button), getString(R.string.share_string))
+                                .outerCircleColor(R.color.blue)
+                                .outerCircleAlpha(0.9f)
+                                .textColor(android.R.color.white)
+                                .targetCircleColor(R.color.colorAccent)
+                                .transparentTarget(true)
+                                .tintTarget(false)
+                                .id(2),
+                        //This for R.id.spectial_button
+                        TapTarget.forToolbarOverflow(toobar,"   هذا الزر خاص", "      ضبط زمن الأشعارات  " +
+                                "\n" +
+                                "      عرض طريقة الاستخدام مرة أخرى    "
+                                +"\n"+
+                                "      وتقييم التطبيق     " +
+                                        "\n"+
+                                "      ومراسلتنا    ")
+                                .outerCircleColor(R.color.blue)
+                                .outerCircleAlpha(0.9f)
+                                .textColor(android.R.color.white)
+                                .targetCircleColor(R.color.colorAccent)
+                                .transparentTarget(true)
+                                .tintTarget(false)
+                ).listener(new TapTargetSequence.Listener() {
+                    // This listener will tell us when interesting(tm) events happen in regards
+                    // to the sequence
+                    @Override
+                    public void onSequenceFinish() {
+                    }
+
+                    @Override
+                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+                        Log.d("TapTargetView", "Clicked on " + lastTarget.id());
+                    }
+
+                    @Override
+                    public void onSequenceCanceled(TapTarget lastTarget) {
+                        final AlertDialog dialog = new AlertDialog.Builder(NavigationDrawaberActivity.this)
+                                .setPositiveButton(getString(R.string.sorry), null).show();
+                        TapTargetView.showFor(dialog,
+                                TapTarget.forView(dialog.getButton(DialogInterface.BUTTON_POSITIVE), getString(R.string.end), getString(R.string.description_string))
+                                        .cancelable(true)
+                                        .transparentTarget(true)
+                                        .textColor(android.R.color.white)
+                                        .outerCircleColor(R.color.blue)
+                                        .outerCircleAlpha(0.9f)
+                                        .targetCircleColor(R.color.colorAccent)
+                                        .tintTarget(false), new TapTargetView.Listener() {
+                                    @Override
+                                    public void onTargetClick(TapTargetView view) {
+                                        super.onTargetClick(view);
+                                        dialog.dismiss();
+                                    }
+
+                                    @Override
+                                    public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                                        dialog.dismiss();
+
+                                    }
+                                });
+                    }
+                });
+
+        // You don't always need a sequence, and for that there's a single time tap target
+          TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_quran), getString(R.string.spectial_button), getString(R.string.read_string))
+                .cancelable(false)
+                .drawShadow(true)
+                .transparentTarget(true)
+                .outerCircleColor(R.color.blue)
+                  .outerCircleAlpha(0.9f)
+                .textColor(android.R.color.white)
+                  .targetCircleColor(R.color.colorAccent)
+                .tintTarget(false), new TapTargetView.Listener() {
+            @Override
+            public void onTargetClick(TapTargetView view) {
+                super.onTargetClick(view);
+                // .. which evidently starts the sequence we defined earlier
+                //  sequence.start();
+                navView.setSelectedItemId(R.id.read_parts);
+                setTwoShow();
+            }
+
+            @Override
+            public void onOuterCircleClick(TapTargetView view) {
+                super.onOuterCircleClick(view);
+            }
+
+            @Override
+            public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                Log.d("TapTargetViewSample", "You dismissed me :(");
+            }
+        });
+
+    }
+
+    private void setTwoShow() {
+        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_parts), getString(R.string.spectial_button), getString(R.string.read_parts_string))
+                .cancelable(false)
+                .drawShadow(true)
+                .transparentTarget(true)
+                .outerCircleColor(R.color.blue)
+                .outerCircleAlpha(0.9f)
+                .textColor(android.R.color.white)
+                .targetCircleColor(R.color.colorAccent)
+                .tintTarget(false), new TapTargetView.Listener() {
+            @Override
+            public void onTargetClick(TapTargetView view) {
+                super.onTargetClick(view);
+                // .. which evidently starts the sequence we defined earlier
+                navView.setSelectedItemId(R.id.sound_quran);
+                setShowThreeItem();
+            }
+
+            @Override
+            public void onOuterCircleClick(TapTargetView view) {
+                super.onOuterCircleClick(view);
+            }
+
+            @Override
+            public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                Log.d("TapTargetViewSample", "You dismissed me :(");
+
+            }
+        });
+    }
+
+    private void setShowThreeItem() {
+        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.sound_quran), getString(R.string.spectial_button), getString(R.string.sound_string))
+                .cancelable(false)
+                .drawShadow(true)
+                .transparentTarget(true)
+                .outerCircleColor(R.color.blue)
+                .outerCircleAlpha(0.9f)
+                .textColor(android.R.color.white)
+                .targetCircleColor(R.color.colorAccent)
+                .tintTarget(false), new TapTargetView.Listener() {
+            @Override
+            public void onTargetClick(TapTargetView view) {
+                super.onTargetClick(view);
+                // .. which evidently starts the sequence we defined earlier
+                navView.setSelectedItemId(R.id.azkar);
+                setShowFourItem();
+            }
+
+            @Override
+            public void onOuterCircleClick(TapTargetView view) {
+                super.onOuterCircleClick(view);
+            }
+
+            @Override
+            public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                Log.d("TapTargetViewSample", "You dismissed me :(");
+
+            }
+        });
+    }
+
+    private void setShowFourItem() {
+        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.azkar), getString(R.string.spectial_button), getString(R.string.read_azkar))
+                .cancelable(false)
+                .drawShadow(true)
+                .transparentTarget(true)
+                .outerCircleColor(R.color.blue)
+                .outerCircleAlpha(0.9f)
+                .textColor(android.R.color.white)
+                .targetCircleColor(R.color.colorAccent)
+                .tintTarget(false), new TapTargetView.Listener() {
+            @Override
+            public void onTargetClick(TapTargetView view) {
+                super.onTargetClick(view);
+                // .. which evidently starts the sequence we defined earlier
+                sequence.start();
+            }
+
+            @Override
+            public void onOuterCircleClick(TapTargetView view) {
+                super.onOuterCircleClick(view);
+            }
+
+            @Override
+            public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                Log.d("TapTargetViewSample", "You dismissed me :(");
+
+            }
+        });
+    }
+
+
     //    private void setupViewPager(ViewPager viewPager){
 //        AdapterForNavigation adapterForNavigation = new AdapterForNavigation(getSupportFragmentManager());
 //        GridViewFragment gridViewFragment = new GridViewFragment();

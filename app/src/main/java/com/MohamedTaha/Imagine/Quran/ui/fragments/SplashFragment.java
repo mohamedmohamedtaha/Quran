@@ -18,6 +18,7 @@ import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor;
 import com.MohamedTaha.Imagine.Quran.presenter.SplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
+import com.MohamedTaha.Imagine.Quran.ui.activities.SplashActivity;
 import com.MohamedTaha.Imagine.Quran.view.SplashView;
 
 import java.util.Random;
@@ -72,14 +73,22 @@ public class SplashFragment extends Fragment implements SplashView {
 
     @Override
     public void goToMainActivity() {
+      //  HelperClass.startActivity(getActivity(), SplashActivity.class);
+
         HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
         getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @Override
     public void goToSlider() {
-        SliderFragment sliderFragment = new SliderFragment();
-        HelperClass.replece(sliderFragment, getFragmentManager(), R.id.Cycle_Splash_contener);
+//        SliderFragment sliderFragment = new SliderFragment();
+//        HelperClass.replece(sliderFragment, getFragmentManager(), R.id.Cycle_Splash_contener);
+//        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
+      //  HelperClass.startActivity(getActivity(), SplashActivity.class);
+       // getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
+        HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
         getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }

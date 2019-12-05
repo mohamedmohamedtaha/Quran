@@ -59,7 +59,9 @@ import java.util.TimerTask;
 
 import static com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection.isInternet;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.BROADCAST_FINISH_ACTIVITY;
+import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.DetailsSoundActivity_loading_indicator;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.IS_OPEN;
+import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.isDetailsActivityTrue;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.FragmentListSoundLLControlMedia;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.ListSoundReaderLoadingIndicator;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.isServiceRunning;
@@ -232,7 +234,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public void playAyaFromEnternal(File media_path) {
         //Play Sora in internal Storage If was There
         //Check Is the aya is there or not for the App private Storage
-        //page3. play music
+        //page_slider3. play music
         Uri uri = Uri.parse(String.valueOf(media_path));
         try {
             // mediaPlayer.reset();
@@ -685,10 +687,17 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         File media_path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + FILENAME);
         final File exStore = new File(media_path, activeAudio.getName_sora() + ".mp3");
         ListSoundReaderLoadingIndicator.setVisibility(View.VISIBLE);
+        if (isDetailsActivityTrue) {
+            DetailsSoundActivity_loading_indicator.setVisibility(View.VISIBLE);
+        }
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 ListSoundReaderLoadingIndicator.setVisibility(View.GONE);
+                if (isDetailsActivityTrue) {
+                    DetailsSoundActivity_loading_indicator.setVisibility(View.GONE);
+                }
                 if (exStore != null && exStore.exists()) {
                     playAyaFromEnternal(exStore);
                 } else {
@@ -701,6 +710,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                         removeNotification();
                         stopSelf();
                         FragmentListSoundLLControlMedia.setVisibility(View.GONE);
+
                     } else {
                         if (!isInternet()) {
                             //send BroadcastReceiver to the Service -> Not Internet
@@ -811,7 +821,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         // The PendingIntent to launch our activity if the user selects this notification
         //Create an explicit intent for an Activity in your app
         Intent intent = new Intent(getApplicationContext(), DetailsSoundActivity.class);
-      //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
         // Given a media session and its context (usually the component containing the session)
         // Create a NotificationCompat.Builder
@@ -904,6 +914,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         }
         return null;
     }
+
     //Now that the service generates actions when the user clicks
 // on the notification buttons it needs a way to handle these actions. Add the following action to the service.
     private void handleIncomingActions(Intent playbackAction) {

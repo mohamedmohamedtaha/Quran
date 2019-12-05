@@ -45,11 +45,13 @@ import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.Utilities;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlayerConstants;
 import com.MohamedTaha.Imagine.Quran.helper.util.StorageUtil;
+import com.MohamedTaha.Imagine.Quran.informationInrto.TapTarget;
 import com.MohamedTaha.Imagine.Quran.model.ImageModel;
 import com.MohamedTaha.Imagine.Quran.service.MediaPlayerService;
 import com.MohamedTaha.Imagine.Quran.viewmodel.SoundViewHolder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.card.MaterialCardView;
 import com.google.gson.Gson;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -89,7 +91,7 @@ public class ListSoundReader extends AppCompatActivity {
     TextView FragmentListSoundTVNameSora;
     RecycleViewReaderAdapter recycleViewAdaptor;
     public static ProgressBar ListSoundReaderLoadingIndicator;
-    public static  boolean isServiceRunning;
+    public static boolean isServiceRunning;
 
     private ArrayList<ImageModel> respones;
     public static TextView textNowPlaying;
@@ -100,7 +102,7 @@ public class ListSoundReader extends AppCompatActivity {
     public static TextView textBufferDuration;
     public static TextView textDuration;
     ProgressBar seekBar;
-    public static RelativeLayout FragmentListSoundLLControlMedia;
+    public static MaterialCardView FragmentListSoundLLControlMedia;
 
     private Menu globalMenu;
     Utilities utilities;
@@ -148,7 +150,7 @@ public class ListSoundReader extends AppCompatActivity {
         ButterKnife.bind(this);
         utilities = new Utilities();
         isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
-        FragmentListSoundLLControlMedia = (RelativeLayout) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
+        FragmentListSoundLLControlMedia = (MaterialCardView) findViewById(R.id.Fragment_List_Sound_LL_Control_Media);
         ListSoundReaderLoadingIndicator = (ProgressBar) findViewById(R.id.ListSoundReader_loading_indicator);
         imageViewAlbumArt = (CircleImageView) findViewById(R.id.imageViewAlbumArt);
         btnPlay = (Button) findViewById(R.id.btnPlay);
@@ -492,7 +494,7 @@ public class ListSoundReader extends AppCompatActivity {
                 seekBar.setProgress(i[2]);
             }
         };
-     //   boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
+        //   boolean isServiceRunning = Utilities.isServiceRunning(MediaPlayerService.class.getName(), getApplicationContext());
         if (isServiceRunning) {
             updateUI(getApplicationContext());
         }

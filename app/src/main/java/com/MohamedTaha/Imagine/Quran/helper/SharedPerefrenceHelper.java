@@ -9,7 +9,10 @@ public class SharedPerefrenceHelper {
 
     private static final String SHARED_PREFRENCES_NAME_FOR_SERVICE_BOUND = "save_service_bound";
     private static final String SHARED_PREFRENCES_NAME_FOR_FirstTime = "save_first_time";
-
+    private static final String SHARED_PREFRENCES_WAY_USING = "way_using";
+    private static SharedPreferences getSharedPrefrencesForWayUsing(Context context){
+        return context.getSharedPreferences(SHARED_PREFRENCES_WAY_USING,Context.MODE_PRIVATE);
+    }
     private static SharedPreferences getSharedPrefrences(Context context){
         return context.getSharedPreferences(SHARED_PREFRENCES_NAME,Context.MODE_PRIVATE);
     }
@@ -33,6 +36,15 @@ public class SharedPerefrenceHelper {
     }
     public static boolean getBooleanForAzkar(Context context,String key, boolean defaultValue){
         return getSharedPrefrencesForAzkar(context).getBoolean(key,defaultValue);
+    }
+    public static boolean getBooleanForWayUsing(Context context,String key, boolean defaultValue){
+        return getSharedPrefrencesForWayUsing(context).getBoolean(key,defaultValue);
+    }
+    public static void putBooleanForWayUsing(Context context,String key, boolean value){
+        getSharedPrefrencesForWayUsing(context).edit().putBoolean(key,value).apply();
+    }
+    public static void removeDataForWayUsing(Context context){
+        getSharedPrefrencesForWayUsing(context).edit().clear().commit();
     }
     public static void removeDataForAzkar(Context context){
         getSharedPrefrencesForAzkar(context).edit().clear().commit();

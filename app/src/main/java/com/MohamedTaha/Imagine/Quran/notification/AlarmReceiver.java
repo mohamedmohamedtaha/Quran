@@ -35,237 +35,405 @@ public class AlarmReceiver extends BroadcastReceiver {
     public static int notificationId;
     private static final String CHANNEL_ID = "com.MohamedTaha.Imagine.Quran.notification";
     public static final String NOTIFICATION_ID = "notificationOpen";
+    public static final String TIME_SEND = "time_send";
+
+    public   static int num;
+
     List<Integer> images = new ArrayList<>();
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
         String[] toastMessages = context.getResources().getStringArray(R.array.notificationAlarm);
         int randomIndex = new Random().nextInt(toastMessages.length - 1);
+         num = (int)System.currentTimeMillis();
 
         notificationId = setNotificationForShow(randomIndex);
         addImages();
 
         //Get notification Manager to manage/send notification
-        //Intent to invoke app when click on notification
+        //Intent to invoke app when click
+        // on notification
         //In the sample, we want to start/launch this sample app when user clicks on notification
         Intent intentToRepeat = new Intent(context, SwipePagesActivity.class);
         intentToRepeat.putExtra(NOTIFICATION_ID, notificationId);
-        intentToRepeat.putIntegerArrayListExtra(SAVE_Position_Notification, (ArrayList<Integer>) images);
+        intentToRepeat.putExtra(TIME_SEND, num);
 
+        intentToRepeat.putIntegerArrayListExtra(SAVE_Position_Notification, (ArrayList<Integer>) images);
         //set flag to restart /relaunch the app
         intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //Pending intent to handle launch of Activity in intent above
-        PendingIntent openIntent = PendingIntent.getActivity(context, NotificationHelper.ALARM_TYPE_RTC,
-                intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        //Build notification
-        createNotification(context, openIntent, context.getString(R.string.app_name), toastMessages[randomIndex]);
-
-
-//        String[] toastMessages = context.getResources().getStringArray(R.array.notificationAlarm);
-//        int randomIndex = new Random().nextInt(toastMessages.length - 1);
-//
-//        notificationId = setNotificationForShow(randomIndex);
-//        //Get notification Manager to manage/send notification
-//        //Intent to invoke app when click on notification
-//        //In the sample, we want to start/launch this sample app when user clicks on notification
-//        Intent intentToRepeat = new Intent(context, SwipePagesActivity.class);
-//        intentToRepeat.putExtra(NOTIFICATION_ID,notificationId );
-//        //set flag to restart /relaunch the app
-//        intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        //Pending intent to handle launch of Activity in intent above
 //        PendingIntent openIntent = PendingIntent.getActivity(context, NotificationHelper.ALARM_TYPE_RTC,
 //                intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//
-//        //Build notification
-//        createNotification(context, openIntent, context.getString(R.string.app_name), toastMessages[randomIndex]);
+        PendingIntent openIntent = PendingIntent.getActivity(context,num,intentToRepeat,PendingIntent.FLAG_UPDATE_CURRENT);
+        //Build notification
+        createNotification(context, openIntent, context.getString(R.string.app_name), toastMessages[randomIndex]);
     }
 
-    private int setNotificationForShow(int randomIndex) {
+    public static int setNotificationForShow(int randomIndex) {
         int number;
         switch (randomIndex) {
             case 0:
-                number = 1;
+                number = 0;
                 break;
             case 1:
-                number = 2;
+                number = 1;
                 break;
             case 2:
             case 3:
-                number = 3;
+                number = 2;
                 break;
             case 4:
-                number = 47;
+                number = 46;
                 break;
             case 5:
-                number = 54;
+                number = 53;
                 break;
             case 6:
             case 16:
-                number = 55;
+                number = 54;
                 break;
             case 7:
             case 8:
-                number = 50;
+                number = 49;
                 break;
             case 9:
             case 10:
             case 21:
-                number = 7;
+                number = 6;
                 break;
             case 11:
-                number = 11;
+                number = 10;
                 break;
             case 12:
             case 13:
-                number = 12;
+                number = 11;
                 break;
             case 14:
-                number = 51;
+                number = 50;
                 break;
             case 15:
-                number = 52;
+                number = 51;
                 break;
             case 17:
-                number = 56;
+                number = 55;
                 break;
             case 18:
             case 19:
-                number = 57;
+                number = 56;
                 break;
             case 20:
-                number = 5;
+                number = 4;
                 break;
             case 22:
             case 23:
-                number = 4;
+                number = 3;
                 break;
             case 24:
-                number = 5;
+                number = 4;
                 break;
             case 25:
             case 26:
-                number = 77;
+                number = 76;
                 break;
             case 27:
             case 28:
             case 29:
-                number = 78;
+                number = 77;
                 break;
             case 30:
-                number = 79;
+                number = 78;
                 break;
             case 31:
             case 32:
-                number = 80;
+                number = 79;
                 break;
             case 33:
-                number = 83;
+                number = 82;
                 break;
             case 34:
             case 35:
-                number = 85;
+                number = 84;
                 break;
             case 36:
-                number = 86;
+                number = 85;
                 break;
             case 37:
-                number = 87;
+                number = 86;
                 break;
             case 38:
-                number = 88;
+                number = 87;
                 break;
             case 39:
-                number = 108;
+                number = 107;
                 break;
             case 40:
             case 41:
-                number = 110;
+                number = 109;
                 break;
             case 42:
-                number = 111;
+                number = 110;
                 break;
             case 43:
-                number = 112;
+                number = 111;
                 break;
             case 44:
-                number = 113;
+                number = 112;
                 break;
             case 45:
-                number = 114;
+                number = 113;
                 break;
             case 46:
             case 47:
             case 48:
             case 49:
-                number = 604;
+                number = 603;
                 break;
             case 50:
-                number = 601;
+                number = 600;
                 break;
             case 51:
-                number = 598;
+                number = 597;
                 break;
             case 52:
             case 53:
-                number = 599;
+                number = 598;
                 break;
             case 54:
-                number = 598;
+                number = 597;
                 break;
             case 55:
             case 56:
             case 57:
-                number = 597;
+                number = 596;
                 break;
             case 58:
-                number =595 ;
+                number =594;
                 break;
             case 59:
-                number = 594;
+                number = 593;
                 break;
             case 60:
-                number = 587;
+                number = 586;
                 break;
             case 61:
-                number = 588;
+                number = 587;
                 break;
             case 62:
             case 63:
-                number = 593;
+                number = 592;
                 break;
             case 64:
             case 65:
-                number = 592;
+                number = 591;
                 break;
             case 66:
-                number = 591 ;
+                number = 590 ;
                 break;
             case 67:
-                number = 592 ;
+                number = 591 ;
                 break;
             case 68:
             case 69:
             case 70:
-                number = 590 ;
+                number = 589 ;
                 break;
             case 71:
             case 72:
-                number = 587 ;
+                number = 586 ;
                 break;
             case 73:
             case 74:
-                number =260;
+                number =259;
                 break;
             default:
-                number = 264;
+                number = 263;
         }
         return number;
     }
+    private String setNotificationID(int randomIndex) {
+        String string;
+        switch (randomIndex) {
+            case 0:
+                string = "string0";
+                break;
+            case 1:
+                string = "string1";
+                break;
+            case 2:
+            case 3:
+                string = "string2";
+                break;
+            case 4:
+                string = "string46";
+                break;
+            case 5:
+                string = "string53";
+                break;
+            case 6:
+            case 16:
+                string = "string54";
+                break;
+            case 7:
+            case 8:
+                string = "string49";
+                break;
+            case 9:
+            case 10:
+            case 21:
+                string = "string6";
+                break;
+            case 11:
+                string = "string10";
+                break;
+            case 12:
+            case 13:
+                string = "string11";
+                break;
+            case 14:
+                string = "string50";
+                break;
+            case 15:
+                string = "string51";
+                break;
+            case 17:
+                string = "string55";
+                break;
+            case 18:
+            case 19:
+                string = "string56";
+                break;
+            case 20:
+                string = "string4";
+                break;
+            case 22:
+            case 23:
+                string = "string3";
+                break;
+            case 24:
+                string = "string4";
+                break;
+            case 25:
+            case 26:
+                string = "string76";
+                break;
+            case 27:
+            case 28:
+            case 29:
+                string = "string77";
+                break;
+            case 30:
+                string = "string78";
+                break;
+            case 31:
+            case 32:
+                string = "string97";
+                break;
+            case 33:
+                string = "string82";
+                break;
+            case 34:
+            case 35:
+                string = "string84";
+                break;
+            case 36:
+                string = "string85";
+                break;
+            case 37:
+                string = "string86";
+                break;
+            case 38:
+                string = "string87";
+                break;
+            case 39:
+                string = "string107";
+                break;
+            case 40:
+            case 41:
+                string = "string109";
+                break;
+            case 42:
+                string = "string110";
+                break;
+            case 43:
+                string = "string111";
+                break;
+            case 44:
+                string = "string112";
+                break;
+            case 45:
+                string = "string113";
+                break;
+            case 46:
+            case 47:
+            case 48:
+            case 49:
+                string = "string603";
+                break;
+            case 50:
+                string = "string600";
+                break;
+            case 51:
+                string = "string597";
+                break;
+            case 52:
+            case 53:
+                string = "string598";
+                break;
+            case 54:
+                string = "string597";
+                break;
+            case 55:
+            case 56:
+            case 57:
+                string = "string596";
+                break;
+            case 58:
+                string = "string594";
+                break;
+            case 59:
+                string = "string593";
+                break;
+            case 60:
+                string = "string586";
+                break;
+            case 61:
+                string = "string587";
+                break;
+            case 62:
+            case 63:
+                string = "string592";
+                break;
+            case 64:
+            case 65:
+                string = "string591";
+                break;
+            case 66:
+                string = "string590" ;
+                break;
+            case 67:
+                string = "string591" ;
+                break;
+            case 68:
+            case 69:
+            case 70:
+                string = "string589" ;
+                break;
+            case 71:
+            case 72:
+                string = "string586" ;
+                break;
+            case 73:
+            case 74:
+                string = "string259";
+                break;
+            default:
+                string = "string263";
+        }
+        return string;
+    }
 
     public void addImages() {
+        images.add(R.drawable.page1);
         images.add(R.drawable.page2);
         images.add(R.drawable.page3);
         images.add(R.drawable.page4);
@@ -884,15 +1052,17 @@ public class AlarmReceiver extends BroadcastReceiver {
         images.add(R.drawable.page617);
     }
 
-    private NotificationCompat.Builder createNotification(Context context, PendingIntent openIntent, CharSequence ticker, CharSequence desribe) {
+    public static    NotificationCompat.Builder createNotification(Context context, PendingIntent openIntent, CharSequence ticker, CharSequence desribe) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         //you only need to create  the cnannel on API 26+ devices
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannel(context);
         }
         Intent cancelNotification = new Intent(context, CancelNotification.class);
-        cancelNotification.putExtra(NOTIFICATION_ID, notificationId);
-        PendingIntent exitPending = PendingIntent.getBroadcast(context, notificationId, cancelNotification, PendingIntent.FLAG_UPDATE_CURRENT);
+    //    cancelNotification.putExtra(NOTIFICATION_ID, notificationId);
+        cancelNotification.putExtra(TIME_SEND, num);
+
+        PendingIntent exitPending = PendingIntent.getBroadcast(context, num, cancelNotification, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Bitmap bitmap_icon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo);
         //Create a new Notification
@@ -919,7 +1089,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         builder.setDefaults(Notification.DEFAULT_ALL);//Require VIBREATE permission
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(desribe));
         builder.setAutoCancel(true);
-        notificationManager.notify(notificationId, builder.build());
+        notificationManager.notify(num, builder.build());
         return builder;
     }
 

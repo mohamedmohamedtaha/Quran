@@ -9,6 +9,8 @@ import com.MohamedTaha.Imagine.Quran.view.SplashView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity.IS_FIRST_TIME_WAY_USING;
+
 public class SplashInteractor implements SplashPresenter {
     private SplashView splashView;
     private Activity context;
@@ -25,7 +27,8 @@ public class SplashInteractor implements SplashPresenter {
     @Override
     public void goToSlider() {
         splashView.showAnimation();
-        if (!SharedPerefrenceHelper.getFirstTime(context, FIRST_TIME, false)) {
+      //  if (!SharedPerefrenceHelper.getFirstTime(context, FIRST_TIME, false)) {
+        if (!SharedPerefrenceHelper.getBooleanForWayUsing(context, IS_FIRST_TIME_WAY_USING, false)) {
             waitTimer = new Timer();
             waitTimer.schedule(new TimerTask() {
                 @Override
