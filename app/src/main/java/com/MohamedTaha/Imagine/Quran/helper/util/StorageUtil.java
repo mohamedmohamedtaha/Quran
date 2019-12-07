@@ -3,7 +3,7 @@ package com.MohamedTaha.Imagine.Quran.helper.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

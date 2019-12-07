@@ -24,7 +24,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,7 +35,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.RecycleViewReaderAdapter;
@@ -45,8 +44,7 @@ import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.Utilities;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlayerConstants;
 import com.MohamedTaha.Imagine.Quran.helper.util.StorageUtil;
-import com.MohamedTaha.Imagine.Quran.informationInrto.TapTarget;
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 import com.MohamedTaha.Imagine.Quran.service.MediaPlayerService;
 import com.MohamedTaha.Imagine.Quran.viewmodel.SoundViewHolder;
 import com.bumptech.glide.Glide;
@@ -156,6 +154,7 @@ public class ListSoundReader extends AppCompatActivity {
         btnPlay = (Button) findViewById(R.id.btnPlay);
         btnPause = (Button) findViewById(R.id.btnPause);
 
+
         if (!isServiceRunning) {
             FragmentListSoundLLControlMedia.setVisibility(View.GONE);
         }
@@ -180,17 +179,22 @@ public class ListSoundReader extends AppCompatActivity {
         FILENAME = "/" + imageModelTest + "/";
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         FragmentListSoundTVNameSora.setText(imageModelTest);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getApplicationContext(), 2) {
+            @Override
+            protected boolean isLayoutRTL() {
+                return true;
+            }
+        };
         //For put Space for RecyclerView
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycleViewSound.getContext(),
-                linearLayoutManager.getOrientation());
-        recycleViewSound.addItemDecoration(dividerItemDecoration);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycleViewSound.getContext(),
+//                linearLayoutManager.getOrientation());
+//        recycleViewSound.addItemDecoration(dividerItemDecoration);
+        recycleViewSound.setLayoutManager(linearLayoutManager);
 
         nameSoraViewHolder = ViewModelProviders.of(this).get(SoundViewHolder.class);
         nameSoraViewHolder.getAllNameSora(poisition).observe(this, new Observer<ArrayList<ImageModel>>() {
             @Override
             public void onChanged(ArrayList<ImageModel> imageModels) {
-                recycleViewSound.setLayoutManager(linearLayoutManager);
                 respones = imageModels;
                 recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), respones, new RecycleViewReaderAdapter.ClickListener() {
                     @Override
@@ -222,7 +226,7 @@ public class ListSoundReader extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-                recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                //     recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), respones, new RecycleViewReaderAdapter.ClickListener() {
                     @Override
                     public void onClick(View view, int position) {
@@ -258,7 +262,7 @@ public class ListSoundReader extends AppCompatActivity {
                         }
                     }
                     if (!stringList.isEmpty()) {
-                        recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        //  recycleViewSound.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         recycleViewAdaptor = new RecycleViewReaderAdapter(getApplicationContext(), stringList, new RecycleViewReaderAdapter.ClickListener() {
                             @Override
                             public void onClick(View view, int position) {
@@ -352,13 +356,12 @@ public class ListSoundReader extends AppCompatActivity {
         //check download folder for the App private
         media_path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + FILENAME);
         //check download folder Global
-        mediaStorageDir = new File(media_path, name_sora + ".mp3");
+        mediaStorageDir = new File(media_path, name_sora + getString(R.string.mp3));
         if (mediaStorageDir != null && mediaStorageDir.exists()) {
-            HelperClass.customToast(this, "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا");
-            //Toast.makeText(getApplicationContext(), "السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ\n إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا", Toast.LENGTH_LONG).show();
+            HelperClass.customToast(this, getString(R.string.send_problem_string));
         } else {
             request.setDestinationInExternalFilesDir(ListSoundReader.this, Environment.DIRECTORY_DOWNLOADS + FILENAME
-                    , name_sora + ".mp3");
+                    , name_sora + getString(R.string.mp3));
             //Enqueue download and save the referenceId
             downloadReference = downloadManager.enqueue(request);
         }
@@ -401,6 +404,9 @@ public class ListSoundReader extends AppCompatActivity {
             } else {
                 downloadSora();
             }
+        } else {
+            downloadSora();
+
         }
     }
 
@@ -437,7 +443,7 @@ public class ListSoundReader extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent();
                                         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                        Uri uri = Uri.fromParts("package", getPackageName(), null);
+                                        Uri uri = Uri.fromParts(getString(R.string.package_string), getPackageName(), null);
                                         intent.setData(uri);
                                         startActivity(intent);
                                     }

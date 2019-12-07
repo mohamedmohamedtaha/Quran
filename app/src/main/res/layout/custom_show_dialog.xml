@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/style_default_layout_wrap_match"
-    android:background="@drawable/image_border">
-
+    style="@style/style_default_layout_wrap_content"
+    >
     <ImageView
         android:id="@+id/show_icon"
         android:layout_width="@dimen/dimens_xxl"

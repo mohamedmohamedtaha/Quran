@@ -23,21 +23,13 @@
             android:layout_marginLeft="@dimen/dimens_xl"
             android:textColor="@android:color/black"
             android:textSize="@dimen/txt_size_m" />
-
-
-        <com.google.android.material.card.MaterialCardView
-            style="@style/style_default_layout_wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_margin="@dimen/dimens_ss"
-            android:outlineSpotShadowColor="@color/blue"
-            card:cardCornerRadius="@dimen/dimens_m"
-            card:cardElevation="@dimen/dimens_m">
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/DetailsSoundActivity_IV_Picture_Shekh"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                app:civ_border_color="@color/colorAccent"
+                android:layout_centerInParent="true"
+
+                app:civ_border_color="@android:color/white"
                 app:civ_border_width="@dimen/dimens_sss" />
 
             <ProgressBar
@@ -45,10 +37,10 @@
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
                 android:indeterminateDrawable="@drawable/color_progressbar"
-                android:visibility="gone" />
-        </com.google.android.material.card.MaterialCardView>
+                />
 
         <LinearLayout
             android:id="@+id/Linearbuttons"

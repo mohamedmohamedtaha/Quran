@@ -8,20 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterGridView;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.interactor.GridViewFragmentInteractor;
-import com.MohamedTaha.Imagine.Quran.model.ModelSora;
-import com.MohamedTaha.Imagine.Quran.presenter.GridViewFragmentPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.GridViewFragmentInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelSora;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.GridViewFragmentPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.view.GridViewFragmentView;
 import com.MohamedTaha.Imagine.Quran.ui.activities.SwipePagesActivity;
-import com.MohamedTaha.Imagine.Quran.view.GridViewFragmentView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
     @BindView(R.id.GridViewActivity_TV_No_Data)
     TextView GridViewActivityTVNoData;
     @BindView(R.id.GridViewActivity_GV_Show_Images)
-    ListView GridViewActivityGVShowImages;
+    RecyclerView GridViewActivityGVShowImages;
     @BindView(R.id.GridViewActivity_ProgressBar)
     ProgressBar GridViewActivityProgressBar;
     public static final String SAVE_IMAGES = "save_images";
@@ -47,6 +47,7 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
 
     Bundle bundle;
     private List<ModelSora> name_swar;
+    private List<Integer> integers_bundle;
     private AdapterGridView adapterGridView;
     private GridViewFragmentPresenter presenter;
 
@@ -65,6 +66,15 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
         presenter.getAllNameSour();
         presenter.getAllImages();
         presenter.setOnSearchView(searchView);
+
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getActivity(), 2) {
+            @Override
+            protected boolean isLayoutRTL() {
+                return true;
+            }
+        };
+        GridViewActivityGVShowImages.setLayoutManager(linearLayoutManager);
+
         return view;
     }
 
@@ -76,14 +86,36 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
 
     @Override
     public void showAfterSearch() {
-        adapterGridView = new AdapterGridView(getActivity(), name_swar, false);
+        adapterGridView = new AdapterGridView(name_swar, false, new AdapterGridView.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                presenter.getPosition(name_swar.get(position).getPosition(), bundle);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
+                bundle.putBoolean(SAVE_STATE, true);
+                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
+            }
+        });
         GridViewActivityGVShowImages.setAdapter(adapterGridView);
     }
 
     @Override
     public void showAfterQueryText(List<ModelSora> stringList) {
         name_swar = stringList;
-        adapterGridView = new AdapterGridView(getActivity(), stringList, false);
+        adapterGridView = new AdapterGridView(stringList, false, new AdapterGridView.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                presenter.getPosition(name_swar.get(position).getPosition(), bundle);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
+                bundle.putBoolean(SAVE_STATE, true);
+                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
+            }
+        });
         GridViewActivityGVShowImages.setAdapter(adapterGridView);
     }
 
@@ -100,7 +132,18 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
     @Override
     public void showAllINameSour(List<ModelSora> strings) {
         name_swar = strings;
-        adapterGridView = new AdapterGridView(getActivity(), name_swar, false);
+        adapterGridView = new AdapterGridView(name_swar, false, new AdapterGridView.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                presenter.getPosition(name_swar.get(position).getPosition(), bundle);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
+                bundle.putBoolean(SAVE_STATE, true);
+                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
+            }
+        });
         GridViewActivityGVShowImages.setAdapter(adapterGridView);
         adapterGridView.notifyDataSetChanged();
         //For feel when Search
@@ -109,18 +152,7 @@ public class GridViewFragment extends Fragment implements GridViewFragmentView {
 
     @Override
     public void showAllImages(List<Integer> integers) {
-        GridViewActivityGVShowImages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                presenter.getPosition(name_swar.get(position).getPosition(), bundle);
-                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
-                bundle.putBoolean(SAVE_STATE, true);
-                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
-            }
-        });
+        integers_bundle = integers;
     }
 
     @Override

@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 import com.google.gson.Gson;
 
 import java.util.List;

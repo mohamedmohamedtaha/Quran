@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ModelAzkar;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelAzkar;
 
 import java.util.ArrayList;
 import java.util.List;

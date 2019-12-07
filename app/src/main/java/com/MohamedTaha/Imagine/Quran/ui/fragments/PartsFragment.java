@@ -8,20 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterGridView;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.interactor.PartsFragmentsInteractor;
-import com.MohamedTaha.Imagine.Quran.model.ModelSora;
-import com.MohamedTaha.Imagine.Quran.presenter.PartsFragmentPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.PartsFragmentsInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelSora;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.PartsFragmentPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.view.PartsFragmentView;
 import com.MohamedTaha.Imagine.Quran.ui.activities.SwipePagesActivity;
-import com.MohamedTaha.Imagine.Quran.view.PartsFragmentView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     public static final String SAVE_IMAGES = "save_images";
     Bundle bundle;
     @BindView(R.id.PartsFragment_GV_Show_Images)
-    ListView PartsFragmentGVShowImages;
+    RecyclerView PartsFragmentGVShowImages;
     @BindView(R.id.PartsFragment_TV_No_Data)
     TextView PartsFragmentTVNoData;
     @BindView(R.id.PartsFragment_ProgressBar)
@@ -47,6 +47,7 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     private List<ModelSora> name_part;
     private AdapterGridView adapterNamePart;
     private PartsFragmentPresenter presenter;
+    private List<Integer> integers_bundle;
 
     public PartsFragment() {
         // Required empty public constructor
@@ -64,6 +65,14 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
         presenter.getAllPartSoura();
         presenter.getAllImages();
         presenter.setOnSearchView(searchView);
+
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getActivity(), 2) {
+            @Override
+            protected boolean isLayoutRTL() {
+                return true;
+            }
+        };
+        PartsFragmentGVShowImages.setLayoutManager(linearLayoutManager);
         return view;
     }
 
@@ -75,25 +84,11 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
 
     @Override
     public void showAfterSearch() {
-        adapterNamePart = new AdapterGridView(getActivity(), name_part, true);
-        PartsFragmentGVShowImages.setAdapter(adapterNamePart);
-    }
-
-    @Override
-    public void showAfterQueryText(List<ModelSora> stringList) {
-        //name_part.clear();
-        name_part = stringList;
-        adapterNamePart = new AdapterGridView(getActivity(), stringList, true);
-        PartsFragmentGVShowImages.setAdapter(adapterNamePart);
-    }
-
-    @Override
-    public void showAllImages(List<Integer> integers) {
-        PartsFragmentGVShowImages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapterNamePart = new AdapterGridView(name_part, true, new AdapterGridView.ClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            public void onClick(View view, int position) {
                 presenter.getPosition(name_part.get(position).getPosition(), bundle);
-                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
                 bundle.putBoolean(SAVE_STATE, true);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
@@ -101,6 +96,31 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
                 getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
             }
         });
+        PartsFragmentGVShowImages.setAdapter(adapterNamePart);
+    }
+
+    @Override
+    public void showAfterQueryText(List<ModelSora> stringList) {
+        //name_part.clear();
+        name_part = stringList;
+        adapterNamePart = new AdapterGridView(stringList, true, new AdapterGridView.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                presenter.getPosition(name_part.get(position).getPosition(), bundle);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
+                bundle.putBoolean(SAVE_STATE, true);
+                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
+            }
+        });
+        PartsFragmentGVShowImages.setAdapter(adapterNamePart);
+    }
+
+    @Override
+    public void showAllImages(List<Integer> integers) {
+        integers_bundle = integers;
     }
 
     @Override
@@ -128,8 +148,18 @@ public class PartsFragment extends Fragment implements PartsFragmentView {
     @Override
     public void showAllINamePart(List<ModelSora> strings) {
         name_part = strings;
-        //Toast.makeText(getActivity(), "" + name_part.get(2).getName_part(), Toast.LENGTH_SHORT).show();
-        adapterNamePart = new AdapterGridView(getActivity(), name_part, true);
+        adapterNamePart = new AdapterGridView(name_part, true, new AdapterGridView.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                presenter.getPosition(name_part.get(position).getPosition(), bundle);
+                bundle.putIntegerArrayList(SAVE_IMAGES, (ArrayList<Integer>) integers_bundle);
+                bundle.putBoolean(SAVE_STATE, true);
+                Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.item_anim_slide_from_top, R.anim.item_anim_no_thing);
+            }
+        });
         PartsFragmentGVShowImages.setAdapter(adapterNamePart);
         adapterNamePart.notifyDataSetChanged();
         //For feel when Search

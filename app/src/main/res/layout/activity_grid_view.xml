@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/style_default_layout_match_parent_with_background">
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/GridViewActivity_GV_Show_Images"
-        style="@style/style_list_view"></ListView>
+        style="@style/style_list_view"></androidx.recyclerview.widget.RecyclerView>
 
     <ProgressBar
         android:id="@+id/GridViewActivity_ProgressBar"

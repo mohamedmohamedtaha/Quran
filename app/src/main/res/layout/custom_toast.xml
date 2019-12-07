@@ -9,5 +9,6 @@
         android:id="@+id/text"
         style="@style/style_default_layout_wrap_content"
         android:gravity="center"
+        android:textSize="@dimen/txt_size_m"
         android:textColor="@android:color/white" />
 </RelativeLayout>

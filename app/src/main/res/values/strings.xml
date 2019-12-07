@@ -1,12 +1,14 @@
 <resources>
     <!-- اسم التطبيق -->
-    <string name="app_name">القُرْأنُ الكَرِيمُ</string>
+    <string name="app_name"> وَلَوْ آيَة</string>
     <string name="text_fiald">عذراً الرابط غير صالح.\n أرسل للمسؤول</string>
     <string name="nameTextDefult">-</string>
     <string name="setDescriptionRequet">جاري التحميل</string>
     <!--desription Image List -->
     <string name="decriptionImage">Image Koran</string>
-    <string name="textMain">خَيْرُكُمْ مَنْ تَعْلَمُ القُرْانَ وَعِلْمَهُ</string>
+    <string name="textMainSecond">خَيْرُكُمْ مَنْ تَعْلَمُ القُرْانَ وَعِلْمَهُ</string>
+    <string name="textMain">بَلِّغُوا عَنِّي وَلَوْ آيَةً</string>
+
     <!--Check Internet -->
     <string name="text_alert">تنبيه</string>
     <string name="text_false">تأكد من الانترنت لأن الصوة لم يتم تحميلها على الجهازك</string>
@@ -30,7 +32,24 @@
     <string name="read_parts">الْقِرَاءةُ بِالْأَجْزَاءِ </string>
     <string name="azkar_elmosle">حَصَّنَ الْمُسْلِمُ</string>
 
-    <string name="about">\n قراءة القرأن الكريمِ\n والإستماع والتحميل بأكثر من شيخ بسهولة وتشغيله بدون انترنت بعد التحميل.</string>
+  <!--  <string name="about">\n قراءة القرأن الكريمِ\n والإستماع والتحميل بأكثر من شيخ بسهولة وتشغيله بدون انترنت بعد التحميل.</string>-->
+    <string name="about">يتضمن التطبيق أربعة أقسام رئيسية
+    \n
+     ١- قسم الإستماع يحتوي على أكثر من ٧٠ قارئ وبقراءات مختلفة
+    \n
+    (يمكن تحميل السورة وتشغيلها بعد ذلك بدون الانترنت)
+    \n
+      ٢- قسم قراءة القرآن عن طريق الأجزاء
+    \n
+     ٣- قسم قراءة القرآن عن طريق السور
+    \n
+    (ويمكنك من حفظ السورة للمواصلة فيما بعد)
+    \n
+  ٤- قسم الأذكار اليومية للمسلم
+    \n
+    (أيضاً يرسل التطبيق إشعارات للتذكير بالقراءة ويمكنك التحكم في مواعيد الإرسال)
+    \n</string>
+
     <string name="shareApp">مشاركة التطبيق</string>
     <string name="notSupport">للأسف التليفون لا يوجد به اي تطبيق لإرسال الرسائل</string>
     <string name="hafs_an_asem">حَفْصٌ عَنْ عَاصِمٍ</string>
@@ -207,4 +226,11 @@
     <string name="search_string">بالبحث</string>
     <string name="share_string">بمشاركة التطبيق مع الأصدقاء</string>
     <string name="read_parts_string">بقراءة القرآن عن طريق الاجزاء</string>
+  <string name="mp3">.mp3</string>
+  <string name="package_string">package</string>
+
+
+  <string name="send_problem_string"> السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ
+ إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا</string>
+
 </resources>

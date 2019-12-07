@@ -3,7 +3,6 @@ package com.MohamedTaha.Imagine.Quran.ui.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
-import com.MohamedTaha.Imagine.Quran.interactor.SplashInteractor;
-import com.MohamedTaha.Imagine.Quran.presenter.SplashPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.SplashInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.SplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
-import com.MohamedTaha.Imagine.Quran.ui.activities.SplashActivity;
-import com.MohamedTaha.Imagine.Quran.view.SplashView;
-
-import java.util.Random;
+import com.MohamedTaha.Imagine.Quran.mvp.view.SplashView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,8 +29,6 @@ import butterknife.ButterKnife;
 public class SplashFragment extends Fragment implements SplashView {
     @BindView(R.id.textShow)
     TextView textShow;
-    Typeface nyTypeface;
-    private static final String FONT_TYPE = "fonts/Mirza-SemiBold.ttf";
     private SplashPresenter splashPresenter;
 
     public SplashFragment() {
@@ -55,12 +49,10 @@ public class SplashFragment extends Fragment implements SplashView {
     @Override
     public void onAttachFragment(Fragment childFragment) {
         super.onAttachFragment(childFragment);
-        nyTypeface = Typeface.createFromAsset(getActivity().getAssets(), FONT_TYPE);
     }
 
     @Override
     public void showAnimation() {
-        textShow.setTypeface(nyTypeface);
         Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.aminmation_splash);
         textShow.startAnimation(animation);
     }

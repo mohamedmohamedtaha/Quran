@@ -2,27 +2,19 @@ package com.MohamedTaha.Imagine.Quran.Adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.os.Build;
-import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ModelSora;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class AdapterForSwipe extends PagerAdapter {
     Context context;

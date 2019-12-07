@@ -6,10 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SoundViewHolder extends AndroidViewModel {
     SoundRepositiory soundRepositiory;

@@ -45,12 +45,11 @@ import com.MohamedTaha.Imagine.Quran.helper.checkConnection.NoInternetConnection
 import com.MohamedTaha.Imagine.Quran.helper.util.PlaybackStatus;
 import com.MohamedTaha.Imagine.Quran.helper.util.PlayerConstants;
 import com.MohamedTaha.Imagine.Quran.helper.util.StorageUtil;
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 import com.MohamedTaha.Imagine.Quran.receiver.ConnectivityReceiver;
 import com.MohamedTaha.Imagine.Quran.receiver.NoInternetReceiver;
 import com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity;
 import com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader;
-import com.MohamedTaha.Imagine.Quran.ui.activities.NavigationDrawaberActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -478,6 +477,8 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         if (timer != null) {
             timer.cancel();
         }
+        isServiceRunning = false;
+
     }
 
     private void pauseMedia() {
@@ -665,9 +666,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
                     Intent intent = new Intent(BROADCAST_FINISH_ACTIVITY);
                     sendBroadcast(intent);
                 }
-                isServiceRunning = false;
-
-
             }
 
             @Override

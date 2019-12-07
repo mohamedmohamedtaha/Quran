@@ -37,7 +37,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public static final String NOTIFICATION_ID = "notificationOpen";
     public static final String TIME_SEND = "time_send";
 
-    public   static int num;
+    public static int num;
 
     List<Integer> images = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String[] toastMessages = context.getResources().getStringArray(R.array.notificationAlarm);
         int randomIndex = new Random().nextInt(toastMessages.length - 1);
-         num = (int)System.currentTimeMillis();
+        num = (int) System.currentTimeMillis();
 
         notificationId = setNotificationForShow(randomIndex);
         addImages();
@@ -64,7 +64,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         //Pending intent to handle launch of Activity in intent above
 //        PendingIntent openIntent = PendingIntent.getActivity(context, NotificationHelper.ALARM_TYPE_RTC,
 //                intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent openIntent = PendingIntent.getActivity(context,num,intentToRepeat,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent openIntent = PendingIntent.getActivity(context, num, intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
         //Build notification
         createNotification(context, openIntent, context.getString(R.string.app_name), toastMessages[randomIndex]);
     }
@@ -207,7 +207,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 number = 596;
                 break;
             case 58:
-                number =594;
+                number = 594;
                 break;
             case 59:
                 number = 593;
@@ -227,29 +227,49 @@ public class AlarmReceiver extends BroadcastReceiver {
                 number = 591;
                 break;
             case 66:
-                number = 590 ;
+                number = 590;
                 break;
             case 67:
-                number = 591 ;
+                number = 591;
                 break;
             case 68:
             case 69:
             case 70:
-                number = 589 ;
+                number = 589;
                 break;
             case 71:
-            case 72:
-                number = 586 ;
+                number = 586;
                 break;
+            case 72:
+                number = 10;
+                break;
+
             case 73:
             case 74:
-                number =259;
+                number = 259;
+                break;
+            case 75:
+                number = 263;
+                break;
+            case 76:
+                number = 272;
+                break;
+            case 77:
+                number = 274;
+                break;
+            case 78:
+                number = 275;
+                break;
+            case 79:
+                number = 276;
                 break;
             default:
-                number = 263;
+                number = 277;
+
         }
         return number;
     }
+
     private String setNotificationID(int randomIndex) {
         String string;
         switch (randomIndex) {
@@ -408,19 +428,19 @@ public class AlarmReceiver extends BroadcastReceiver {
                 string = "string591";
                 break;
             case 66:
-                string = "string590" ;
+                string = "string590";
                 break;
             case 67:
-                string = "string591" ;
+                string = "string591";
                 break;
             case 68:
             case 69:
             case 70:
-                string = "string589" ;
+                string = "string589";
                 break;
             case 71:
             case 72:
-                string = "string586" ;
+                string = "string586";
                 break;
             case 73:
             case 74:
@@ -1052,14 +1072,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         images.add(R.drawable.page617);
     }
 
-    public static    NotificationCompat.Builder createNotification(Context context, PendingIntent openIntent, CharSequence ticker, CharSequence desribe) {
+    public static NotificationCompat.Builder createNotification(Context context, PendingIntent openIntent, CharSequence ticker, CharSequence desribe) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         //you only need to create  the cnannel on API 26+ devices
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannel(context);
         }
         Intent cancelNotification = new Intent(context, CancelNotification.class);
-    //    cancelNotification.putExtra(NOTIFICATION_ID, notificationId);
+        //    cancelNotification.putExtra(NOTIFICATION_ID, notificationId);
         cancelNotification.putExtra(TIME_SEND, num);
 
         PendingIntent exitPending = PendingIntent.getBroadcast(context, num, cancelNotification, PendingIntent.FLAG_UPDATE_CURRENT);

@@ -64,13 +64,14 @@
     </style>
 
     <style name="style_text_view_no_data" parent="@style/style_default_layout_wrap_content">
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_marginTop">@dimen/defaultValueTowHandredTen</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/dimens_half_hundrand</item>
         <item name="android:text">@string/no_data</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/dimens_xl</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">gone</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="style_toolbar" parent="@style/style_default_layout_wrap_match">

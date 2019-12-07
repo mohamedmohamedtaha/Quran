@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     style="@style/style_default_layout_match_parent_with_background"
     tools:context=".ui.fragments.AzkarFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/AzkarFragmentRecycleView"
-        style="@style/style_default_layout_match_parent"
+        style="@style/style_default_layout_wrap_content"
         android:layout_marginTop="@dimen/dimens_l"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/dimens_7xl"
         android:clickable="true"
         android:focusable="true"
-        android:foregroundGravity="center" />
+        />
     <ProgressBar
         android:id="@+id/AzkarFragment_ProgressBar"
-        android:visibility="gone"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_gravity="center"
         android:indeterminateDrawable="@drawable/color_progressbar"
         />
     <TextView
         android:id="@+id/AzkarFragment_TV_No_Data"
         style="@style/style_text_view_no_data" />
-</RelativeLayout>
+</LinearLayout>

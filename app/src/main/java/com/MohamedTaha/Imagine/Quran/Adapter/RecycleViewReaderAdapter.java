@@ -12,8 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
-import com.bumptech.glide.Glide;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
 
 import java.io.File;
 import java.util.List;

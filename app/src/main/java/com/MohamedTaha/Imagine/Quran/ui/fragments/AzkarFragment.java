@@ -17,13 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.MohamedTaha.Imagine.Quran.Adapter.AdapterForAzkar;
 import com.MohamedTaha.Imagine.Quran.Adapter.RecycleViewReaderAdapter;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.interactor.AzkarFragmentInteractor;
-import com.MohamedTaha.Imagine.Quran.model.ModelAzkar;
-import com.MohamedTaha.Imagine.Quran.presenter.AzkarFragmentPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.AzkarFragmentInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelAzkar;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.AzkarFragmentPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.activities.SwipePagesActivity;
-import com.MohamedTaha.Imagine.Quran.view.AzkarFragmentView;
+import com.MohamedTaha.Imagine.Quran.mvp.view.AzkarFragmentView;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,6 +45,8 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
     ProgressBar AzkarFragmentProgressBar;
     private AdapterForAzkar adapterForAzkar;
     private List<ModelAzkar> modelAzkar;
+    private List<ModelAzkar> modelAzkarBundle;
+
     Bundle bundle;
     public static final String SAVE_AZKAR = "save_azkar";
     public static final String SAVE_POTION_AZKAR = "save_poition_azkar";
@@ -76,12 +79,13 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
 
     @Override
     public void showAfterQueryText(List<ModelAzkar> stringList) {
+        modelAzkar = stringList;
         adapterForAzkar = new AdapterForAzkar(stringList, new RecycleViewReaderAdapter.ClickListener() {
 
             @Override
             public void onClick(View view, int position) {
-                bundle.putString(SAVE_AZKAR, new Gson().toJson(modelAzkar));
-                bundle.putInt(SAVE_POTION_AZKAR, position);
+                bundle.putString(SAVE_AZKAR, new Gson().toJson(modelAzkarBundle));
+                bundle.putInt(SAVE_POTION_AZKAR, modelAzkar.get(position).getPosition());
                 bundle.putBoolean(SAVE_STATE, false);
                 Intent intent = new Intent(getActivity(), SwipePagesActivity.class);
                 intent.putExtras(bundle);
@@ -116,6 +120,7 @@ public class AzkarFragment extends Fragment implements AzkarFragmentView {
 
     @Override
     public void showAllINameAzkar(List<ModelAzkar> strings) {
+        modelAzkarBundle = strings;
         modelAzkar = strings;
         linearLayoutManager = new LinearLayoutManager(getActivity());
         AzkarFragmentRecycleView.setLayoutManager(linearLayoutManager);

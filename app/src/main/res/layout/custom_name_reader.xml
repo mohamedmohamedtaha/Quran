@@ -7,7 +7,8 @@
     <com.google.android.material.card.MaterialCardView
         style="@style/style_default_layout_wrap_match"
         android:layout_margin="@dimen/dimens_ss"
-        android:outlineSpotShadowColor="@color/blue"
+        android:outlineSpotShadowColor="@color/colorAccent"
+        android:rotationY="180"
         card:cardCornerRadius="@dimen/dimens_l"
         card:cardElevation="@dimen/dimens_m">
 
@@ -38,8 +39,8 @@
             <TextView
                 android:id="@+id/textTypeTlawa"
                 style="@style/themecustom_name_reader"
-                android:layout_weight="1"
                 android:layout_marginBottom="@dimen/dimens_m"
+                android:layout_weight="1"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>

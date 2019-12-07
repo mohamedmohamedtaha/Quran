@@ -24,6 +24,8 @@
     <dimen name="dimens_half_hundrand">150dp</dimen>
     <dimen name="dimens_height_logo">200dp</dimen>
     <dimen name="defaultValueTowHandredTen">250dp</dimen>
+    <dimen name="defaultValueThreeHandredTen">300dp</dimen>
+    <dimen name="defaultValueThreeHalfHandredTen">350dp</dimen>
 
     <dimen name="txt_size_sss">8sp</dimen>
     <dimen name="txt_size_ss">10sp</dimen>
@@ -35,4 +37,7 @@
     <dimen name="txt_size_xxxl">24sp</dimen>
     <dimen name="txt_size_xxxxl">28sp</dimen>
     <dimen name="txt_size_xxxxxl">32sp</dimen>
+    <dimen name="txt_size_6xl">48sp</dimen>
+    <dimen name="txt_size_7xl">64sp</dimen>
+
 </resources>

@@ -20,28 +20,19 @@
                 android:layout_height="@dimen/dimens_xxl"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimens_l"
                 android:contentDescription="@string/decriptionImage"
                 android:src="@drawable/ic_download" />
 
             <TextView
                 android:id="@+id/text_title"
                 style="@style/style_default_layout_wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimens_xl"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimens_mm"
                 android:layout_toLeftOf="@+id/imageView"
                 android:textSize="@dimen/txt_size_l"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/dimens_xxxl"
-                android:layout_height="@dimen/dimens_xxxl"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimens_l"
-                android:contentDescription="@string/decriptionImage"
-                android:scaleType="fitXY"
-                android:src="@mipmap/logo" />
+
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

@@ -14,10 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.MohamedTaha.Imagine.Quran.Adapter.ImageAdapter;
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.interactor.ListSoundReaderInteractor;
-import com.MohamedTaha.Imagine.Quran.model.ImageModel;
-import com.MohamedTaha.Imagine.Quran.presenter.ListSoundReaderPresenter;
-import com.MohamedTaha.Imagine.Quran.view.ListSoundReaderView;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.ListSoundReaderInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ImageModel;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.ListSoundReaderPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.view.ListSoundReaderView;
 
 import java.util.List;
 

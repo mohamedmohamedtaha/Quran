@@ -7,14 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ModelAzkar;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelAzkar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +24,6 @@ import butterknife.ButterKnife;
 public class AdapterForAzkarSwipe extends PagerAdapter {
     Context context;
     List<ModelAzkar> modelAzkarList = new ArrayList<>();
-    private static final String FONT_TYPE = "fonts/Aayat-Quraan3.ttf";
-    Typeface nyTypeface;
     public showDetail lisenter;
 
 

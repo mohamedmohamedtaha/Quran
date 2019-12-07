@@ -11,6 +11,7 @@
         android:layout_width="@dimen/dimens_half_hundrand"
         android:layout_height="@dimen/dimens_half_hundrand"
         android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
         android:layout_marginTop="@dimen/dimens_half_hundrand"
         android:src="@mipmap/logo" />
 
@@ -18,7 +19,7 @@
         android:id="@+id/textShow"
         style="@style/style_default_layout_wrap_match"
         android:layout_below="@+id/logo"
-        android:layout_marginTop="@dimen/dimens_xxl"
+        android:layout_marginTop="@dimen/dimens_6xl"
         android:gravity="center"
         android:text="@string/textMain"
         android:textColor="@android:color/black"

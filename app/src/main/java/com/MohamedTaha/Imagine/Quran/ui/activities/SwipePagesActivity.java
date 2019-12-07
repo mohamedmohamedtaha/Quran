@@ -2,7 +2,6 @@ package com.MohamedTaha.Imagine.Quran.ui.activities;
 
 import android.app.NotificationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -15,7 +14,7 @@ import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
 import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.helper.ShowDialog;
-import com.MohamedTaha.Imagine.Quran.model.ModelAzkar;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelAzkar;
 import com.booking.rtlviewpager.RtlViewPager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -28,7 +27,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.MohamedTaha.Imagine.Quran.interactor.GridViewFragmentInteractor.SAVE_POSITION;
+import static com.MohamedTaha.Imagine.Quran.helper.Images.SAVE_POSITION;
 import static com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver.NOTIFICATION_ID;
 import static com.MohamedTaha.Imagine.Quran.notification.AlarmReceiver.TIME_SEND;
 import static com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment.SAVE_AZKAR;

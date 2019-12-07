@@ -1,77 +1,80 @@
 package com.MohamedTaha.Imagine.Quran.Adapter;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.MohamedTaha.Imagine.Quran.R;
-import com.MohamedTaha.Imagine.Quran.model.ModelSora;
+import com.MohamedTaha.Imagine.Quran.mvp.model.ModelSora;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AdapterGridView extends ArrayAdapter<ModelSora> {
-    //  private int imageDimension;
+public class AdapterGridView extends RecyclerView.Adapter<AdapterGridView.ViewHolder> {
     private boolean isParts;
-   // private static final String FONT_TYPE = "fonts/Aayat-Quraan.ttf";
-    private static final String FONT_TYPE = "fonts/MADDINA.ttf";
+    private List<ModelSora> modelSoraList;
+    private ClickListener clickListener;
 
-    Typeface nyTypeface;
 
-    public AdapterGridView(@NonNull Context context, List<ModelSora> listName_sora, boolean isParts/*, int imageDimension*/) {
-        super(context, 0, listName_sora);
+    public AdapterGridView( List<ModelSora> modelSoraList,boolean isParts,ClickListener clickListener ) {
         this.isParts = isParts;
-        //   this.imageDimension = imageDimension;
+        this.modelSoraList = modelSoraList;
+        this.clickListener = clickListener;
+    }
+    public interface ClickListener {
+        void onClick(View view, int position);
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_layout_grid_view, null);
+        ViewHolder viewHolder = new ViewHolder(row);
+        row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = viewHolder.getAdapterPosition();
+                if (clickListener != null) clickListener.onClick(row, position);
+            }
+        });
+        return viewHolder;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder;
-        ModelSora modelSora = getItem(i);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ModelSora modelSora = modelSoraList.get(position);
         //For change font type
-        nyTypeface = Typeface.createFromAsset(getContext().getAssets(), FONT_TYPE);
 
-        if (view == null) {
-            view = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout_grid_view, null);
-            viewHolder = new ViewHolder(view);
-            view.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) view.getTag();
-        }
         if (isParts) {
-            viewHolder.TVNameSora.setText(modelSora.getName_part());
-            viewHolder.TVNzolelsora.setVisibility(View.INVISIBLE);
+            holder.TVNameSora.setText(modelSora.getName_part());
+            holder.TVNzolelsora.setVisibility(View.INVISIBLE);
         } else {
-            viewHolder.TVNameSora.setText(modelSora.getName_sora());
-            viewHolder.TVNzolelsora.setVisibility(View.VISIBLE);
-            viewHolder.TVNzolelsora.setText(modelSora.getNzol_elsora());
+            holder.TVNameSora.setText(modelSora.getName_sora());
+            holder.TVNzolelsora.setVisibility(View.VISIBLE);
+            holder.TVNzolelsora.setText(modelSora.getNzol_elsora());
         }
-        viewHolder.TVNameSora
-                .setTypeface(nyTypeface);
+    }
 
-//        final float scale = getContext().getResources().getDisplayMetrics().density;
-//        int pixels = (int) (imageDimension * scale + 0.5f);
-//        viewHolder.RelativeLayoutBackground.setLayoutParams(new RelativeLayout.LayoutParams(pixels, pixels));
-        return view;
+    @Override
+    public int getItemCount() {
+        return modelSoraList.size();
     }
 
     static
-    class ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.TV_Name_Sora)
         TextView TVNameSora;
         @BindView(R.id.TV_Nzol_elsora)
         TextView TVNzolelsora;
 
-
         ViewHolder(View view) {
+            super(view);
             ButterKnife.bind(this, view);
         }
     }

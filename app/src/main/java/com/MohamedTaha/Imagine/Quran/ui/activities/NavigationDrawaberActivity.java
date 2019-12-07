@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -22,19 +23,16 @@ import com.MohamedTaha.Imagine.Quran.helper.SharedPerefrenceHelper;
 import com.MohamedTaha.Imagine.Quran.informationInrto.TapTarget;
 import com.MohamedTaha.Imagine.Quran.informationInrto.TapTargetSequence;
 import com.MohamedTaha.Imagine.Quran.informationInrto.TapTargetView;
-import com.MohamedTaha.Imagine.Quran.interactor.NavigationDrawarInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.NavigationDrawarInteractor;
 import com.MohamedTaha.Imagine.Quran.notification.NotificationHelper;
-import com.MohamedTaha.Imagine.Quran.presenter.NavigationDrawarPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.NavigationDrawarPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.AzkarFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.FragmentSound;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.GridViewFragment;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.PartsFragment;
-import com.MohamedTaha.Imagine.Quran.view.NavigationDrawarView;
+import com.MohamedTaha.Imagine.Quran.mvp.view.NavigationDrawarView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -77,6 +75,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         NotificationHelper.enableBootRecieiver(getApplicationContext());
 
         //for show way using
+
         if (!SharedPerefrenceHelper.getBooleanForWayUsing(getApplicationContext(),IS_FIRST_TIME_WAY_USING,false)){
             showInformation();
             SharedPerefrenceHelper.putBooleanForWayUsing(getApplicationContext(), IS_FIRST_TIME_WAY_USING, true);

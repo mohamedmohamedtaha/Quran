@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.MohamedTaha.Imagine.Quran.R;
 import com.MohamedTaha.Imagine.Quran.helper.HelperClass;
-import com.MohamedTaha.Imagine.Quran.interactor.ExitAppSplashInteractor;
-import com.MohamedTaha.Imagine.Quran.presenter.ExitAppSplashPresenter;
+import com.MohamedTaha.Imagine.Quran.mvp.interactor.ExitAppSplashInteractor;
+import com.MohamedTaha.Imagine.Quran.mvp.presenter.ExitAppSplashPresenter;
 import com.MohamedTaha.Imagine.Quran.ui.fragments.SplashFragment;
-import com.MohamedTaha.Imagine.Quran.view.ExitAppSplashView;
+import com.MohamedTaha.Imagine.Quran.mvp.view.ExitAppSplashView;
 
 import butterknife.BindString;
 import butterknife.ButterKnife;

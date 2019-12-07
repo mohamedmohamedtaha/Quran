@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/style_default_layout_match_parent"
-    android:background="@drawable/standard_page">
+    android:background="@drawable/background_information">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:layout_height="0dp"
             android:padding="@dimen/dimens_mm"
             android:layout_marginStart="@dimen/dimens_xl"
-            android:layout_marginTop="@dimen/dimens_xl"
+            android:layout_marginTop="@dimen/dimens_9xl"
             android:layout_marginEnd="@dimen/dimens_xl"
             android:layout_marginBottom="@dimen/dimens_xxl"
             android:layout_weight="1"

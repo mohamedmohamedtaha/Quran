@@ -4,7 +4,7 @@
     style="@style/style_default_layout_match_parent"
     tools:context=".ui.fragments.PartsFragment">
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/PartsFragment_GV_Show_Images"
         style="@style/style_list_view" />
 
@@ -19,5 +19,6 @@
         />
     <TextView
         android:id="@+id/PartsFragment_TV_No_Data"
-        style="@style/style_text_view_no_data" />
+        style="@style/style_text_view_no_data"
+        />
 </RelativeLayout>

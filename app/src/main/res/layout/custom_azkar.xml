@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/style_default_layout_wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:orientation="horizontal">
 
     <com.google.android.material.card.MaterialCardView style="@style/style_material_card_view">
 
-        <RelativeLayout style="@style/style_default_layout_wrap_content">
-
-            <TextView
-                android:id="@+id/TV_Name_Azkar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_seventy"
-                android:gravity="center"
-                android:paddingTop="@dimen/dimens_mm"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/txt_size_l"
-                android:textStyle="bold"
-                tools:text="@string/nameSora" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/TV_Name_Azkar"
+            android:layout_width="@dimen/defaultValueThreeHalfHandredTen"
+            android:layout_height="@dimen/dimens_seventy"
+            android:gravity="center"
+            android:paddingTop="@dimen/dimens_mm"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            tools:text="@string/nameSora" />
     </com.google.android.material.card.MaterialCardView>
-</RelativeLayout>
+</LinearLayout>
