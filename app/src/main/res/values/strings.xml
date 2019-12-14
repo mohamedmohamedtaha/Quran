@@ -37,12 +37,12 @@
     \n
      ١- قسم الإستماع يحتوي على أكثر من ٧٠ قارئ وبقراءات مختلفة
     \n
-    (يمكن تحميل السورة وتشغيلها بعد ذلك بدون الانترنت)
+    (يمكن تحميل السورة وتشغيلها بعد ذلك بدون الإنترنت)
     \n
-      ٢- قسم قراءة القرآن عن طريق الأجزاء
+      ٢- قسم قراءة القرآن عن طريق السور
     \n
-     ٣- قسم قراءة القرآن عن طريق السور
-    \n
+     ٣- قسم قراءة القرآن عن طريق الأجزاء
+      \n
     (ويمكنك من حفظ السورة للمواصلة فيما بعد)
     \n
   ٤- قسم الأذكار اليومية للمسلم
@@ -188,6 +188,7 @@
     <string name="no_internet_network">ربما لا توجد شبكة إنترنت تأكد من الأنترنت</string>
     <string name="do_want_Save">هل تريد الرجوع إلى الصفحة المحفوظة</string>
     <string name="do_want_Save_azkar">هل تريد الرجوع إلى الذكر المحفوظ</string>
+  <string name="do_want_Save_sound">هل تريد حفظ </string>
 
     <string name="allow">السماح</string>
     <string name="grand_permission">يجب إعطاء الأذن للتطبيق</string>
@@ -218,7 +219,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="spectial_button">هذا الزر خاص</string>
     <string name="read_azkar">بقراءة الأذكار اليومية</string>
-    <string name="sound_string">بالاستماع إلى القراءن عن طريق أكثر من 70 قارئ ويمكن تحميل اي سورة ثم تشغيلها بدون الانترنت</string>
+    <string name="sound_string">بالاستماع إلى القرآن عن طريق أكثر من 70 قارئ ويمكن تحميل اي سورة ثم تشغيلهابعد ذلك بدون الإنترنت</string>
     <string name="read_string">خاص بقراءة القرآن عن طريق السور</string>
     <string name="description_string">لقد قمت بإلغاء التعليمات التي تستعرض شرح التطبيق</string>
     <string name="end">إنتهاء</string>
@@ -228,8 +229,9 @@
     <string name="read_parts_string">بقراءة القرآن عن طريق الاجزاء</string>
   <string name="mp3">.mp3</string>
   <string name="package_string">package</string>
-
-
+  <string name="download_sound">جاري تحميل السورة</string>
+  <string name="download_successful">تم تحميل السورة بنجاح </string>
+  <string name="download_field">لم يتم تحميل السورة بنجاح </string>
   <string name="send_problem_string"> السُّورَةُ تَمَّ تَحْمِيلُهَا مِنْ قَبْلُ
  إِذَا وَاجَهْتُكَ أَيُّ مُشْكِلَةٌ (رَاسِلُنَا) نَحْنُ جَاهِزِينَ لِحَلِّهَا</string>
 

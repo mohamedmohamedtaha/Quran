@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/style_default_layout_match_parent_with_background"
+    style="@style/style_default_layout_match_parent"
+    android:background="@drawable/background_azkar"
     tools:context=".ui.activities.SwipePagesActivity">
 
     <com.booking.rtlviewpager.RtlViewPager

@@ -31,6 +31,7 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
     private ClickListener clickListener;
     private static DownloadMusic downloadMusic;
     Context context;
+    RecycleViewHolder viewHolder;
 
     public RecycleViewReaderAdapter(Context context, List<ImageModel> responses, ClickListener clickListener, DownloadMusic downloadMusic) {
         this.context = context;
@@ -48,6 +49,8 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
                 if (clickListener != null) clickListener.onClick(row, position);
+
+
             }
         });
         return holder;
@@ -55,12 +58,13 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
 
     @Override
     public void onBindViewHolder(RecycleViewHolder holder, int position) {
-        ImageModel data = responses.get(position);
+        viewHolder = holder;
+        ImageModel data = responses.get(holder.getAdapterPosition());
         FILENAME = "/" + data.getName_shekh() + "/";
         File media_path = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + FILENAME);
         final File exStore = new File(media_path, data.getName_sora() + ".mp3");
         if (exStore != null && exStore.exists()) {
-            holder.IVDownload.setVisibility(View.INVISIBLE);
+            viewHolder.IVDownload.setVisibility(View.INVISIBLE);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 holder.text_title.setTextColor(context.getColor(R.color.colorAccent));
             } else {
@@ -68,13 +72,15 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
             }
         } else {
             holder.text_title.setTextColor(context.getResources().getColor(android.R.color.black));
-            holder.IVDownload.setVisibility(View.VISIBLE);
+            viewHolder.IVDownload.setVisibility(View.VISIBLE);
+
 
         }
         holder.text_title.setText(data.getName_sora());
     }
 
-       @Override
+
+    @Override
     public int getItemCount() {
         return responses.size();
     }
@@ -90,11 +96,14 @@ public class RecycleViewReaderAdapter extends RecyclerView.Adapter<RecycleViewRe
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
+            IVDownload = (ImageView) view.findViewById(R.id.IV_Download);
             IVDownload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     if (downloadMusic != null) downloadMusic.download(position);
+
+
                 }
             });
         }

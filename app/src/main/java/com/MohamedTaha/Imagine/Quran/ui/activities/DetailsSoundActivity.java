@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,10 +29,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.activeAudio;
+import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.mediaPlayer;
 import static com.MohamedTaha.Imagine.Quran.service.MediaPlayerService.transportControls;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.IsPlay;
 
-public class DetailsSoundActivity extends AppCompatActivity {
+public class DetailsSoundActivity extends AppCompatActivity{
     @BindView(R.id.btnPrevious)
     Button btnPrevious;
     private static Button btnPlay;
@@ -43,9 +46,10 @@ public class DetailsSoundActivity extends AppCompatActivity {
     TextView MainActivityTVBufferDuration;
     @BindView(R.id.MainActivity_TV_Duration)
     TextView MainActivityTVDuration;
-    @BindView(R.id.MainActivity_SeekBar)
-    ProgressBar MainActivitySeekBar;
+    @BindView(R.id.Details_Activity_SeekBar)
+    SeekBar Details_Activity_SeekBar;
     Utilities utilities;
+    private int totalDuration;
     private static ImageView DetailsSoundActivity_IV_Picture_Shekh;
     public static boolean IS_OPEN = false;
     public static final String BROADCAST_FINISH_ACTIVITY = "com.example.FinishActivityBroadCast.finish.activity";
@@ -73,7 +77,7 @@ public class DetailsSoundActivity extends AppCompatActivity {
         MainActivityNameSora = (TextView) findViewById(R.id.MainActivity_Name_Sora);
         MainActivityNameShekh = (TextView) findViewById(R.id.MainActivity_Name_Shekh);
         DetailsSoundActivity_IV_Picture_Shekh = (ImageView) findViewById(R.id.DetailsSoundActivity_IV_Picture_Shekh);
-        MainActivitySeekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+        Details_Activity_SeekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
     }
 
     @Override
@@ -86,9 +90,28 @@ public class DetailsSoundActivity extends AppCompatActivity {
                 Integer i[] = (Integer[]) msg.obj;
                 MainActivityTVBufferDuration.setText("" + utilities.milliSecondsToTimer(i[0]));
                 MainActivityTVDuration.setText("" + utilities.milliSecondsToTimer(i[1]));
-                MainActivitySeekBar.setProgress(i[2]);
+                Details_Activity_SeekBar.setProgress(i[2]);
+                totalDuration = i[1];
+
             }
         };
+        Details_Activity_SeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int currentPosition = utilities.progressToTimer(seekBar.getProgress(),totalDuration);
+                mediaPlayer.seekTo(currentPosition);
+            }
+        });
         updateUI();
         Glide.with(getApplicationContext())
                 .load(activeAudio.getUrl_image())

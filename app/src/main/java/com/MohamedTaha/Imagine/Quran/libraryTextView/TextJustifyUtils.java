@@ -1,4 +1,4 @@
-package com.MohamedTaha.Imagine.Quran.Adapter;
+package com.MohamedTaha.Imagine.Quran.libraryTextView;
 
 import android.graphics.Paint;
 import android.view.Gravity;

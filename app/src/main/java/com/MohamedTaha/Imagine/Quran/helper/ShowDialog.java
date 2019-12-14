@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
@@ -38,7 +39,6 @@ public class ShowDialog {
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPerefrenceHelper.removeData(activity);
                 SwipePagesActivityVP.setCurrentItem(position);
                 dialog.dismiss();
             }
@@ -52,19 +52,27 @@ public class ShowDialog {
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.custom_details);
         TextView tv_save_position = (TextView) dialog.findViewById(R.id.TV_Save_Position);
+        RelativeLayout relativeLayout = (RelativeLayout) dialog.findViewById(R.id.Relative);
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
         tv_save_position.setText(text);
         tv_save_position.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPerefrenceHelper.removeData(activity);
                 SharedPerefrenceHelper.putBoolean(activity, IS_TRUE, true);
                 SharedPerefrenceHelper.putInt(activity, SAVE_IMAGES, save_position);
                 HelperClass.customToast(activity, activity.getResources().getString(R.string.save));
                 dialog.dismiss();
             }
         });
-        //  textView.setText(msg);
-        // textView2.setText(number_part);
-        // tv_number_page.setText("" + number_page);
         dialog.show();
     }
 
@@ -75,6 +83,15 @@ public class ShowDialog {
         dialog.setContentView(R.layout.custom_details);
         TextView tv_save_position = (TextView) dialog.findViewById(R.id.TV_Save_Position);
         tv_save_position.setText(text);
+        RelativeLayout relativeLayout = (RelativeLayout) dialog.findViewById(R.id.Relative);
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
         tv_save_position.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,5 +136,31 @@ public class ShowDialog {
         });
         dialog.show();
     }
+
+    public static void showDialogForCkeckDownload(Activity activity, String name_sora) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.custom_show_dialog);
+        TextView textView = (TextView) dialog.findViewById(R.id.show_text);
+        textView.setText(name_sora + activity.getResources().getString(R.string.do_want_Save_sound));
+        Button yesButton = (Button) dialog.findViewById(R.id.BT_Yes);
+        Button noButton = (Button) dialog.findViewById(R.id.BT_No);
+
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
 
 }

@@ -1,10 +1,9 @@
-package com.MohamedTaha.Imagine.Quran.Adapter;
+package com.MohamedTaha.Imagine.Quran.libraryTextView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.TextView;

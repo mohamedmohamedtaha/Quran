@@ -9,9 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class NoInternetConnection extends AsyncTask<String, Void, String> {
-        public static final String REQUEST_METHOD = "GET";
-        public static final int READ_TIMEOUT = 15000;
-        public static final int CONNECTION_TIMEOUT = 15000;
+    public static final String REQUEST_METHOD = "GET";
+    public static final int READ_TIMEOUT = 15000;
+    public static final int CONNECTION_TIMEOUT = 15000;
     private static boolean isInternet = false;
 
     public static boolean isInternet() {
@@ -19,13 +19,13 @@ public class NoInternetConnection extends AsyncTask<String, Void, String> {
     }
 
     @Override
-        protected String doInBackground(String... urls) {
+    protected String doInBackground(String... urls) {
         String stringUrl = urls[0];
         String result;
         String inputLine;
         try {
             URL url = new URL(stringUrl);
-            HttpURLConnection urlConnection =(HttpURLConnection)url.openConnection();
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             //Set methods and timeouts
             urlConnection.setRequestMethod(REQUEST_METHOD);
             urlConnection.setReadTimeout(READ_TIMEOUT);
@@ -39,7 +39,7 @@ public class NoInternetConnection extends AsyncTask<String, Void, String> {
             BufferedReader reader = new BufferedReader(streamReader);
             StringBuilder stringBuilder = new StringBuilder();
             //Check if the line we are reading is not null
-            while((inputLine = reader.readLine()) != null){
+            while ((inputLine = reader.readLine()) != null) {
                 stringBuilder.append(inputLine);
             }
             //Close our InputStream and Buffered reader
@@ -47,22 +47,21 @@ public class NoInternetConnection extends AsyncTask<String, Void, String> {
             streamReader.close();
             //Set our result equal to our stringBuilder
             result = stringBuilder.toString();
-            }
-            catch(IOException e){
-                e.printStackTrace();
-                result = null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            result = null;
 
-            }
-            return result;
         }
+        return result;
+    }
 
-        @Override
-        protected void onPostExecute(String aVoid) {
-            super.onPostExecute(aVoid);
-            if (aVoid == null){
-                isInternet = false;
-            }else {
-                isInternet = true;
-            }
+    @Override
+    protected void onPostExecute(String aVoid) {
+        super.onPostExecute(aVoid);
+        if (aVoid == null) {
+            isInternet = false;
+        } else {
+            isInternet = true;
         }
+    }
 }

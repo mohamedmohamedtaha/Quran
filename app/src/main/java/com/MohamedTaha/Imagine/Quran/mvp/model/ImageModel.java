@@ -7,6 +7,15 @@ public class ImageModel {
     String sora_link;
     private String name_shekh;
     private int position;
+    private boolean isSelected;
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 
     public int getPosition() {
         return position;

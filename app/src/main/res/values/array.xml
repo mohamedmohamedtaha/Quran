@@ -460,7 +460,7 @@
         <item name="Link103">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/103.mp3</item>
         <item name="Link104">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/104.mp3</item>
         <item name="Link105">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/105.mp3</item>
-        <item name="Link106">http://server14mp3quran.net/Rewayat-Hafs-A-n-Assem/106.mp3</item>
+        <item name="Link106">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/106.mp3</item>
         <item name="Link107">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/107.mp3</item>
         <item name="Link108">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/108.mp3</item>
         <item name="Link109">http://server14.mp3quran.net/Rewayat-Hafs-A-n-Assem/109.mp3</item>
@@ -1292,7 +1292,7 @@
     </string-array>
 
     <string-array name="linkesNasser_almajed">
-        <item name="Link1">http://server14.mp3quran.net/nasser_almajed001.mp3</item>
+        <item name="Link1">http://server14.mp3quran.net/nasser_almajed/001.mp3</item>
         <item name="Link2">http://server14.mp3quran.net/nasser_almajed/002.mp3</item>
         <item name="Link3">http://server14.mp3quran.net/nasser_almajed/003.mp3</item>
         <item name="Link4">http://server14.mp3quran.net/nasser_almajed/004.mp3</item>
@@ -1305,7 +1305,7 @@
         <item name="Link11">http://server14.mp3quran.net/nasser_almajed/011.mp3</item>
         <item name="Link12">http://server14.mp3quran.net/nasser_almajed/012.mp3</item>
         <item name="Link13">http://server14.mp3quran.net/nasser_almajed/013.mp3</item>
-        <item name="Link14">http://server14.mp3quran.net/nasser_almajed014.mp3</item>
+        <item name="Link14">http://server14.mp3quran.net/nasser_almajed/014.mp3</item>
         <item name="Link15">http://server14.mp3quran.net/nasser_almajed/015.mp3</item>
         <item name="Link16">http://server14.mp3quran.net/nasser_almajed/016.mp3</item>
         <item name="Link17">http://server14.mp3quran.net/nasser_almajed/017.mp3</item>
@@ -1323,7 +1323,7 @@
         <item name="Link29">http://server14.mp3quran.net/nasser_almajed/029.mp3</item>
         <item name="Link30">http://server14.mp3quran.net/nasser_almajed/030.mp3</item>
         <item name="Link31">http://server14.mp3quran.net/nasser_almajed/031.mp3</item>
-        <item name="Link32">http://server14.mp3quran.net/nasser_almajed032.mp3</item>
+        <item name="Link32">http://server14.mp3quran.net/nasser_almajed/032.mp3</item>
         <item name="Link33">http://server14.mp3quran.net/nasser_almajed/033.mp3</item>
         <item name="Link34">http://server14.mp3quran.net/nasser_almajed/034.mp3</item>
         <item name="Link35">http://server14.mp3quran.net/nasser_almajed/035.mp3</item>
@@ -1380,7 +1380,7 @@
         <item name="Link86">http://server14.mp3quran.net/nasser_almajed/086.mp3</item>
         <item name="Link87">http://server14.mp3quran.net/nasser_almajed/087.mp3</item>
         <item name="Link88">http://server14.mp3quran.net/nasser_almajed/088.mp3</item>
-        <item name="Link89">http://server14.mp3quran.net/nasser_almajed089.mp3</item>
+        <item name="Link89">http://server14.mp3quran.net/nasser_almajed/089.mp3</item>
         <item name="Link90">http://server14.mp3quran.net/nasser_almajed/090.mp3</item>
         <item name="Link91">http://server14.mp3quran.net/nasser_almajed/091.mp3</item>
         <item name="Link92">http://server14.mp3quran.net/nasser_almajed/092.mp3</item>
@@ -12719,7 +12719,7 @@
 
 
     <string-array name="linkesEarawi">
-<item name="Link1">http://server6.mp3quran.net/earawi/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/001.mp3</item>
+        <item name="Link1">http://server6.mp3quran.net/earawi/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/001.mp3</item>
         <item name="Link2">http://server6.mp3quran.net/earawi/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/002.mp3</item>
         <item name="Link3">http://server6.mp3quran.net/earawi/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/003.mp3</item>
         <item name="Link4">http://server6.mp3quran.net/earawi/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/004.mp3</item>
@@ -14724,7 +14724,14 @@
         <item name="aya80">وَيَومَ نَبعَثُ في كُلِّ أُمَّةٍ شَهيدًا عَلَيهِم مِن أَنفُسِهِم وَجِئنا بِكَ شَهيدًا عَلى هـؤُلاءِ وَنَزَّلنا عَلَيكَ الكِتابَ تِبيانًا لِكُلِّ شَيءٍ وَهُدًى وَرَحمَةً وَبُشرى لِلمُسلِمينَ (٨٩)النحل</item>
         <item name="aya81">مَن عَمِلَ صالِحًا مِن ذَكَرٍ أَو أُنثى وَهُوَ مُؤمِنٌ فَلَنُحيِيَنَّهُ حَياةً طَيِّبَةً وَلَنَجزِيَنَّهُم أَجرَهُم بِأَحسَنِ ما كانوا يَعمَلونَ (٩٧)النحل</item>
         <item name="aya82">فَإِذا قَرَأتَ القُرآنَ فَاستَعِذ بِاللَّـهِ مِنَ الشَّيطانِ الرَّجيمِ (٩٨)النحل</item>
-         </string-array>
+        <item name="aya83">سُبْحَانَ الَّذِي أَسْرَى بِعَبْدِهِ لَيْلًا مِنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ آيَاتِنَا إِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ (١)الإسراء</item>
+        <item name="aya84"> إِنَّ هَذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ وَيُبَشِّرُ الْمُؤْمِنِينَ الَّذِينَ يَعْمَلُونَ الصَّالِحَاتِ أَنَّ لَهُمْ أَجْرًا كَبِيرًا (٩)الإسراء</item>
+        <item name="aya85">مَنْ كَانَ يُرِيدُ الْعَاجِلَةَ عَجَّلْنَا لَهُ فِيهَا مَا نَشَاءُ لِمَنْ نُرِيدُ ثُمَّ جَعَلْنَا لَهُ جَهَنَّمَ يَصْلَاهَا مَذْمُومًا مَدْحُورًا (١٨) الإسراء</item>
+        <item name="aya86">وَلَا تَقْتُلُوا أَوْلَادَكُمْ خَشْيَةَ إِمْلَاقٍ نَحْنُ نَرْزُقُهُمْ وَإِيَّاكُمْ إِنَّ قَتْلَهُمْ كَانَ خِطْئًا كَبِيرًا (٣١) الإسراء</item>
+        <item name="aya87">أَفَأَصْفَاكُمْ رَبُّكُمْ بِالْبَنِينَ وَاتَّخَذَ مِنَ الْمَلَائِكَةِ إِنَاثًا إِنَّكُمْ لَتَقُولُونَ قَوْلًا عَظِيمًا (٤٠)الإسراء</item>
+
+    </string-array>
+
     <string-array name="azkar">
         <item name="azkar1">اذكار الاستيقاظ من النوم</item>
         <item name="azkar2">دعاء لبس الثوب</item>
@@ -15134,6 +15141,8 @@
 ١- اللَّهُمَّ إِنَّا نَجْعَلُكَ فِي نُحُورِهِم، وَنَعُوذُ بِكَ مِنْ شُرُورِهِمْ
 \n \n
 ٢- اللَّهُمَّ أَنْتَ عَضُدِي، وَأَنْتَ نَصِيرِي، بِكَ أَحُولُ وَبِكَ أَصُولُ، وَبِكَ أُقاتِلُ
+            \n \n
+
 ٣- حَسْبُنا اللَّهُ وَنِعْمَ الْوَكِيلُ
 </item>
 
@@ -15192,17 +15201,19 @@
 </item>
 
         <item name="azkar46">
-بَارَكَ اللَّهُ لَكَ فِي الْمَوْهُوبِ لَكَ، وَشَكَرْتَ الْوَاهِبَ، وَبَلَغَ أَشُدَّهُ، وَرُزِقْتَ بِرَّهُ))( ). وَيَرُدُّ عَلَيْهِ الْمُهَــــــنَّأُ فَيَقُولُ: ((بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ، وَجَزَاكَ اللَّهُ خَيْراً، وَرَزَقَكَ اللَّهُ مِثْلَهُ، وَأَجْزَلَ ثَوَابَكَ
+بَارَكَ اللَّهُ لَكَ فِي الْمَوْهُوبِ لَكَ، وَشَكَرْتَ الْوَاهِبَ، وَبَلَغَ أَشُدَّهُ، وَرُزِقْتَ بِرَّه. وَيَرُدُّ عَلَيْهِ الْمُهَــــــنَّأُ فَيَقُولُ: بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ، وَجَزَاكَ اللَّهُ خَيْراً، وَرَزَقَكَ اللَّهُ مِثْلَهُ، وَأَجْزَلَ ثَوَابَكَ
 </item>
 
         <item name="azkar47">
-كَانَ رَسُولُ اللَّهِ - صلى الله عليه وسلم - يُعَوِّذُ الحَسَنَ وَالحُسَينَ(أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لاَمَّةٍ)
+كَانَ رَسُولُ اللَّهِ - صلى الله عليه وسلم - يُعَوِّذُ الحَسَنَ وَالحُسَينَ
+            \n
+            (أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لاَمَّةٍ)
 </item>
 
         <item name="azkar48">
 ١- لاَ بأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ
 \n \n
-٢- أَسْأَلُ اللَّهَ الْعَظيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفيَكَ)(سبع مرات)
+٢- أَسْأَلُ اللَّهَ الْعَظيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفيَكَ(سبع مرات)
 </item>
 
         <item name="azkar49">
@@ -15231,7 +15242,9 @@
 </item>
 
         <item name="azkar54">
-١- اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأَبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجَاً خَيْراً مِنْ زَوْجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ القَبْرِ [وَعَذَابِ النَّارِ]
+١- اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأَبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجَاً خَيْراً مِنْ زَوْجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ القَبْرِ
+            \n
+            [وَعَذَابِ النَّارِ]
 \n \n
 ٢- اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا، وَشَاهِدِنَا وَغَائِبِنَا، وَصَغِيرِنَا وَكَبيرِنَا، وَذَكَرِنَا وَأُنْثَانَا. اللَّهُمَّ مَنْ أَحْيَيْتَهُ مِنَّا فَأَحْيِهِ عَلَى الْإِسْلاَمِ، وَمَنْ تَوَفَّيْتَهُ مِنَّا فَتَوَفَّهُ عَلَى الإِيمَانِ، اللَّهُمَّ لاَ تَحْرِمْنَا أَجْرَهُ، وَلاَ تُضِلَّنَا بَعْدَهُ
 \n \n
@@ -15323,11 +15336,9 @@
         <item name="azkar71">
 اللَّهُمَّ أَطْعِمْ مَنْ أَطْعَمَنِي، وَاسْقِ مَنْ سَقَانِي
 </item>
-
         <item name="azkar72">
 أَفْطَرَ عِنْدَكُمُ الصَّائِمُونَ، وَأَكَلَ طَعَامَكُمُ الْأَبْرَارُ، وَصَلَّتْ عَلَيْكُمُ الْمَلاَئِكَةُ
 </item>
-
         <item name="azkar73">
 إِذَا دُعِيَ أَحَدُكُمْ فَلْيُجِبْ، فَإِنْ كَانَ صَائِماً فَلْيُصَلِّ، وَإِنْ كَانَ مُفْطِراً فَلْيَطْعَمْ، وَمَعْنَى فَلْيُصَلِّ أَيْ فَلْيَدْعُ.
 </item>
@@ -15353,7 +15364,7 @@
 </item>
 
         <item name="azkar79">
-إِذَا تَزَوَّجَ أَحَدُكُمُ امْرَأَةً، أَوْ إِذَا اشْتَرَى خَادِماً فَلْيَقُلْ: ((اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا، وَخَيْرَ مَا جَبَلْتَهَا عَلَيْهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا، وَشَرِّ مَا جَبَلْتَهَا عَلَيْهِ، وَإِذَا اشْتَرَى بَعِيراً فَلْيَأْخُذْ بِذِرْوَةِ سَنَامِهِ وَلْيَقُلْ مِثْلَ ذَلِكَ
+إِذَا تَزَوَّجَ أَحَدُكُمُ امْرَأَةً، أَوْ إِذَا اشْتَرَى خَادِماً فَلْيَقُلْ: اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا، وَخَيْرَ مَا جَبَلْتَهَا عَلَيْهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا، وَشَرِّ مَا جَبَلْتَهَا عَلَيْهِ، وَإِذَا اشْتَرَى بَعِيراً فَلْيَأْخُذْ بِذِرْوَةِ سَنَامِهِ وَلْيَقُلْ مِثْلَ ذَلِكَ
 </item>
 
         <item name="azkar80">
@@ -15369,7 +15380,7 @@
 </item>
 
         <item name="azkar83">
-عَنِ ابْنِ عُمَرَ ^ قَاَلَ: كَانَ يُعَدُّ لِرَسُولِ اللَّهِ - صلى الله عليه وسلم - فِي الْمَجْلِسِ الوَاحِدِ مِائَةُ مَرَّةٍ مِنْ قَبْلِ أَنْ يَقُومَ: ((رَبِّ اغْفِرْ لِي، وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الغَفُورُ
+عَنِ ابْنِ عُمَرَ ^ قَاَلَ: كَانَ يُعَدُّ لِرَسُولِ اللَّهِ - صلى الله عليه وسلم - فِي الْمَجْلِسِ الوَاحِدِ مِائَةُ مَرَّةٍ مِنْ قَبْلِ أَنْ يَقُومَ: رَبِّ اغْفِرْ لِي، وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الغَفُورُ
 </item>
 
         <item name="azkar84">
@@ -15413,7 +15424,7 @@
 </item>
 
         <item name="azkar94">
-بِسْمِ اللَّهِ، وَالْحَمْدُ للَّهِ {سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ}، ((الْحَمْدُ لِلَّهِ، الْحَمْدُ لِلَّهِ، الْحَمْدُ لِلَّهِ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، سُبْحَانَكَ اللَّهُمَّ  إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي؛ فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ
+بِسْمِ اللَّهِ، وَالْحَمْدُ للَّهِ {سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ}، الْحَمْدُ لِلَّهِ، الْحَمْدُ لِلَّهِ، الْحَمْدُ لِلَّهِ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، سُبْحَانَكَ اللَّهُمَّ  إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي؛ فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ
 </item>
 
         <item name="azkar95">
@@ -15630,5 +15641,19 @@
         <item>@string/settings_by_department_value_every_hour</item>
         <item>@string/settings_by_department_value_half_day</item>
         <item>@string/settings_by_department_value_every_day</item>
+    </string-array>
+
+
+    <string-array name="image_ids">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 </resources>

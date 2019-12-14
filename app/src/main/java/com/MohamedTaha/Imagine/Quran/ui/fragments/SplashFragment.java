@@ -67,8 +67,8 @@ public class SplashFragment extends Fragment implements SplashView {
     public void goToMainActivity() {
       //  HelperClass.startActivity(getActivity(), SplashActivity.class);
 
-        HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
-        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+  //      HelperClass.startActivity(getActivity(), NavigationDrawaberActivity.class);
+   //     getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @Override

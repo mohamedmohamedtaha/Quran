@@ -263,194 +263,29 @@ public class AlarmReceiver extends BroadcastReceiver {
             case 79:
                 number = 276;
                 break;
-            default:
+            case 80:
+            case 81:
                 number = 277;
+                break;
+            case 82:
+                number = 281;
+                break;
+            case 83:
+                number = 282;
+                break;
+            case 84:
+                number = 283;
+                break;
+            case 85:
+                number =284;
+                break;
+            default:
+                number = 285;
 
         }
         return number;
     }
 
-    private String setNotificationID(int randomIndex) {
-        String string;
-        switch (randomIndex) {
-            case 0:
-                string = "string0";
-                break;
-            case 1:
-                string = "string1";
-                break;
-            case 2:
-            case 3:
-                string = "string2";
-                break;
-            case 4:
-                string = "string46";
-                break;
-            case 5:
-                string = "string53";
-                break;
-            case 6:
-            case 16:
-                string = "string54";
-                break;
-            case 7:
-            case 8:
-                string = "string49";
-                break;
-            case 9:
-            case 10:
-            case 21:
-                string = "string6";
-                break;
-            case 11:
-                string = "string10";
-                break;
-            case 12:
-            case 13:
-                string = "string11";
-                break;
-            case 14:
-                string = "string50";
-                break;
-            case 15:
-                string = "string51";
-                break;
-            case 17:
-                string = "string55";
-                break;
-            case 18:
-            case 19:
-                string = "string56";
-                break;
-            case 20:
-                string = "string4";
-                break;
-            case 22:
-            case 23:
-                string = "string3";
-                break;
-            case 24:
-                string = "string4";
-                break;
-            case 25:
-            case 26:
-                string = "string76";
-                break;
-            case 27:
-            case 28:
-            case 29:
-                string = "string77";
-                break;
-            case 30:
-                string = "string78";
-                break;
-            case 31:
-            case 32:
-                string = "string97";
-                break;
-            case 33:
-                string = "string82";
-                break;
-            case 34:
-            case 35:
-                string = "string84";
-                break;
-            case 36:
-                string = "string85";
-                break;
-            case 37:
-                string = "string86";
-                break;
-            case 38:
-                string = "string87";
-                break;
-            case 39:
-                string = "string107";
-                break;
-            case 40:
-            case 41:
-                string = "string109";
-                break;
-            case 42:
-                string = "string110";
-                break;
-            case 43:
-                string = "string111";
-                break;
-            case 44:
-                string = "string112";
-                break;
-            case 45:
-                string = "string113";
-                break;
-            case 46:
-            case 47:
-            case 48:
-            case 49:
-                string = "string603";
-                break;
-            case 50:
-                string = "string600";
-                break;
-            case 51:
-                string = "string597";
-                break;
-            case 52:
-            case 53:
-                string = "string598";
-                break;
-            case 54:
-                string = "string597";
-                break;
-            case 55:
-            case 56:
-            case 57:
-                string = "string596";
-                break;
-            case 58:
-                string = "string594";
-                break;
-            case 59:
-                string = "string593";
-                break;
-            case 60:
-                string = "string586";
-                break;
-            case 61:
-                string = "string587";
-                break;
-            case 62:
-            case 63:
-                string = "string592";
-                break;
-            case 64:
-            case 65:
-                string = "string591";
-                break;
-            case 66:
-                string = "string590";
-                break;
-            case 67:
-                string = "string591";
-                break;
-            case 68:
-            case 69:
-            case 70:
-                string = "string589";
-                break;
-            case 71:
-            case 72:
-                string = "string586";
-                break;
-            case 73:
-            case 74:
-                string = "string259";
-                break;
-            default:
-                string = "string263";
-        }
-        return string;
-    }
 
     public void addImages() {
         images.add(R.drawable.page1);

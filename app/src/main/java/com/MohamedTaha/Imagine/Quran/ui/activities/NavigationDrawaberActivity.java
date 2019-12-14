@@ -70,12 +70,8 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
         ButterKnife.bind(this);
         presenter = new NavigationDrawarInteractor(this);
         appPackageName = getPackageName();
-        //For Settings Notifications
-        NotificationHelper.sendNotificationEveryHalfDay(getApplicationContext());
-        NotificationHelper.enableBootRecieiver(getApplicationContext());
 
         //for show way using
-
         if (!SharedPerefrenceHelper.getBooleanForWayUsing(getApplicationContext(),IS_FIRST_TIME_WAY_USING,false)){
             showInformation();
             SharedPerefrenceHelper.putBooleanForWayUsing(getApplicationContext(), IS_FIRST_TIME_WAY_USING, true);
@@ -87,7 +83,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
             int save = savedInstanceState.getInt(SAVE_STATE_VIEW_PAGER);
             navView.setSelectedItemId(save);
         } else {
-            navView.setSelectedItemId(R.id.read_quran);
+            navView.setSelectedItemId(R.id.sound_quran);
         }
         setSupportActionBar(toobar);
         //for change color text toolbar
@@ -177,6 +173,14 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //For Settings Notifications
+        NotificationHelper.sendNotificationEveryHalfDay(getApplicationContext());
+        NotificationHelper.enableBootRecieiver(getApplicationContext());
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_share:
@@ -218,7 +222,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
 
     @Override
     public void getDefault() {
-        navView.setSelectedItemId(R.id.read_quran);
+        navView.setSelectedItemId(R.id.sound_quran);
     }
 
     @Override
@@ -333,7 +337,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                 });
 
         // You don't always need a sequence, and for that there's a single time tap target
-          TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_quran), getString(R.string.spectial_button), getString(R.string.read_string))
+          TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.sound_quran), getString(R.string.spectial_button),getString(R.string.sound_string) )
                 .cancelable(false)
                 .drawShadow(true)
                 .transparentTarget(true)
@@ -347,7 +351,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
                 super.onTargetClick(view);
                 // .. which evidently starts the sequence we defined earlier
                 //  sequence.start();
-                navView.setSelectedItemId(R.id.read_parts);
+                navView.setSelectedItemId(R.id.read_quran);
                 setTwoShow();
             }
 
@@ -365,7 +369,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     }
 
     private void setTwoShow() {
-        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_parts), getString(R.string.spectial_button), getString(R.string.read_parts_string))
+        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_quran), getString(R.string.spectial_button), getString(R.string.read_string))
                 .cancelable(false)
                 .drawShadow(true)
                 .transparentTarget(true)
@@ -378,7 +382,7 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
             public void onTargetClick(TapTargetView view) {
                 super.onTargetClick(view);
                 // .. which evidently starts the sequence we defined earlier
-                navView.setSelectedItemId(R.id.sound_quran);
+                navView.setSelectedItemId(R.id.read_parts);
                 setShowThreeItem();
             }
 
@@ -396,7 +400,8 @@ public class NavigationDrawaberActivity extends AppCompatActivity implements Nav
     }
 
     private void setShowThreeItem() {
-        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.sound_quran), getString(R.string.spectial_button), getString(R.string.sound_string))
+        TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.read_parts), getString(R.string.spectial_button),getString(R.string.read_parts_string)
+        )
                 .cancelable(false)
                 .drawShadow(true)
                 .transparentTarget(true)

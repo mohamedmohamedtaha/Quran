@@ -32,7 +32,7 @@ public class NavigationDrawarInteractor implements NavigationDrawarPresenter {
     public void exitApp(MaterialSearchView searchView, BottomNavigationView navView) {
         if (searchView.isSearchOpen()) {
             searchView.closeSearch();
-        } else if (navView.getSelectedItemId() == R.id.read_quran) {
+        } else if (navView.getSelectedItemId() == R.id.sound_quran) {
             if (exitApp) {
                 navigationDrawarView.exitApp();
                 return;

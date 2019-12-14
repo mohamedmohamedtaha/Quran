@@ -31,6 +31,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.webkit.URLUtil;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -64,6 +65,7 @@ import static com.MohamedTaha.Imagine.Quran.ui.activities.DetailsSoundActivity.i
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.FragmentListSoundLLControlMedia;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.ListSoundReaderLoadingIndicator;
 import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.isServiceRunning;
+//import static com.MohamedTaha.Imagine.Quran.ui.activities.ListSoundReader.seekBar;
 
 public class MediaPlayerService extends Service implements MediaPlayer.OnCompletionListener,
         MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener,
@@ -75,6 +77,27 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     private NoInternetReceiver noInternetReceiver = null;
     NotificationCompat.Builder notificationBuilder;
     private static Timer timer;
+    Integer totalDuration ;
+    Integer currentDuration ;
+    int progress ;
+//
+//    @Override
+//    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//
+//    }
+//
+//    @Override
+//    public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//    }
+//
+//    @Override
+//    public void onStopTrackingTouch(SeekBar seekBar) {
+//        int currentPosition = utilities.progressToTimer(seekBar.getProgress(),totalDuration);
+//        mediaPlayer.seekTo(currentPosition);
+//
+//    }
+
 
     private class MainTask extends TimerTask {
         @Override
@@ -87,9 +110,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         @Override
         public void handleMessage(Message msg) {
             if (mediaPlayer != null) {
-                Integer totalDuration = mediaPlayer.getDuration();
-                Integer currentDuration = mediaPlayer.getCurrentPosition();
-                int progress = (utilities.getProgressPercentage(currentDuration, totalDuration));
+                 totalDuration = mediaPlayer.getDuration();
+                 currentDuration = mediaPlayer.getCurrentPosition();
+                 progress = (utilities.getProgressPercentage(currentDuration, totalDuration));
                 Integer i[] = new Integer[4];
                 i[0] = currentDuration;
                 i[1] = totalDuration;
@@ -112,7 +135,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     public static final String ACTION_STOP = "com.example.createmediaplayer.ACTION_STOP";
     public static final String SESIION_AUDIO_PLAYER = "AudioPlayer";
     private static final String CHANNEL_ID = "com.MohamedTaha.Imagine.Quran.channelID";
-
     //MediaSession
     private MediaSessionManager mediaSessionManager;
     private MediaSessionCompat mediaSession;
@@ -125,12 +147,12 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
     private static final int NOTIFICATION_ID_SERVICE = 10;
     private String FILENAME = null;
 
-    private MediaPlayer mediaPlayer;
+    public static MediaPlayer mediaPlayer;
     //path to the audio file
     private String mediaFile;
 
     //Used to ic_pause/resume MediaPlayer
-    private int resumePosition;
+//    private int resumePosition;
 
     private AudioManager audioManager;
 
@@ -160,6 +182,8 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 //        if (Build.VERSION.SDK_INT >= 26) {
 //            startForeground(NOTIFICATION_ID_SERVICE, new Notification());
 //        }
+//        seekBar.setOnSeekBarChangeListener(this);
+
 
         // Create a network change broadcast receiver.
         connectivityReceiver = new ConnectivityReceiver();
@@ -227,7 +251,9 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
         //Handle Intent action from MediaSession.TransportControls
         handleIncomingActions(intent);
-        return super.onStartCommand(intent, flags, startId);
+    //    return super.onStartCommand(intent, flags, startId);
+        return  START_NOT_STICKY;
+
     }
 
     public void playAyaFromEnternal(File media_path) {
@@ -424,6 +450,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         buildNotification(PlaybackStatus.PLAYING);
     }
 
+
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         //Invoked when there has been an error during an asynchronous operation
@@ -458,6 +485,12 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         }
 
     }
+    public void seekTo(int posiiotn) {
+        if (mediaPlayer != null){
+            mediaPlayer.seekTo(posiiotn);
+        }
+
+    }
 
     private void playMedia() {
         if (!mediaPlayer.isPlaying()) {
@@ -471,6 +504,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         if (mediaPlayer == null) return;
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
+          //  mediaPlayer.release();
             isPlaying = false;
             ListSoundReader.IsPlay = false;
         }
@@ -485,7 +519,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
             //updateProgressBar();
-            resumePosition = mediaPlayer.getCurrentPosition();
+         //   resumePosition = mediaPlayer.getCurrentPosition();
             isPlaying = false;
             buildNotification(PlaybackStatus.PAUSED);
             ListSoundReader.IsPlay = false;
@@ -498,7 +532,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
     private void resumeMedia() {
         if (!mediaPlayer.isPlaying()) {
-            mediaPlayer.seekTo(resumePosition);
+            mediaPlayer.seekTo(currentDuration);
             mediaPlayer.start();
             isPlaying = true;
             buildNotification(PlaybackStatus.PLAYING);
@@ -535,7 +569,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         @Override
         public void onReceive(Context context, Intent intent) {
             //Get the new media index fromSharedPreferences
-
             //For change list of Shakh
             StorageUtil storage = new StorageUtil(getApplicationContext());
             audioArrayList = storage.loadAudio();
@@ -552,9 +585,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
             //   mediaPlayer.reset();
             initMediaPlayer();
             updateMetaData();
-
-            //  buildNotification(PlaybackStatus.PLAYING);
-            //FragmentListSoundLLControlMedia.setVisibility(View.VISIBLE);
 
         }
     };
@@ -688,7 +718,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
         if (isDetailsActivityTrue) {
             DetailsSoundActivity_loading_indicator.setVisibility(View.VISIBLE);
         }
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -732,6 +761,11 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
                             } else {
                                 Toast.makeText(getApplicationContext(), R.string.text_fiald, Toast.LENGTH_LONG).show();
+                                startForeground(NOTIFICATION_ID_SERVICE, notificationBuilder.build());
+                                stopMedia();
+                                stopSelf();
+                                removeNotification();
+                                FragmentListSoundLLControlMedia.setVisibility(View.GONE);
                             }
                         }
                     }

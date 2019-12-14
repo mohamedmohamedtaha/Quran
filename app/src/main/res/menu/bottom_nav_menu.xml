@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/sound_quran"
+        android:icon="@drawable/ic_speaker"
+        android:title="@string/listen_swar" />
+    <item
         android:id="@+id/read_quran"
         android:icon="@drawable/ic_read"
         android:title="@string/readswar" />
@@ -10,17 +14,7 @@
         android:title="@string/read_parts" />
 
     <item
-        android:id="@+id/sound_quran"
-        android:icon="@drawable/ic_speaker"
-        android:title="@string/listen_swar" />
-
-    <item
         android:id="@+id/azkar"
         android:icon="@drawable/ic_azkar"
         android:title="@string/azkar" />
-  <!--  <item
-        android:id="@+id/elslah"
-        android:icon="@drawable/read"
-        android:title="@string/elslah" />
--->
 </menu>

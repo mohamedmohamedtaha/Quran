@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -53,7 +54,7 @@ public class SwipePagesActivity extends AppCompatActivity {
     private int position_azkar = 0;
     Bundle bundle;
     int notificationId;
-
+    String language_name ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class SwipePagesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         bundle = getIntent().getExtras();
         //to Check before change Language
-        String language_name = Locale.getDefault().getLanguage();
+        language_name = Locale.getDefault().getLanguage();
         if (language_name != "ar") {
             HelperClass.change_language("ar", this);
         }
@@ -202,6 +203,11 @@ public class SwipePagesActivity extends AppCompatActivity {
         super.onDestroy();
 //        imagesNotification.clear();
   //      images.clear();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

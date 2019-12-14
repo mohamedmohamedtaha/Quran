@@ -1,7 +1,7 @@
 package com.MohamedTaha.Imagine.Quran.Adapter;
 
 import android.content.Context;
-import android.graphics.Typeface;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.MohamedTaha.Imagine.Quran.R;
+import com.MohamedTaha.Imagine.Quran.libraryTextView.TextViewEx;
 import com.MohamedTaha.Imagine.Quran.mvp.model.ModelAzkar;
 
 import java.util.ArrayList;
@@ -35,10 +36,9 @@ public class AdapterForAzkarSwipe extends PagerAdapter {
 
     @Override
     public int getCount() {
-        if (modelAzkarList != null && modelAzkarList.size() >=0){
+        if (modelAzkarList != null && modelAzkarList.size() >= 0) {
             return modelAzkarList.size();
-        }
-        else {
+        } else {
             return 0;
         }
     }
@@ -59,6 +59,8 @@ public class AdapterForAzkarSwipe extends PagerAdapter {
 
         ModelAzkar modelSora = modelAzkarList.get(position);
         viewHolder.TVNameDescribe.setText(modelSora.getDescribe_azkar());
+        //For Scrolling for textView
+        viewHolder.TVNameDescribe.setMovementMethod(new ScrollingMovementMethod());
         viewHolder.TVNameAzkar.setText(modelSora.getName_azkar());
 //        viewHolder.TVNameAzkar
 //                .setTypeface(nyTypeface);

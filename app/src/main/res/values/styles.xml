@@ -70,8 +70,9 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/dimens_xl</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:visibility">gone</item>
         <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:visibility">gone</item>
+
     </style>
 
     <style name="style_toolbar" parent="@style/style_default_layout_wrap_match">
@@ -129,8 +130,14 @@
     <style name="style_button_details_sound_activity">
         <item name="android:layout_width">@dimen/dimens_xxl</item>
         <item name="android:layout_height">@dimen/dimens_xxl</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_marginLeft">@dimen/dimens_mm</item>
-        <item name="android:layout_marginRight">@dimen/dimens_mm</item>
+        <item name="android:layout_marginStart">@dimen/dimens_mm</item>
+        <item name="android:layout_marginEnd">@dimen/dimens_mm</item>
+    </style>
+
+    <style name="style_stop_button_details_sound_activity">
+        <item name="android:layout_width">@dimen/dimens_xxl</item>
+        <item name="android:layout_height">@dimen/dimens_xxl</item>
+        <item name="android:layout_marginStart">@dimen/dimens_xxxl</item>
+        <item name="android:layout_marginEnd">@dimen/dimens_mm</item>
     </style>
 </resources>

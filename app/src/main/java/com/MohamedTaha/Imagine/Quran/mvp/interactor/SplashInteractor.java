@@ -25,8 +25,9 @@ public class SplashInteractor implements SplashPresenter {
 
     @Override
     public void goToSlider() {
-        splashView.showAnimation();
-        if (!SharedPerefrenceHelper.getBooleanForWayUsing(context, IS_FIRST_TIME_WAY_USING, false)) {
+        if (splashView != null){
+         splashView.showAnimation();
+       // if (!SharedPerefrenceHelper.getBooleanForWayUsing(context, IS_FIRST_TIME_WAY_USING, false)) {
             waitTimer = new Timer();
             waitTimer.schedule(new TimerTask() {
                 @Override
@@ -34,13 +35,14 @@ public class SplashInteractor implements SplashPresenter {
                     context.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
                             splashView.goToSlider();
                         }
                     });
                 }
             }, WAIT_TIME);
         } else {
-            splashView.goToMainActivity();
+
         }
     }
 

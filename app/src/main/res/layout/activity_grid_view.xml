@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/style_default_layout_match_parent_with_background">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/style_default_layout_match_parent_with_background"
+    android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/GridViewActivity_GV_Show_Images"
-        style="@style/style_list_view"></androidx.recyclerview.widget.RecyclerView>
+        style="@style/style_list_view"
+        android:layout_gravity="center_horizontal"></androidx.recyclerview.widget.RecyclerView>
+
 
     <ProgressBar
         android:id="@+id/GridViewActivity_ProgressBar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimens_9xl"
+        android:visibility="gone"
         android:indeterminateDrawable="@drawable/color_progressbar"
-        android:visibility="gone" />
+       />
 
 
     <TextView
         android:id="@+id/GridViewActivity_TV_No_Data"
         style="@style/style_text_view_no_data" />
-</RelativeLayout>
+</LinearLayout>

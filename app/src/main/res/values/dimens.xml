@@ -30,6 +30,8 @@
     <dimen name="txt_size_sss">8sp</dimen>
     <dimen name="txt_size_ss">10sp</dimen>
     <dimen name="txt_size_s">12sp</dimen>
+    <dimen name="txt_size_xs">14sp</dimen>
+
     <dimen name="txt_size_m">16sp</dimen>
     <dimen name="txt_size_l">18sp</dimen>
     <dimen name="txt_size_xl">20sp</dimen>

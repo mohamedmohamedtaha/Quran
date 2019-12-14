@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/style_default_layout_match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/TV_Name_Azkar"
             style="@style/style_default_layout_wrap_match"
             android:layout_marginStart="@dimen/dimens_xl"
-            android:layout_marginTop="@dimen/dimens_6xl"
+            android:layout_marginTop="@dimen/dimens_7xl"
             android:layout_marginEnd="@dimen/dimens_xl"
             android:gravity="center"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/txt_size_xxl"
+            android:textSize="@dimen/txt_size_xxxxl"
             android:textStyle="bold"
             tools:text="@string/read_parts" />
         <View
@@ -24,20 +24,20 @@
             android:layout_marginStart="@dimen/dimens_xxxxl"
             android:background="@color/colorAccent"
             />
-
         <com.MohamedTaha.Imagine.Quran.libraryTextView.TextViewEx
             android:id="@+id/TV_Name_Describe"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars = "vertical"
+            android:layout_height="0dp"
             android:padding="@dimen/dimens_mm"
             android:layout_marginStart="@dimen/dimens_xl"
-            android:layout_marginTop="@dimen/dimens_9xl"
+            android:layout_marginTop="@dimen/defaultValueTowHandredTen"
             android:layout_marginEnd="@dimen/dimens_xl"
             android:layout_marginBottom="@dimen/dimens_xxl"
+            android:scrollbars = "vertical"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/txt_size_xxl"
+            android:textSize="@dimen/txt_size_xxxl"
             android:textStyle="bold"
             tools:text="@string/read_parts" />
     </LinearLayout>

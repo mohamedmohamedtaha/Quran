@@ -12,10 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SoundRepositiory {
-    private List<ImageModel> imageModels = new ArrayList<>();
     private ArrayList<ImageModel> name_sora = new ArrayList<>();
     private Application application;
-    private MutableLiveData<List<ImageModel>> mutableLiveDataImageModel = new MutableLiveData<>();
     private MutableLiveData<ArrayList<ImageModel>> mutableLiveDataNameSora = new MutableLiveData<>();
     String[] ArrayLinkYaserEldosary;
     String[] ArrayLinkElhosaryMgwad;
@@ -45,7 +43,6 @@ public class SoundRepositiory {
     public SoundRepositiory(Application application) {
         this.application = application;
     }
-
 
     public MutableLiveData<ArrayList<ImageModel>> getMutableLiveDataNameSora(int position) {
         //Fetch the data in String.xml file
@@ -172,36 +169,6 @@ public class SoundRepositiory {
         getShekhAyat(position);
         mutableLiveDataNameSora.setValue(name_sora);
         return mutableLiveDataNameSora;
-    }
-
-    public MutableLiveData<List<ImageModel>> getMutableLiveDataImageModel() {
-        imageModels = new ArrayList<>();
-        getData();
-        mutableLiveDataImageModel.setValue(imageModels);
-        return mutableLiveDataImageModel;
-    }
-
-    private void getData() {
-        imageModels.add(new ImageModel(application.getString(R.string.abdelrhman_elsodes), R.drawable.elsodes, application.getString(R.string.hafs_an_asem), 0));
-        imageModels.add(new ImageModel(application.getString(R.string.adel_elkalbany), R.drawable.elklbany, application.getString(R.string.hafs_an_asem), 1));
-        imageModels.add(new ImageModel(application.getString(R.string.mohamed_elmenshawyH), R.drawable.elmenshawy, application.getString(R.string.hafs_an_asem), 2));
-        imageModels.add(new ImageModel(application.getString(R.string.mohamed_elmenshawyM), R.drawable.elmenshawy, application.getString(R.string.ekmoshaf_elmogawad), 3));
-        imageModels.add(new ImageModel(application.getString(R.string.abdelbaset), R.drawable.abdeelbaset, application.getString(R.string.ekmoshaf_elmogawad), 4));
-        imageModels.add(new ImageModel(application.getString(R.string.mahmoud_elhosaryH), R.drawable.elhosary, application.getString(R.string.hafs_an_asem), 5));
-        imageModels.add(new ImageModel(application.getString(R.string.mahmoud_elhosaryM), R.drawable.elhosary, application.getString(R.string.ekmoshaf_elmogawad), 6));
-        imageModels.add(new ImageModel(application.getString(R.string.maher_elmeaqly), R.drawable.almaqely, application.getString(R.string.hafs_an_asem), 7));
-        imageModels.add(new ImageModel(application.getString(R.string.mshary_elafasy), R.drawable.msharyelafasy, application.getString(R.string.hafs_an_asem), 8));
-        imageModels.add(new ImageModel(application.getString(R.string.soud_elsherem), R.drawable.sherem, application.getString(R.string.hafs_an_asem), 9));
-        imageModels.add(new ImageModel(application.getString(R.string.mohamed_eltblawy), R.drawable.eltblawy, application.getString(R.string.hafs_an_asem), 10));
-        imageModels.add(new ImageModel(application.getString(R.string.yaser_eldosary), R.drawable.eldosary, application.getString(R.string.hafs_an_asem), 11));
-        imageModels.add(new ImageModel(application.getString(R.string.abdellah_elgeheny), R.drawable.elgeheny, application.getString(R.string.hafs_an_asem), 12));
-        imageModels.add(new ImageModel(application.getString(R.string.mohamed_gebrer), R.drawable.mohamedgbrer, application.getString(R.string.hafs_an_asem), 13));
-        imageModels.add(new ImageModel(application.getString(R.string.naser_elqatamy), R.drawable.naserelqatamy, application.getString(R.string.hafs_an_asem), 14));
-        imageModels.add(new ImageModel(application.getString(R.string.ahmed_elagamy), R.drawable.elagamy, application.getString(R.string.hafs_an_asem), 15));
-        imageModels.add(new ImageModel(application.getString(R.string.mahmoud_elbana), R.drawable.elbana, application.getString(R.string.hafs_an_asem), 16));
-        imageModels.add(new ImageModel(application.getString(R.string.yaser_elqarashy), R.drawable.elqarashy, application.getString(R.string.hafs_an_asem), 17));
-        imageModels.add(new ImageModel(application.getString(R.string.abdelrhman_elqasem), R.drawable.elqasem, application.getString(R.string.hafs_an_asem), 18));
-        imageModels.add(new ImageModel(application.getString(R.string.slah_elbadry), R.drawable.bder, application.getString(R.string.hafs_an_asem), 19));
     }
 
     private List<ImageModel> getShekhAyat(int posision) {
@@ -1547,5 +1514,4 @@ public class SoundRepositiory {
         }
         return name_sora;
     }
-
 }

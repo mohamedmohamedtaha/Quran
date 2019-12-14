@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/style_default_layout_match_parent_with_background"
+    style="@style/style_default_layout_match_parent"
+    android:background="@drawable/background_azkar"
     tools:context=".ui.activities.DetailsSoundActivity">
 
     <RelativeLayout style="@style/style_default_layout_match_parent">
@@ -74,7 +74,7 @@
         <LinearLayout
             android:id="@+id/LinearText"
             style="@style/style_default_layout_wrap_match"
-            android:layout_above="@+id/MainActivity_SeekBar"
+            android:layout_above="@+id/Details_Activity_SeekBar"
             android:layout_marginLeft="@dimen/dimens_mm"
             android:layout_marginRight="@dimen/dimens_mm"
             android:orientation="horizontal">
@@ -94,8 +94,8 @@
                 tools:text="@string/no_data" />
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/MainActivity_SeekBar"
+        <SeekBar
+            android:id="@+id/Details_Activity_SeekBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,6 +104,7 @@
             android:layout_marginRight="@dimen/dimens_xl"
             android:layout_marginBottom="@dimen/dimens_xl"
             android:layoutDirection="ltr"
+            android:thumb="@color/colorAccent"
             android:paddingLeft="@dimen/dimens_m"
             android:paddingRight="@dimen/dimens_m" />
     </RelativeLayout>
